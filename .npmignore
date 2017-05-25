@@ -1,0 +1,12 @@
+docs/
+site/
+node_modules/
+src/
+scripts/
+webpack.config.js
+gulpfile.js
+.babelrc
+.eslintrc.json
+.gitignore
+.git/
+.npmignore

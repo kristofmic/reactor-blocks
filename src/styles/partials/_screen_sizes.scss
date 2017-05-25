@@ -1,0 +1,36 @@
+/* Screen Sizes
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+$desktop-hd-min: 1200px;
+$desktop-max: 1199px;
+$desktop-min: 992px;
+$tablet-max: 991px;
+$tablet-min: 768px;
+$phone-max: 767px;
+
+/*
+Note: The best way to structure the use of media queries is to create the queries
+near the relevant code. For example, if you wanted to change the styles for buttons
+on small devices, paste the mobile query code up in the buttons section and style it
+there.
+*/
+
+
+/* Larger than mobile */
+@media (min-width: $tablet-min) {}
+
+/* Larger than tablet */
+@media (min-width: $desktop-min) {}
+
+/* Larger than standard desktop */
+@media (min-width: $desktop-hd-min) {}
+
+/* Mobile-only */
+@media (max-width: $phone-max) {}
+
+/* Mobile and tablet */
+@media (max-width: $tablet-max) {}
+
+/* Mobile, tablet, and standard desktop */
+@media (max-width: $desktop-max) {}

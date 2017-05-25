@@ -1,0 +1,15 @@
+/* Reference
+* https://css-tricks.com/snippets/css/clear-fix/
+*/
+
+/* Clearfix
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import classnames from '../../utils/classnames';
 
 import {
-  COLUMN_ORDER.
+  COLUMN_ORDER,
   COLUMN_WIDTHS,
   VERTICAL_ALIGNMENT,
-} from './index';
+} from '../../constants';
 
 export default function Column(props) {
   const {
@@ -31,17 +31,17 @@ export default function Column(props) {
   if (newLine) {
     classNameProp = 'w-100';
   } else {
-    const widthClassNames = widths && Object.getOwnPropertyNames(widths).reduce((names, size) => (
-      `${names} col-${size}-${widths[size]}`
+    const widthClassNames = widths && Object.getOwnPropertyNames(widths).reduce((acc, size) => (
+      `${acc} col-${size}-${widths[size]}`
     ), '');
-    const offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce((names, size) => (
-      `${names} col-${size}-${offsets[size]}`
+    const offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce((acc, size) => (
+      `${acc} col-${size}-${offsets[size]}`
     ), '');
-    const pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce((names, size) => (
-      `${names} col-${size}-${pulls[size]}`
+    const pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce((acc, size) => (
+      `${acc} col-${size}-${pulls[size]}`
     ), '');
-    const pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce((names, size) => (
-      `${names} col-${size}-${pushes[size]}`
+    const pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce((acc, size) => (
+      `${acc} col-${size}-${pushes[size]}`
     ), '');
 
     classNameProp = classnames({
@@ -68,24 +68,46 @@ Column.propTypes = {
   className: PropTypes.string,
   newLine: PropTypes.bool,
   offset: PropTypes.oneOf(COLUMN_WIDTHS),
-  offsets: PropTypes.shape({
-    sm: PropTypes.oneOf(COLUMN_WIDTHS),
-    md: PropTypes.oneOf(COLUMN_WIDTHS),
-    lg: PropTypes.oneOf(COLUMN_WIDTHS),
-    xl: PropTypes.oneOf(COLUMN_WIDTHS),
-  }),
+  offsets: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      sm: PropTypes.oneOf(COLUMN_WIDTHS),
+      md: PropTypes.oneOf(COLUMN_WIDTHS),
+      lg: PropTypes.oneOf(COLUMN_WIDTHS),
+      xl: PropTypes.oneOf(COLUMN_WIDTHS),
+    }),
+  ]),
   order: PropTypes.oneOf(COLUMN_ORDER),
   pull: PropTypes.oneOf(COLUMN_WIDTHS),
-  pulls: PropTypes.oneOf(COLUMN_WIDTHS),
+  pulls: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      sm: PropTypes.oneOf(COLUMN_WIDTHS),
+      md: PropTypes.oneOf(COLUMN_WIDTHS),
+      lg: PropTypes.oneOf(COLUMN_WIDTHS),
+      xl: PropTypes.oneOf(COLUMN_WIDTHS),
+    }),
+  ]),
   push: PropTypes.oneOf(COLUMN_WIDTHS),
-  pushes: PropTypes.oneOf(COLUMN_WIDTHS),
+  pushes: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      sm: PropTypes.oneOf(COLUMN_WIDTHS),
+      md: PropTypes.oneOf(COLUMN_WIDTHS),
+      lg: PropTypes.oneOf(COLUMN_WIDTHS),
+      xl: PropTypes.oneOf(COLUMN_WIDTHS),
+    }),
+  ]),
   width: PropTypes.oneOf(COLUMN_WIDTHS),
-  widths: PropTypes.shape({
-    sm: PropTypes.oneOf(COLUMN_WIDTHS),
-    md: PropTypes.oneOf(COLUMN_WIDTHS),
-    lg: PropTypes.oneOf(COLUMN_WIDTHS),
-    xl: PropTypes.oneOf(COLUMN_WIDTHS),
-  }),
+  widths: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      sm: PropTypes.oneOf(COLUMN_WIDTHS),
+      md: PropTypes.oneOf(COLUMN_WIDTHS),
+      lg: PropTypes.oneOf(COLUMN_WIDTHS),
+      xl: PropTypes.oneOf(COLUMN_WIDTHS),
+    }),
+  ]),
   verticalAlignment: PropTypes.oneOf(VERTICAL_ALIGNMENT),
 };
 

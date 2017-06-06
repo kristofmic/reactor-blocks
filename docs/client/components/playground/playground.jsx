@@ -1,16 +1,14 @@
 import React from 'react';
 
 import { Column, Container, Row } from 'reactor-blocks/package/layout/grid';
+import Media from 'reactor-blocks/package/layout/media';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
 }
 
 const styles = {
-  column: {
-    backgroundColor: 'rgba(0, 0, 0, .09)',
-    border: '1px solid rgba(0, 0, 0, .12)',
-  },
+
 };
 
 class Playground extends React.PureComponent {
@@ -34,11 +32,16 @@ class Playground extends React.PureComponent {
     return (
       <Container id="playground">
         <Row>
-          <Column style={styles.column}>col-1</Column>
-          <Column style={styles.column}>col-2</Column>
-          <Column newLine />
-          <Column style={styles.column}>col-3</Column>
-          <Column style={styles.column}>col-4</Column>
+          <Column>
+            <Media
+              heading="This is fun"
+              imageAlt="Orange splat"
+              imageSource="https://lh3.googleusercontent.com/2GAFZ6MSEsgrek0vSERZ-QP0jTLZu6qAeDLhuemyP-vUnBiXGnttfg8nrBpkp_BSr4uS=w300"
+              imageStyle={{ width: '64px', border: '1px solid black' }}
+            >
+              Lorem ipsum
+            </Media>
+          </Column>
         </Row>
       </Container>
     );

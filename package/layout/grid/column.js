@@ -20,7 +20,7 @@ var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _index = require('./index');
+var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,10 +32,17 @@ function Column(props) {
   var children = props.children,
       className = props.className,
       newLine = props.newLine,
+      offset = props.offset,
+      offsets = props.offsets,
+      order = props.order,
+      pull = props.pull,
+      pulls = props.pulls,
+      push = props.push,
+      pushes = props.pushes,
       width = props.width,
       widths = props.widths,
       verticalAlignment = props.verticalAlignment,
-      other = _objectWithoutProperties(props, ['children', 'className', 'newLine', 'width', 'widths', 'verticalAlignment']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'newLine', 'offset', 'offsets', 'order', 'pull', 'pulls', 'push', 'pushes', 'width', 'widths', 'verticalAlignment']);
 
   var classNameProp = '';
 
@@ -44,11 +51,22 @@ function Column(props) {
   } else {
     var _classnames;
 
+    var widthClassNames = widths && Object.getOwnPropertyNames(widths).reduce(function (acc, size) {
+      return acc + ' col-' + size + '-' + widths[size];
+    }, '');
+    var offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce(function (acc, size) {
+      return acc + ' col-' + size + '-' + offsets[size];
+    }, '');
+    var pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce(function (acc, size) {
+      return acc + ' col-' + size + '-' + pulls[size];
+    }, '');
+    var pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce(function (acc, size) {
+      return acc + ' col-' + size + '-' + pushes[size];
+    }, '');
+
     classNameProp = (0, _classnames3.default)((_classnames = {
       col: !width
-    }, _defineProperty(_classnames, 'col-' + width, width), _defineProperty(_classnames, 'align-self-' + verticalAlignment, verticalAlignment), _classnames), Object.getOwnPropertyNames(widths).reduce(function (names, size) {
-      return names + ' col-' + size + '-' + widths[size];
-    }, ''));
+    }, _defineProperty(_classnames, 'col-' + width, width), _defineProperty(_classnames, 'align-self-' + verticalAlignment, verticalAlignment), _defineProperty(_classnames, 'flex-' + order, order), _defineProperty(_classnames, 'offset-' + offset, offset), _classnames), widthClassNames, offsetClassNames, pullClassNames, pushClassNames);
   }
 
   return _react2.default.createElement(
@@ -64,18 +82,43 @@ Column.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   newLine: _propTypes2.default.bool,
-  width: _propTypes2.default.oneOf(_index.COLUMN_WIDTHS),
-  widths: _propTypes2.default.shape({
-    sm: _propTypes2.default.oneOf(_index.COLUMN_WIDTHS),
-    md: _propTypes2.default.oneOf(_index.COLUMN_WIDTHS),
-    lg: _propTypes2.default.oneOf(_index.COLUMN_WIDTHS),
-    xl: _propTypes2.default.oneOf(_index.COLUMN_WIDTHS)
-  }),
-  verticalAlignment: _propTypes2.default.oneOf(_index.VERTICAL_ALIGNMENT)
+  offset: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+  offsets: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
+  })]),
+  order: _propTypes2.default.oneOf(_constants.COLUMN_ORDER),
+  pull: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+  pulls: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
+  })]),
+  push: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+  pushes: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
+  })]),
+  width: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+  widths: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
+    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
+  })]),
+  verticalAlignment: _propTypes2.default.oneOf(_constants.VERTICAL_ALIGNMENT)
 };
 
 Column.defaultProps = {
   className: '',
   newLine: false,
-  widths: {}
+  offsets: '',
+  pulls: '',
+  pushes: '',
+  widths: ''
 };

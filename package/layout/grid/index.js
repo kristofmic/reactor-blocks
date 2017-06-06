@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.HORIZONTAL_ALIGNMENT = exports.VERTICAL_ALIGNMENT = exports.COLUMN_ORDER = exports.COLUMN_WIDTHS = exports.Row = exports.Container = exports.Column = undefined;
+exports.Row = exports.Container = exports.Column = undefined;
 
 var _column = require('./column');
 
@@ -22,10 +22,3 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.Column = _column2.default;
 exports.Container = _container2.default;
 exports.Row = _row2.default;
-var COLUMN_WIDTHS = exports.COLUMN_WIDTHS = [1, '1', 2, '2', 3, '3', 4, '4', 5, '5', 6, '6', 7, '7', 8, '8', 9, '9', 10, '10', 11, '11', 12, '12', 'auto', ''];
-
-var COLUMN_ORDER = exports.COLUMN_ORDER = ['unordered', 'first', 'last'];
-
-var VERTICAL_ALIGNMENT = exports.VERTICAL_ALIGNMENT = ['start', 'center', 'end'];
-
-var HORIZONTAL_ALIGNMENT = exports.HORIZONTAL_ALIGNMENT = ['start', 'center', 'end', 'around', 'between'];

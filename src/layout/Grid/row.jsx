@@ -6,7 +6,7 @@ import classnames from '../../utils/classnames';
 import {
   HORIZONTAL_ALIGNMENT,
   VERTICAL_ALIGNMENT,
-} from './index';
+} from '../../constants';
 
 export default function Row(props) {
   const {

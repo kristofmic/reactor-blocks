@@ -20,7 +20,7 @@ var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
-var _index = require('./index');
+var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52,9 +52,9 @@ function Row(props) {
 Row.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  horizontalItemAlignment: _propTypes2.default.oneOf(_index.HORIZONTAL_ALIGNMENT),
+  horizontalItemAlignment: _propTypes2.default.oneOf(_constants.HORIZONTAL_ALIGNMENT),
   noGutters: _propTypes2.default.bool,
-  verticalItemAlignment: _propTypes2.default.oneOf(_index.VERTICAL_ALIGNMENT)
+  verticalItemAlignment: _propTypes2.default.oneOf(_constants.VERTICAL_ALIGNMENT)
 };
 
 Row.defaultProps = {

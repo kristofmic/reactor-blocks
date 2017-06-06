@@ -3,9 +3,7 @@
 
 @import url(~bootstrap/dist/css/bootstrap.css);
 
-html body {
-	margin: 0;
-}
+
 
 
 @font-face {
@@ -2242,4 +2240,10 @@ html body {
 	margin: 0;
 	overflow: visible;
 	clip: auto;
+}
+
+html {
+}
+html body {
+	margin: 0;
 }

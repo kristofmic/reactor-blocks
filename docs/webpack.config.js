@@ -4,8 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-const target = process.env.npm_lifecycle_event;
-
 const buildPlugin = new webpack.DefinePlugin({
   'process.env': {
     BROWSER: JSON.stringify(true),
@@ -20,12 +18,13 @@ const common = {
   },
   output: {
     path: path.join(__dirname, 'public'),
-    publicPath: '/public/'
+    publicPath: '/public/',
+    filename: 'js/[name].bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css', '.scss', '.sass'],
     alias: {
-      'reactor-blocks': path.resolve(__dirname, '..', 'package'),
+      'reactor-blocks': path.resolve(__dirname, '..'),
       // aliasing this so the components don't pull a duplicate versions
       react: path.resolve(__dirname, 'node_modules', 'react'),
       'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
@@ -77,10 +76,7 @@ const common = {
   ],
   postcss: [
     autoprefixer({ browsers: ['last 3 versions'] })
-  ],
-  output: {
-    filename: 'js/[name].bundle.js'
-  }
+  ]
 };
 
 module.exports = common;

@@ -1,36 +1,30 @@
-/* Screen Sizes
-––––––––––––––––––––––––––––––––––––––––––––––––––
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+@include media-breakpoint-up(sm) { ... }
+@include media-breakpoint-down(sm) { ... }
+@include media-breakpoint-only(sm) { ... }
 */
 
-$desktop-hd-min: 1200px;
-$desktop-max: 1199px;
-$desktop-min: 992px;
-$tablet-max: 991px;
-$tablet-min: 768px;
-$phone-max: 767px;
-
-/*
-Note: The best way to structure the use of media queries is to create the queries
-near the relevant code. For example, if you wanted to change the styles for buttons
-on small devices, paste the mobile query code up in the buttons section and style it
-there.
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+@include media-breakpoint-up(md) { ... }
+@include media-breakpoint-down(md) { ... }
+@include media-breakpoint-only(md) { ... }
 */
 
+/* Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+@include media-breakpoint-up(lg) { ... }
+@include media-breakpoint-down(lg) { ... }
+@include media-breakpoint-only(lg) { ... }
+*/
 
-/* Larger than mobile */
-@media (min-width: $tablet-min) {}
-
-/* Larger than tablet */
-@media (min-width: $desktop-min) {}
-
-/* Larger than standard desktop */
-@media (min-width: $desktop-hd-min) {}
-
-/* Mobile-only */
-@media (max-width: $phone-max) {}
-
-/* Mobile and tablet */
-@media (max-width: $tablet-max) {}
-
-/* Mobile, tablet, and standard desktop */
-@media (max-width: $desktop-max) {}
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+@include media-breakpoint-up(xl) { ... }
+@include media-breakpoint-down(xl) { ... }
+@include media-breakpoint-only(xl) { ... }
+*/

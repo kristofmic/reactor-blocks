@@ -26,9 +26,6 @@ server.use(compression());
 server.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Routes and controllers
-server.use('/health', controllers.health);
 server.use('/', controllers.main);
-server.use(controllers.error.notFound);
-server.use(controllers.error.handleError);
 
 export default server;

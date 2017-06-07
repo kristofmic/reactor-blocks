@@ -9,10 +9,16 @@ export default function Image(props) {
     center,
     className,
     responsive,
+    rounded,
+    source,
     src,
     thumbnail,
     ...other
   } = props;
+
+  if (source == null && src == null) {
+    console.warn(new Error('Image missing the "source" or "src" prop.'));
+  }
 
   return (
     <img
@@ -21,8 +27,9 @@ export default function Image(props) {
         'img-fluid': responsive,
         'img-thumbnail': thumbnail,
         'mx-auto d-block': center,
+        rounded,
       }, className)}
-      src={src}
+      src={source || src}
       {...other}
     />
   );
@@ -33,7 +40,9 @@ Image.propTypes = {
   center: PropTypes.bool,
   className: PropTypes.string,
   responsive: PropTypes.bool,
-  src: PropTypes.string.isRequired,
+  rounded: PropTypes.bool,
+  source: PropTypes.string,
+  src: PropTypes.string,
   thumbnail: PropTypes.bool,
 };
 
@@ -41,5 +50,6 @@ Image.defaultProps = {
   center: false,
   className: '',
   responsive: false,
+  rounded: false,
   thumbnail: false,
 };

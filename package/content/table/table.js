@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = Image;
+exports.default = Table;
 
 var _react = require('react');
 
@@ -24,48 +24,50 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function Image(props) {
-  var alt = props.alt,
-      center = props.center,
+function Table(props) {
+  var bordered = props.bordered,
+      children = props.children,
       className = props.className,
+      hover = props.hover,
+      inverse = props.inverse,
       responsive = props.responsive,
-      rounded = props.rounded,
-      source = props.source,
-      src = props.src,
-      thumbnail = props.thumbnail,
-      other = _objectWithoutProperties(props, ['alt', 'center', 'className', 'responsive', 'rounded', 'source', 'src', 'thumbnail']);
+      small = props.small,
+      striped = props.striped,
+      other = _objectWithoutProperties(props, ['bordered', 'children', 'className', 'hover', 'inverse', 'responsive', 'small', 'striped']);
 
-  if (source == null && src == null) {
-    console.warn(new Error('Image missing the "source" or "src" prop.'));
-  }
-
-  return _react2.default.createElement('img', _extends({
-    alt: alt,
-    className: (0, _classnames2.default)({
-      'img-fluid': responsive,
-      'img-thumbnail': thumbnail,
-      'mx-auto d-block': center,
-      rounded: rounded
-    }, className),
-    src: source || src
-  }, other));
+  return _react2.default.createElement(
+    'table',
+    _extends({
+      className: (0, _classnames2.default)('table', {
+        'table-bordered': bordered,
+        'table-hover': hover,
+        'table-inverse': inverse,
+        'table-responsive': responsive,
+        'table-sm': small,
+        'table-striped': striped
+      }, className)
+    }, other),
+    children
+  );
 }
 
-Image.propTypes = {
-  alt: _propTypes2.default.string,
-  center: _propTypes2.default.bool,
+Table.propTypes = {
+  bordered: _propTypes2.default.bool,
+  children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  hover: _propTypes2.default.bool,
+  inverse: _propTypes2.default.bool,
   responsive: _propTypes2.default.bool,
-  rounded: _propTypes2.default.bool,
-  source: _propTypes2.default.string,
-  src: _propTypes2.default.string,
-  thumbnail: _propTypes2.default.bool
+  small: _propTypes2.default.bool,
+  striped: _propTypes2.default.bool
 };
 
-Image.defaultProps = {
-  center: false,
+Table.defaultProps = {
+  bordered: false,
   className: '',
+  hover: false,
+  inverse: false,
   responsive: false,
-  rounded: false,
-  thumbnail: false
+  small: false,
+  striped: false
 };

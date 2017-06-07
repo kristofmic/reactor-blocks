@@ -33,10 +33,10 @@ function Heading(props) {
       size = props.size,
       other = _objectWithoutProperties(props, ['children', 'className', 'display', 'size']);
 
-  var HTag = 'h' + size;
+  var Tag = 'h' + size;
 
   return _react2.default.createElement(
-    HTag,
+    Tag,
     _extends({
       className: (0, _classnames3.default)(_defineProperty({}, 'display-' + display, display), className)
     }, other),

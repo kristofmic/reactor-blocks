@@ -12,17 +12,17 @@ export default function Heading(props) {
     ...other
   } = props;
 
-  const HTag = `h${size}`;
+  const Tag = `h${size}`;
 
   return (
-    <HTag
+    <Tag
       className={classnames({
         [`display-${display}`]: display,
       }, className)}
       {...other}
     >
       {children}
-    </HTag>
+    </Tag>
   );
 }
 

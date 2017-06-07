@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = List;
+exports.default = TableHead;
 
 var _react = require('react');
 
@@ -24,39 +24,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function List(props) {
+function TableHead(props) {
   var children = props.children,
       className = props.className,
-      inline = props.inline,
-      ordered = props.ordered,
-      unstyled = props.unstyled,
-      other = _objectWithoutProperties(props, ['children', 'className', 'inline', 'ordered', 'unstyled']);
-
-  var Tag = ordered ? 'ol' : 'ul';
+      defaultType = props.defaultType,
+      inverse = props.inverse,
+      other = _objectWithoutProperties(props, ['children', 'className', 'defaultType', 'inverse']);
 
   return _react2.default.createElement(
-    Tag,
+    'thead',
     _extends({
       className: (0, _classnames2.default)({
-        'list-inline': inline,
-        'list-unstyled': unstyled
-      }, className)
+        'thead-default': defaultType,
+        'thead-inverse': inverse
+      })
     }, other),
     children
   );
 }
 
-List.propTypes = {
+TableHead.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  inline: _propTypes2.default.bool,
-  ordered: _propTypes2.default.bool,
-  unstyled: _propTypes2.default.bool
+  defaultType: _propTypes2.default.bool,
+  inverse: _propTypes2.default.bool
 };
 
-List.defaultProps = {
+TableHead.defaultProps = {
   className: '',
-  inline: false,
-  ordered: false,
-  unstyled: false
+  defaultType: false,
+  inverse: false
 };

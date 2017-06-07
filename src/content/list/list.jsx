@@ -13,10 +13,10 @@ export default function List(props) {
     ...other
   } = props;
 
-  const LTag = ordered ? 'ol' : 'ul';
+  const Tag = ordered ? 'ol' : 'ul';
 
   return (
-    <LTag
+    <Tag
       className={classnames({
         'list-inline': inline,
         'list-unstyled': unstyled,
@@ -24,7 +24,7 @@ export default function List(props) {
       {...other}
     >
       {children}
-    </LTag>
+    </Tag>
   );
 }
 

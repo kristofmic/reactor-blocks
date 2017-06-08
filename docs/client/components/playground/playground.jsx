@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { Column, Container, Row } from 'reactor-blocks/package/layout/grid';
-import Media from 'reactor-blocks/package/layout/media';
+import Alert from 'reactor-blocks/package/components/alert';
+import Blockquote from 'reactor-blocks/package/content/blockquote';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -33,14 +34,9 @@ class Playground extends React.PureComponent {
       <Container id="playground">
         <Row>
           <Column>
-            <Media
-              heading="This is fun"
-              imageAlt="Orange splat"
-              imageSource="https://lh3.googleusercontent.com/2GAFZ6MSEsgrek0vSERZ-QP0jTLZu6qAeDLhuemyP-vUnBiXGnttfg8nrBpkp_BSr4uS=w300"
-              imageStyle={{ width: '64px', border: '1px solid black' }}
-            >
-              Lorem ipsum
-            </Media>
+            <Alert dismissable onDismiss={() => { console.log('alert dismissed'); }}>
+              <strong>Oops!</strong> Something went wrong. <a className="foobar" href="#">Click here</a> to fix the issue.
+            </Alert>
           </Column>
         </Row>
       </Container>

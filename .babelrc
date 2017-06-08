@@ -1,9 +1,9 @@
 {
-  "presets": ["latest", "react"],
-  "plugins": ["transform-object-rest-spread", "transform-decorators-legacy"],
+  "presets": ["env", "react"],
+  "plugins": ["transform-object-rest-spread", "transform-class-properties"],
   "env": {
     "test": {
-      "plugins": ["transform-object-rest-spread", "rewire"]
+      "plugins": ["transform-object-rest-spread", "transform-class-properties", "rewire"]
     }
   }
 }

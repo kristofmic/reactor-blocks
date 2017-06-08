@@ -8,6 +8,11 @@
 */
 @import './icons/font-awesome-4.7.0/scss/font-awesome.scss';
 
+/* Components
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+@import  '../components/dismiss/dismiss.scss';
+
 
 /* NOTE: box-sizing is set to "border-box" via bootstrap on every element, including *:before and *:after */
 html {

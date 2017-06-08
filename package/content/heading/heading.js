@@ -52,6 +52,5 @@ Heading.propTypes = {
 };
 
 Heading.defaultProps = {
-  className: '',
-  display: false
+  className: ''
 };

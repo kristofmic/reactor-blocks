@@ -7,7 +7,7 @@ import Heading from '../../content/heading';
 import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
-import { CONTEXT_TYPES } from '../../constants';
+import { ALERT_CONTEXT_TYPES } from '../../constants';
 
 const DISMISS_TIMEOUT = 150;
 
@@ -81,7 +81,7 @@ Alert.propTypes = {
   dismissable: PropTypes.bool,
   heading: PropTypes.string,
   onDismiss: PropTypes.func,
-  type: PropTypes.oneOf(CONTEXT_TYPES),
+  type: PropTypes.oneOf(ALERT_CONTEXT_TYPES),
 };
 
 Alert.defaultProps = {

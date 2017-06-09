@@ -4,14 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _content = require('./content');
+var _context_types = require('./context_types');
 
-Object.keys(_content).forEach(function (key) {
+Object.keys(_context_types).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _content[key];
+      return _context_types[key];
     }
   });
 });
@@ -36,6 +36,18 @@ Object.keys(_responsive_classnames).forEach(function (key) {
     enumerable: true,
     get: function get() {
       return _responsive_classnames[key];
+    }
+  });
+});
+
+var _sizes = require('./sizes');
+
+Object.keys(_sizes).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _sizes[key];
     }
   });
 });

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Column, Container, Row } from 'reactor-blocks/package/layout/grid';
-import Alert from 'reactor-blocks/package/components/alert';
-import Blockquote from 'reactor-blocks/package/content/blockquote';
+import Button from 'reactor-blocks/package/components/button';
+import Loading from 'reactor-blocks/package/components/loading';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -17,15 +17,19 @@ class Playground extends React.PureComponent {
     super(props);
 
     this.state = {
-      value: '',
+      value: false,
     };
 
     this.handleStuff = this.handleStuff.bind(this);
+
+    // setInterval(() => {
+    //   this.handleStuff();
+    // }, 5000);
   }
 
-  handleStuff(value) {
+  handleStuff() {
     this.setState({
-      value,
+      value: !this.state.value
     });
   }
 
@@ -34,9 +38,7 @@ class Playground extends React.PureComponent {
       <Container id="playground">
         <Row>
           <Column>
-            <Alert dismissable onDismiss={() => { console.log('alert dismissed'); }}>
-              <strong>Oops!</strong> Something went wrong. <a className="foobar" href="#">Click here</a> to fix the issue.
-            </Alert>
+            <Button type="primary" onClick={this.handleStuff} loading={this.state.value}>Primary</Button>
           </Column>
         </Row>
       </Container>

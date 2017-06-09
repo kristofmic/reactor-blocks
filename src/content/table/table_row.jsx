@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classnames from '../../utils/classnames';
 
-import { CONTEXT_TYPES } from '../../constants';
+import { TABLE_CONTEXT_TYPES } from '../../constants';
 
 export default function TableRow(props) {
   const {
@@ -31,7 +31,7 @@ TableRow.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   inverse: PropTypes.bool,
-  type: PropTypes.oneOf(CONTEXT_TYPES),
+  type: PropTypes.oneOf(TABLE_CONTEXT_TYPES),
 };
 
 TableRow.defaultProps = {

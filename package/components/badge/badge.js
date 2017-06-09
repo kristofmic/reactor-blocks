@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = TableRow;
+exports.default = Badge;
 
 var _react = require('react');
 
@@ -16,44 +16,43 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames2 = require('../../utils/classnames');
+var _classnames = require('../../utils/classnames');
 
-var _classnames3 = _interopRequireDefault(_classnames2);
+var _classnames2 = _interopRequireDefault(_classnames);
 
 var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function TableRow(props) {
-  var _classnames;
-
+function Badge(props) {
   var children = props.children,
       className = props.className,
-      inverse = props.inverse,
+      pill = props.pill,
       type = props.type,
-      other = _objectWithoutProperties(props, ['children', 'className', 'inverse', 'type']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'pill', 'type']);
 
   return _react2.default.createElement(
-    'tr',
+    'span',
     _extends({
-      className: (0, _classnames3.default)((_classnames = {}, _defineProperty(_classnames, 'table-' + type, type && !inverse), _defineProperty(_classnames, 'bg-' + type, type && inverse), _classnames))
+      className: (0, _classnames2.default)('badge badge-' + type, {
+        'badge-pill': pill
+      }, className)
     }, other),
     children
   );
 }
 
-TableRow.propTypes = {
+Badge.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  inverse: _propTypes2.default.bool,
-  type: _propTypes2.default.oneOf(_constants.TABLE_CONTEXT_TYPES)
+  pill: _propTypes2.default.bool,
+  type: _propTypes2.default.oneOf(_constants.BADGE_CONTEXT_TYPES)
 };
 
-TableRow.defaultProps = {
+Badge.defaultProps = {
   className: '',
-  inverse: false
+  pill: false,
+  type: 'default'
 };

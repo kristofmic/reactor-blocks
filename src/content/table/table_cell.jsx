@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import classnames from '../../utils/classnames';
 
-import { CONTEXT_TYPES } from '../../constants';
+import { TABLE_CONTEXT_TYPES } from '../../constants';
 
 export default function TableCell(props) {
   const {
@@ -35,7 +35,7 @@ TableCell.propTypes = {
   className: PropTypes.string,
   heading: PropTypes.bool,
   inverse: PropTypes.bool,
-  type: PropTypes.oneOf(CONTEXT_TYPES),
+  type: PropTypes.oneOf(TABLE_CONTEXT_TYPES),
 };
 
 TableCell.defaultProps = {

@@ -1,0 +1,26 @@
+@import '../../styles/partials/index.scss';
+
+button, button.btn, a.btn, input.btn, .btn {
+  cursor: pointer;
+  outline: none;
+
+  .btn-body {
+    position: relative;
+    transition: padding .1s ease-out;
+
+    .loading {
+      left: 0;
+      line-height: .5;
+      position: absolute;
+      top: 1/16.0 * 1rem;
+    }
+  }
+
+  &.loading {
+    cursor: default;
+
+    .btn-body {
+      padding-left: 1rem + (1/16.0 * 5rem);
+    }
+  }
+}

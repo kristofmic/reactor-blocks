@@ -54,7 +54,7 @@ TableCell.propTypes = {
   className: _propTypes2.default.string,
   heading: _propTypes2.default.bool,
   inverse: _propTypes2.default.bool,
-  type: _propTypes2.default.oneOf(_constants.CONTEXT_TYPES)
+  type: _propTypes2.default.oneOf(_constants.TABLE_CONTEXT_TYPES)
 };
 
 TableCell.defaultProps = {

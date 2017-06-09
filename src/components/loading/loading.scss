@@ -1,0 +1,92 @@
+@import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_variables.scss';
+
+.loading {
+  position: relative;
+  text-align: center;
+
+  .loading-icon {
+    border-radius: 50%;
+    display: inline-block;
+    height: 1.5rem;
+    position: relative;
+    width: 1.5rem;
+
+    &:after {
+      bottom: 0;
+      animation: spin 1s infinite linear;
+      content: '';
+      border-color: $gray-light $gray-light transparent $gray-light;
+      border-style: solid;
+      border-width: 2px;
+      border-radius: 50%;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+  .loading-text {
+    color: $gray-light;
+    font-size: 1/16.0 * 12rem;
+  }
+
+  &.loading-sm {
+    .loading-icon {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    .loading-text {
+      font-size: 1/16.0 * 10rem;
+    }
+  }
+
+  &.loading-lg {
+    .loading-icon {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    .loading-text {
+      font-size: 1/16.0 * 14rem;
+    }
+  }
+
+  &.loading-primary {
+    .loading-icon {
+      &:after {
+        border-color: $brand-primary $brand-primary transparent $brand-primary;
+      }
+    }
+
+    .loading-text {
+      color: $brand-primary;
+    }
+  }
+
+  &.loading-white {
+    .loading-icon {
+      &:after {
+        border-color: $white $white transparent $white;
+      }
+    }
+
+    .loading-text {
+      color: $white;
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

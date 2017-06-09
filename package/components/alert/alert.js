@@ -134,7 +134,7 @@ Alert.propTypes = {
   dismissable: _propTypes2.default.bool,
   heading: _propTypes2.default.string,
   onDismiss: _propTypes2.default.func,
-  type: _propTypes2.default.oneOf(_constants.CONTEXT_TYPES)
+  type: _propTypes2.default.oneOf(_constants.ALERT_CONTEXT_TYPES)
 };
 
 Alert.defaultProps = {

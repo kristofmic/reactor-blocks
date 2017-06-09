@@ -2242,11 +2242,148 @@
 	clip: auto;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+button,button.btn,a.btn,input.btn,.btn {
+	cursor: pointer;
+	outline: none;
+}
+button .btn-body,button.btn .btn-body,a.btn .btn-body,input.btn .btn-body,.btn .btn-body {
+	position: relative;
+	-webkit-transition: padding .1s ease-out;
+	transition: padding .1s ease-out;
+}
+button .btn-body .loading,button.btn .btn-body .loading,a.btn .btn-body .loading,input.btn .btn-body .loading,.btn .btn-body .loading {
+	left: 0;
+	line-height: .5;
+	position: absolute;
+	top: 0.0625rem;
+}
+button.loading,button.btn.loading,a.btn.loading,input.btn.loading,.btn.loading {
+	cursor: default;
+}
+button.loading .btn-body,button.btn.loading .btn-body,a.btn.loading .btn-body,input.btn.loading .btn-body,.btn.loading .btn-body {
+	padding-left: 1.3125rem;
+}
+
+
+
+
+
+
+
+
+
+
+
 button.close {
+	cursor: pointer;
 	font-size: 1.2rem;
 	line-height: 1.6rem;
 	outline: none;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
+
+
+
+
+
+
+
+
+
+
+
+.loading {
+	position: relative;
+	text-align: center;
+}
+.loading .loading-icon {
+	border-radius: 50%;
+	display: inline-block;
+	height: 1.5rem;
+	position: relative;
+	width: 1.5rem;
+}
+.loading .loading-icon:after {
+	bottom: 0;
+	-webkit-animation: spin 1s infinite linear;
+	animation: spin 1s infinite linear;
+	content: '';
+	border-color: #636c72 #636c72 transparent #636c72;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 50%;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+.loading .loading-text {
+	color: #636c72;
+	font-size: 0.75rem;
+}
+.loading.loading-sm .loading-icon {
+	height: 1rem;
+	width: 1rem;
+}
+.loading.loading-sm .loading-text {
+	font-size: 0.625rem;
+}
+.loading.loading-lg .loading-icon {
+	height: 2rem;
+	width: 2rem;
+}
+.loading.loading-lg .loading-text {
+	font-size: 0.875rem;
+}
+.loading.loading-primary .loading-icon:after {
+	border-color: #0275d8 #0275d8 transparent #0275d8;
+}
+.loading.loading-primary .loading-text {
+	color: #0275d8;
+}
+.loading.loading-white .loading-icon:after {
+	border-color: #FFF #FFF transparent #FFF;
+}
+.loading.loading-white .loading-text {
+	color: #FFF;
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
 
 html {
 }

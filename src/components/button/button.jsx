@@ -30,6 +30,7 @@ export default class Button extends React.PureComponent {
       children,
       className,
       disabled,
+      icon,
       loading,
       onClick,
       outline,
@@ -39,9 +40,6 @@ export default class Button extends React.PureComponent {
       ...other
     } = this.props;
 
-    // TODO: test loading with large and small buttons
-    // TODO: test loading with different button types
-    // TODO: add support for an icon
     return (
       <button
         className={classnames(`btn btn-${size}`, {
@@ -51,6 +49,7 @@ export default class Button extends React.PureComponent {
           active,
           disabled: disabled || loading,
           loading,
+          icon,
         }, className)}
         disabled={disabled || loading}
         onClick={this.handleClick}
@@ -60,13 +59,14 @@ export default class Button extends React.PureComponent {
         <div className="btn-body">
           {loading && (
             <Loading
-              className="mr-1"
               size="sm"
               type={classnames({
-                default: outline || type === 'secondary',
-                primary: type === 'link',
+                default: outline || type === 'secondary' || type === 'link',
               }) || 'white'}
             />
+          )}
+          {(!!icon && !loading) && (
+            <i className={`mr-1 ${icon}`} />
           )}
           {children}
         </div>
@@ -81,6 +81,7 @@ Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  icon: PropTypes.string,
   loading: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   outline: PropTypes.bool,

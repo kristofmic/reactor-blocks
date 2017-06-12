@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Column, Container, Row } from 'reactor-blocks/package/layout/grid';
-import Button from 'reactor-blocks/package/components/button';
+import Button, { ButtonGroup } from 'reactor-blocks/package/components/button';
 import Loading from 'reactor-blocks/package/components/loading';
 
 if (process.env.BROWSER) {
@@ -29,7 +29,7 @@ class Playground extends React.PureComponent {
 
   handleStuff() {
     this.setState({
-      value: !this.state.value
+      value: !this.state.value,
     });
   }
 
@@ -38,7 +38,12 @@ class Playground extends React.PureComponent {
       <Container id="playground">
         <Row>
           <Column>
-            <Button type="primary" onClick={this.handleStuff} loading={this.state.value}>Primary</Button>
+            <ButtonGroup>
+              <Button type="secondary" onClick={this.handleStuff}>1</Button>
+              <Button type="secondary" onClick={this.handleStuff}>2</Button>
+              <Button type="secondary" onClick={this.handleStuff}>3</Button>
+              <Button type="secondary" onClick={this.handleStuff}>4</Button>
+            </ButtonGroup>
           </Column>
         </Row>
       </Container>

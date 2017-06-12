@@ -1,5 +1,10 @@
 @import '../../styles/partials/index.scss';
 
+$loadingSize: 1rem;
+$loadingSizeLg: 1.25rem;
+$loadingSizeSm: .75rem;
+$onePixel: (1/16.0 * 1rem);
+
 button, button.btn, a.btn, input.btn, .btn {
   cursor: pointer;
   outline: none;
@@ -12,7 +17,11 @@ button, button.btn, a.btn, input.btn, .btn {
       left: 0;
       line-height: .5;
       position: absolute;
-      top: 1/16.0 * 1rem;
+      top: $onePixel;
+    }
+
+    i {
+      width: $loadingSize + $onePixel;
     }
   }
 
@@ -20,7 +29,59 @@ button, button.btn, a.btn, input.btn, .btn {
     cursor: default;
 
     .btn-body {
-      padding-left: 1rem + (1/16.0 * 5rem);
+      padding-left: $loadingSize + ($onePixel * 5);
+    }
+  }
+
+  &.icon {
+    .btn-body {
+      transition: none;
+    }
+  }
+
+  &.btn-lg {
+    .btn-body {
+      .loading {
+        line-height: 1.5;
+
+        .loading-icon {
+          height: $loadingSizeLg;
+          width: $loadingSizeLg;
+        }
+      }
+
+      i {
+        width: $loadingSizeLg + $onePixel;
+      }
+    }
+
+    &.loading {
+      .btn-body {
+        padding-left: $loadingSizeLg + ($onePixel * 5);
+      }
+    }
+  }
+
+  &.btn-sm {
+    .btn-body {
+      .loading {
+        top: $onePixel * 2;
+
+        .loading-icon {
+          height: $loadingSizeSm;
+          width: $loadingSizeSm;
+        }
+      }
+
+      i {
+        width: $loadingSizeSm + $onePixel;
+      }
+    }
+
+    &.loading {
+      .btn-body {
+        padding-left: $loadingSizeSm + ($onePixel * 5);
+      }
     }
   }
 }

@@ -2268,11 +2268,65 @@ button .btn-body .loading,button.btn .btn-body .loading,a.btn .btn-body .loading
 	position: absolute;
 	top: 0.0625rem;
 }
+button .btn-body i,button.btn .btn-body i,a.btn .btn-body i,input.btn .btn-body i,.btn .btn-body i {
+	width: 1.0625rem;
+}
 button.loading,button.btn.loading,a.btn.loading,input.btn.loading,.btn.loading {
 	cursor: default;
 }
 button.loading .btn-body,button.btn.loading .btn-body,a.btn.loading .btn-body,input.btn.loading .btn-body,.btn.loading .btn-body {
 	padding-left: 1.3125rem;
+}
+button.icon .btn-body,button.btn.icon .btn-body,a.btn.icon .btn-body,input.btn.icon .btn-body,.btn.icon .btn-body {
+	-webkit-transition: none;
+	transition: none;
+}
+button.btn-lg .btn-body .loading,button.btn.btn-lg .btn-body .loading,a.btn.btn-lg .btn-body .loading,input.btn.btn-lg .btn-body .loading,.btn.btn-lg .btn-body .loading {
+	line-height: 1.5;
+}
+button.btn-lg .btn-body .loading .loading-icon,button.btn.btn-lg .btn-body .loading .loading-icon,a.btn.btn-lg .btn-body .loading .loading-icon,input.btn.btn-lg .btn-body .loading .loading-icon,.btn.btn-lg .btn-body .loading .loading-icon {
+	height: 1.25rem;
+	width: 1.25rem;
+}
+button.btn-lg .btn-body i,button.btn.btn-lg .btn-body i,a.btn.btn-lg .btn-body i,input.btn.btn-lg .btn-body i,.btn.btn-lg .btn-body i {
+	width: 1.3125rem;
+}
+button.btn-lg.loading .btn-body,button.btn.btn-lg.loading .btn-body,a.btn.btn-lg.loading .btn-body,input.btn.btn-lg.loading .btn-body,.btn.btn-lg.loading .btn-body {
+	padding-left: 1.5625rem;
+}
+button.btn-sm .btn-body .loading,button.btn.btn-sm .btn-body .loading,a.btn.btn-sm .btn-body .loading,input.btn.btn-sm .btn-body .loading,.btn.btn-sm .btn-body .loading {
+	top: 0.125rem;
+}
+button.btn-sm .btn-body .loading .loading-icon,button.btn.btn-sm .btn-body .loading .loading-icon,a.btn.btn-sm .btn-body .loading .loading-icon,input.btn.btn-sm .btn-body .loading .loading-icon,.btn.btn-sm .btn-body .loading .loading-icon {
+	height: 0.75rem;
+	width: 0.75rem;
+}
+button.btn-sm .btn-body i,button.btn.btn-sm .btn-body i,a.btn.btn-sm .btn-body i,input.btn.btn-sm .btn-body i,.btn.btn-sm .btn-body i {
+	width: 0.8125rem;
+}
+button.btn-sm.loading .btn-body,button.btn.btn-sm.loading .btn-body,a.btn.btn-sm.loading .btn-body,input.btn.btn-sm.loading .btn-body,.btn.btn-sm.loading .btn-body {
+	padding-left: 1.0625rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn-group .btn.btn-primary,.btn-group .btn.btn-success,.btn-group .btn.btn-info,.btn-group .btn.btn-warning,.btn-group .btn.btn-danger {
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	border-right: 1px solid rgba(0, 0, 0, 0.09);
+}
+.btn-group .btn.btn-primary:first-child,.btn-group .btn.btn-success:first-child,.btn-group .btn.btn-info:first-child,.btn-group .btn.btn-warning:first-child,.btn-group .btn.btn-danger:first-child {
+	border-left: none;
+}
+.btn-group .btn.btn-primary:last-child,.btn-group .btn.btn-success:last-child,.btn-group .btn.btn-info:last-child,.btn-group .btn.btn-warning:last-child,.btn-group .btn.btn-danger:last-child {
+	border-right: none;
 }
 
 

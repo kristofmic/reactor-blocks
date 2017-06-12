@@ -66,23 +66,19 @@ var Button = function (_React$PureComponent) {
           children = _props.children,
           className = _props.className,
           disabled = _props.disabled,
+          icon = _props.icon,
           loading = _props.loading,
           onClick = _props.onClick,
           outline = _props.outline,
           size = _props.size,
           submit = _props.submit,
           type = _props.type,
-          other = _objectWithoutProperties(_props, ['active', 'block', 'children', 'className', 'disabled', 'loading', 'onClick', 'outline', 'size', 'submit', 'type']);
-
-      // TODO: test loading with large and small buttons
-      // TODO: test loading with different button types
-      // TODO: add support for an icon
-
+          other = _objectWithoutProperties(_props, ['active', 'block', 'children', 'className', 'disabled', 'icon', 'loading', 'onClick', 'outline', 'size', 'submit', 'type']);
 
       return _react2.default.createElement(
         'button',
         _extends({
-          className: (0, _classnames3.default)('btn btn-' + size, (_classnames = {}, _defineProperty(_classnames, 'btn-' + type, !outline), _defineProperty(_classnames, 'btn-outline-' + type, outline), _defineProperty(_classnames, 'btn-block', block), _defineProperty(_classnames, 'active', active), _defineProperty(_classnames, 'disabled', disabled || loading), _defineProperty(_classnames, 'loading', loading), _classnames), className),
+          className: (0, _classnames3.default)('btn btn-' + size, (_classnames = {}, _defineProperty(_classnames, 'btn-' + type, !outline), _defineProperty(_classnames, 'btn-outline-' + type, outline), _defineProperty(_classnames, 'btn-block', block), _defineProperty(_classnames, 'active', active), _defineProperty(_classnames, 'disabled', disabled || loading), _defineProperty(_classnames, 'loading', loading), _defineProperty(_classnames, 'icon', icon), _classnames), className),
           disabled: disabled || loading,
           onClick: this.handleClick,
           type: (0, _classnames3.default)({ submit: submit }) || 'button'
@@ -91,13 +87,12 @@ var Button = function (_React$PureComponent) {
           'div',
           { className: 'btn-body' },
           loading && _react2.default.createElement(_loading2.default, {
-            className: 'mr-1',
             size: 'sm',
             type: (0, _classnames3.default)({
-              default: outline || type === 'secondary',
-              primary: type === 'link'
+              default: outline || type === 'secondary' || type === 'link'
             }) || 'white'
           }),
+          !!icon && !loading && _react2.default.createElement('i', { className: 'mr-1 ' + icon }),
           children
         )
       );
@@ -132,6 +127,7 @@ Button.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   disabled: _propTypes2.default.bool,
+  icon: _propTypes2.default.string,
   loading: _propTypes2.default.bool,
   onClick: _propTypes2.default.func.isRequired,
   outline: _propTypes2.default.bool,

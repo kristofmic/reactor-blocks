@@ -1,0 +1,18 @@
+@import '../../styles/partials/index.scss';
+
+.btn-group {
+  .btn {
+    &.btn-primary, &.btn-success, &.btn-info, &.btn-warning, &.btn-danger {
+      border-left: 1px solid $black9;
+      border-right: 1px solid $black9;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}

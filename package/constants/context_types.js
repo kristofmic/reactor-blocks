@@ -11,6 +11,8 @@ var BADGE_CONTEXT_TYPES = exports.BADGE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.con
 
 var BUTTON_CONTEXT_TYPES = exports.BUTTON_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'secondary', 'link']);
 
+var CARD_CONTEXT_TYPES = exports.CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary']);
+
 var LOADING_CONTEXT_TYPES = exports.LOADING_CONTEXT_TYPES = ['primary', 'default', 'white'];
 
 var TABLE_CONTEXT_TYPES = exports.TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['active']);

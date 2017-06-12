@@ -12,3 +12,5 @@ var VERTICAL_ALIGNMENT = exports.VERTICAL_ALIGNMENT = ['start', 'center', 'end']
 var HORIZONTAL_ALIGNMENT = exports.HORIZONTAL_ALIGNMENT = ['start', 'center', 'end', 'around', 'between'];
 
 var HORIZONTAL_POSITION = exports.HORIZONTAL_POSITION = ['left', 'right'];
+
+var VERTICAL_POSITION = exports.VERTICAL_POSITION = ['top', 'bottom'];

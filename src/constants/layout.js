@@ -50,3 +50,8 @@ export const HORIZONTAL_POSITION = [
   'left',
   'right',
 ];
+
+export const VERTICAL_POSITION = [
+  'top',
+  'bottom',
+];

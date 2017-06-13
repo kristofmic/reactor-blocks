@@ -2328,6 +2328,10 @@ button.btn-sm.loading .btn-body,button.btn.btn-sm.loading .btn-body,a.btn.btn-sm
 .btn-group .btn.btn-primary:last-child,.btn-group .btn.btn-success:last-child,.btn-group .btn.btn-info:last-child,.btn-group .btn.btn-warning:last-child,.btn-group .btn.btn-danger:last-child {
 	border-right: none;
 }
+.carousel-control-next:focus,.carousel-control-next.focus,.carousel-control-prev:focus,.carousel-control-prev.focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
 
 
 

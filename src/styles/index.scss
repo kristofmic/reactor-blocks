@@ -11,10 +11,10 @@
 /* Components
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 */
-@import  '../components/button/button.scss';
-@import  '../components/button/button_group.scss';
-@import  '../components/dismiss/dismiss.scss';
-@import  '../components/loading/loading.scss';
+@import  '../components/button/index.scss';
+@import  '../components/carousel/index.scss';
+@import  '../components/dismiss/index.scss';
+@import  '../components/loading/index.scss';
 
 
 /* NOTE: box-sizing is set to "border-box" via bootstrap on every element, including *:before and *:after */

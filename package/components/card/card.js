@@ -16,10 +16,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _image = require('../../content/image');
-
-var _image2 = _interopRequireDefault(_image);
-
 var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
@@ -37,12 +33,10 @@ function Card(props) {
 
   var children = props.children,
       className = props.className,
-      imageAlt = props.imageAlt,
-      imageSource = props.imageSource,
       inverse = props.inverse,
       outline = props.outline,
       type = props.type,
-      other = _objectWithoutProperties(props, ['children', 'className', 'imageAlt', 'imageSource', 'inverse', 'outline', 'type']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'inverse', 'outline', 'type']);
 
   return _react2.default.createElement(
     'div',
@@ -51,13 +45,6 @@ function Card(props) {
         'card-inverse': inverse || type && !outline
       }, _defineProperty(_classnames, 'card-' + type, type && !outline), _defineProperty(_classnames, 'card-outline-' + type, type && outline), _classnames), className)
     }, other),
-    !!imageSource && _react2.default.createElement(_image2.default, {
-      alt: imageAlt,
-      className: 'card-img-top',
-      responsive: true,
-      rounded: true,
-      source: imageSource
-    }),
     children
   );
 }
@@ -65,8 +52,6 @@ function Card(props) {
 Card.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  imageAlt: _propTypes2.default.string,
-  imageSource: _propTypes2.default.string,
   inverse: _propTypes2.default.bool,
   outline: _propTypes2.default.bool,
   type: _propTypes2.default.oneOf(_constants.CARD_CONTEXT_TYPES)

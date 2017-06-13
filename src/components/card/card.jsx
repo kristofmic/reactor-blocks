@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Image from '../../content/image';
-
 import classnames from '../../utils/classnames';
 
 import {
@@ -13,8 +11,6 @@ export default function Card(props) {
   const {
     children,
     className,
-    imageAlt,
-    imageSource,
     inverse,
     outline,
     type,
@@ -30,15 +26,6 @@ export default function Card(props) {
       }, className)}
       {...other}
     >
-      {!!imageSource && (
-        <Image
-          alt={imageAlt}
-          className="card-img-top"
-          responsive
-          rounded
-          source={imageSource}
-        />
-      )}
       {children}
     </div>
   );
@@ -47,8 +34,6 @@ export default function Card(props) {
 Card.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  imageAlt: PropTypes.string,
-  imageSource: PropTypes.string,
   inverse: PropTypes.bool,
   outline: PropTypes.bool,
   type: PropTypes.oneOf(CARD_CONTEXT_TYPES),

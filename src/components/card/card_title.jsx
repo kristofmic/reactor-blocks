@@ -17,7 +17,7 @@ export default function CardTitle(props) {
     <Heading
       className={classnames({
         'card-title': !subtitle,
-        'card-subtitle': subtitle,
+        'card-subtitle text-muted mb-2': subtitle,
       }, className)}
       size={classnames({ 6: subtitle }) || 4}
       {...other}

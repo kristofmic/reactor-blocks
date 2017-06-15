@@ -2258,6 +2258,7 @@ button,button.btn,a.btn,input.btn,.btn {
 	outline: none;
 }
 button .btn-body,button.btn .btn-body,a.btn .btn-body,input.btn .btn-body,.btn .btn-body {
+	display: inline-block;
 	position: relative;
 	-webkit-transition: padding .1s ease-out;
 	transition: padding .1s ease-out;
@@ -2350,6 +2351,12 @@ button.close {
 	outline: none;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
+}
+.dropdown-menu.show {
+	display: block;
+}
+.dropdown {
+	display: inline-block;
 }
 
 

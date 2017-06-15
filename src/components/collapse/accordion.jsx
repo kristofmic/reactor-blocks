@@ -1,26 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function CardLink(props) {
+export default function Accordion(props) {
   const {
     children,
     className,
     ...other
   } = props;
 
-  // TODO: (LINK) support react-router links
   return (
-    <a className={`card-link ${className}`} {...other}>
+    <div
+      className={`accordion ${className}`}
+      role="tablist"
+      {...other}
+    >
       {children}
-    </a>
+    </div>
   );
 }
 
-CardLink.propTypes = {
+Accordion.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
 };
 
-CardLink.defaultProps = {
+Accordion.defaultProps = {
   className: '',
 };

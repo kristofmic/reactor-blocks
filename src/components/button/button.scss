@@ -10,6 +10,7 @@ button, button.btn, a.btn, input.btn, .btn {
   outline: none;
 
   .btn-body {
+    display: inline-block;
     position: relative;
     transition: padding .1s ease-out;
 

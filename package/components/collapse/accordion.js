@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardLink;
+exports.default = Accordion;
 
 var _react = require('react');
 
@@ -20,26 +20,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardLink(props) {
+function Accordion(props) {
   var children = props.children,
       className = props.className,
       other = _objectWithoutProperties(props, ['children', 'className']);
 
-  // TODO: (LINK) support react-router links
-
-
   return _react2.default.createElement(
-    'a',
-    _extends({ className: 'card-link ' + className }, other),
+    'div',
+    _extends({
+      className: 'accordion ' + className,
+      role: 'tablist'
+    }, other),
     children
   );
 }
 
-CardLink.propTypes = {
+Accordion.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string
 };
 
-CardLink.defaultProps = {
+Accordion.defaultProps = {
   className: ''
 };

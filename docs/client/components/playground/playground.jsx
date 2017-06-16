@@ -37,10 +37,23 @@ class Playground extends React.PureComponent {
       <Container id="playground">
         <Row>
           <Column>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <Dropdown
-              kind="primary"
-              split
-              menuItems={[{ id: 1, label: 'item 1' }, { id: 2, label: 'item 2' }]}
+              type="primary"
+              menuItems={[
+                { id: 'h1', label: 'heading 1', type: 'header' },
+                { id: 1, label: 'item 1' },
+                { id: 2, label: 'item 2' },
+                { id: 'd1', type: 'divider' },
+                { id: 3, label: 'item 3' },
+                { id: 4, label: 'item 4', disabled: true },
+              ]}
               onMenuItemClick={(id) => { console.log(id); }}
             >
               Dropdown button

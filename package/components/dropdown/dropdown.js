@@ -20,9 +20,17 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _dropdown_item = require('./dropdown_item');
+var _dropdown_menu_divider = require('./dropdown_menu_divider');
 
-var _dropdown_item2 = _interopRequireDefault(_dropdown_item);
+var _dropdown_menu_divider2 = _interopRequireDefault(_dropdown_menu_divider);
+
+var _dropdown_menu_header = require('./dropdown_menu_header');
+
+var _dropdown_menu_header2 = _interopRequireDefault(_dropdown_menu_header);
+
+var _dropdown_menu_item = require('./dropdown_menu_item');
+
+var _dropdown_menu_item2 = _interopRequireDefault(_dropdown_menu_item);
 
 var _dropdown_menu = require('./dropdown_menu');
 
@@ -35,6 +43,8 @@ var _dropdown_toggle2 = _interopRequireDefault(_dropdown_toggle);
 var _dropdown_wrapper = require('./dropdown_wrapper');
 
 var _dropdown_wrapper2 = _interopRequireDefault(_dropdown_wrapper);
+
+var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -134,9 +144,11 @@ var Dropdown = function (_React$PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
+          menuHorizontalPosition = _props.menuHorizontalPosition,
           menuItems = _props.menuItems,
           onMenuItemClick = _props.onMenuItemClick,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'menuItems', 'onMenuItemClick']);
+          up = _props.up,
+          other = _objectWithoutProperties(_props, ['children', 'className', 'menuHorizontalPosition', 'menuItems', 'onMenuItemClick', 'up']);
 
       var showMenu = this.state.showMenu;
 
@@ -146,22 +158,48 @@ var Dropdown = function (_React$PureComponent) {
         { className: className },
         _react2.default.createElement(
           _dropdown_toggle2.default,
-          _extends({ onClick: this.toggleMenu }, other),
+          _extends({
+            onClick: this.toggleMenu,
+            show: showMenu,
+            up: up
+          }, other),
           children
         ),
         _react2.default.createElement(
           _dropdown_menu2.default,
-          { show: showMenu },
+          {
+            horizontalPosition: menuHorizontalPosition,
+            show: showMenu,
+            up: up
+          },
           menuItems.map(function (item) {
-            return _react2.default.createElement(
-              _dropdown_item2.default,
-              {
-                key: item.id,
-                id: item.id,
-                onClick: _this2.handleMenuItemClick
-              },
-              item.label
-            );
+            var id = item.id,
+                label = item.label,
+                _item$type = item.type,
+                type = _item$type === undefined ? 'item' : _item$type,
+                other = _objectWithoutProperties(item, ['id', 'label', 'type']);
+
+            switch (type) {
+              case 'divider':
+                return _react2.default.createElement(_dropdown_menu_divider2.default, _extends({ key: id }, other));
+              case 'header':
+                return _react2.default.createElement(
+                  _dropdown_menu_header2.default,
+                  _extends({ key: id }, other),
+                  label
+                );
+              case 'item':
+              default:
+                return _react2.default.createElement(
+                  _dropdown_menu_item2.default,
+                  _extends({
+                    key: id,
+                    id: id,
+                    onClick: _this2.handleMenuItemClick
+                  }, other),
+                  label
+                );
+            }
           })
         )
       );
@@ -177,14 +215,19 @@ exports.default = Dropdown;
 Dropdown.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  menuHorizontalPosition: _propTypes2.default.oneOf(_constants.HORIZONTAL_POSITION),
   menuItems: _propTypes2.default.arrayOf(_propTypes2.default.shape({
     id: _propTypes2.default.any.isRequired,
-    label: _propTypes2.default.string.isRequired
+    label: _propTypes2.default.string,
+    type: _propTypes2.default.oneOf(_constants.DROPDOWN_MENU_ITEM_TYPES)
   })),
-  onMenuItemClick: _propTypes2.default.func
+  onMenuItemClick: _propTypes2.default.func,
+  up: _propTypes2.default.bool
 };
 
 Dropdown.defaultProps = {
   className: '',
-  menuItems: []
+  menuHorizontalPosition: 'left',
+  menuItems: [],
+  up: false
 };

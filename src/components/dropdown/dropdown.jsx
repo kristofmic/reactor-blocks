@@ -3,10 +3,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import DropdownItem from './dropdown_item';
+import DropdownMenuDivider from './dropdown_menu_divider';
+import DropdownMenuHeader from './dropdown_menu_header';
+import DropdownMenuItem from './dropdown_menu_item';
 import DropdownMenu from './dropdown_menu';
 import DropdownToggle from './dropdown_toggle';
 import DropdownWrapper from './dropdown_wrapper';
+
+import {
+  DROPDOWN_MENU_ITEM_TYPES,
+  HORIZONTAL_POSITION,
+} from '../../constants';
 
 export default class Dropdown extends React.PureComponent {
   constructor(props) {
@@ -89,8 +96,10 @@ export default class Dropdown extends React.PureComponent {
     const {
       children,
       className,
+      menuHorizontalPosition,
       menuItems,
       onMenuItemClick,
+      up,
       ...other
     } = this.props;
     const {
@@ -99,19 +108,52 @@ export default class Dropdown extends React.PureComponent {
 
     return (
       <DropdownWrapper className={className}>
-        <DropdownToggle onClick={this.toggleMenu} {...other}>
+        <DropdownToggle
+          onClick={this.toggleMenu}
+          show={showMenu}
+          up={up}
+          {...other}
+        >
           {children}
         </DropdownToggle>
-        <DropdownMenu show={showMenu}>
-          {menuItems.map(item => (
-            <DropdownItem
-              key={item.id}
-              id={item.id}
-              onClick={this.handleMenuItemClick}
-            >
-              {item.label}
-            </DropdownItem>
-          ))}
+        <DropdownMenu
+          horizontalPosition={menuHorizontalPosition}
+          show={showMenu}
+          up={up}
+        >
+          {menuItems.map((item) => {
+            const {
+              id,
+              label,
+              type = 'item',
+              ...other
+            } = item;
+
+            switch (type) {
+              case 'divider':
+                return (
+                  <DropdownMenuDivider key={id} {...other} />
+                );
+              case 'header':
+                return (
+                  <DropdownMenuHeader key={id} {...other}>
+                    {label}
+                  </DropdownMenuHeader>
+                );
+              case 'item':
+              default:
+                return (
+                  <DropdownMenuItem
+                    key={id}
+                    id={id}
+                    onClick={this.handleMenuItemClick}
+                    {...other}
+                  >
+                    {label}
+                  </DropdownMenuItem>
+                );
+            }
+          })}
         </DropdownMenu>
       </DropdownWrapper>
     );
@@ -121,14 +163,19 @@ export default class Dropdown extends React.PureComponent {
 Dropdown.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  menuHorizontalPosition: PropTypes.oneOf(HORIZONTAL_POSITION),
   menuItems: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.any.isRequired,
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    type: PropTypes.oneOf(DROPDOWN_MENU_ITEM_TYPES),
   })),
   onMenuItemClick: PropTypes.func,
+  up: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   className: '',
+  menuHorizontalPosition: 'left',
   menuItems: [],
+  up: false,
 };

@@ -24,6 +24,8 @@ var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _constants = require('../../constants');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -31,13 +33,17 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function DropdownMenu(props) {
   var children = props.children,
       className = props.className,
+      horizontalPosition = props.horizontalPosition,
       show = props.show,
-      other = _objectWithoutProperties(props, ['children', 'className', 'show']);
+      up = props.up,
+      other = _objectWithoutProperties(props, ['children', 'className', 'horizontalPosition', 'show', 'up']);
 
   return _react2.default.createElement(
     _list2.default,
     _extends({
       className: (0, _classnames2.default)('dropdown-menu', {
+        dropup: up,
+        'dropdown-menu-right': horizontalPosition === 'right',
         show: show
       }, className),
       unstyled: true
@@ -49,10 +55,14 @@ function DropdownMenu(props) {
 DropdownMenu.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  show: _propTypes2.default.bool
+  horizontalPosition: _propTypes2.default.oneOf(_constants.HORIZONTAL_POSITION),
+  show: _propTypes2.default.bool,
+  up: _propTypes2.default.bool
 };
 
 DropdownMenu.defaultProps = {
   className: '',
-  show: false
+  horizontalPosition: 'left',
+  show: false,
+  up: false
 };

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = DropdownWrapper;
+exports.default = DropdownMenuHeader;
 
 var _react = require('react');
 
@@ -16,48 +16,37 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = require('../../utils/classnames');
+var _heading = require('../../content/heading');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _heading2 = _interopRequireDefault(_heading);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-// NOTE: the primary purpose of this is to provide an entity with a position: relative;
-// so that the menu can be positioned correctly.
-// NOTE: adding the "show" class will display the contained DropdownMenu, however it is preferred
-// to add the show class directly to the menu to achieve the effect.
-// NOTE: adding the "dropup" class will make the menu drop up versus down, however it is preferred
-// to add the "dropup" class directly to the DropdownMenu to achieve the effect.
-function DropdownWrapper(props) {
+function DropdownMenuHeader(props) {
   var children = props.children,
       className = props.className,
-      show = props.show,
-      up = props.up,
-      other = _objectWithoutProperties(props, ['children', 'className', 'show', 'up']);
+      size = props.size,
+      other = _objectWithoutProperties(props, ['children', 'className', 'size']);
 
   return _react2.default.createElement(
-    'div',
+    _heading2.default,
     _extends({
-      className: (0, _classnames2.default)('dropdown', {
-        dropup: up,
-        show: show
-      }, className)
+      className: 'dropdown-header ' + className,
+      size: size
     }, other),
     children
   );
 }
 
-DropdownWrapper.propTypes = {
+DropdownMenuHeader.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  show: _propTypes2.default.bool,
-  up: _propTypes2.default.bool
+  size: _propTypes2.default.oneOf([1, '1', 2, '2', 3, '3', 4, '4', 5, '5', 6, '6'])
 };
 
-DropdownWrapper.defaultProps = {
+DropdownMenuHeader.defaultProps = {
   className: '',
-  show: false,
-  up: false
+  size: 6
 };

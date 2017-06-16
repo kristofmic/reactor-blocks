@@ -3,22 +3,27 @@ import PropTypes from 'prop-types';
 
 import { ListItem } from '../../content/list';
 
+import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
-export default class DropdownItem extends React.PureComponent {
+export default class DropdownMenuItem extends React.PureComponent {
   handleClick = (e) => {
     const {
+      disabled,
       id,
       onClick,
     } = this.props;
 
-    onClick(id, e);
+    if (!disabled) {
+      onClick(id, e);
+    }
   }
 
   render() {
     const {
       children,
       className,
+      disabled,
       id,
       onClick,
       ...other
@@ -26,7 +31,9 @@ export default class DropdownItem extends React.PureComponent {
 
     return (
       <ListItem
-        className={`dropdown-item ${className}`}
+        className={classnames('dropdown-item', {
+          disabled,
+        }, className)}
         onClick={this.handleClick}
         {...other}
       >
@@ -36,14 +43,16 @@ export default class DropdownItem extends React.PureComponent {
   }
 }
 
-DropdownItem.propTypes = {
+DropdownMenuItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   id: PropTypes.any,
   onClick: PropTypes.func,
 };
 
-DropdownItem.defaultProps = {
+DropdownMenuItem.defaultProps = {
   className: '',
+  disabled: false,
   onClick: noop,
 };

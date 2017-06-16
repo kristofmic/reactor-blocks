@@ -2355,6 +2355,17 @@ button.close {
 .dropdown-menu.show {
 	display: block;
 }
+.dropdown-menu.dropup {
+	bottom: 100%;
+	margin-bottom: .125rem;
+	top: auto;
+}
+.dropdown-toggle:after {
+	display: none;
+}
+.dropdown-toggle-icon {
+	font-size: 80%;
+}
 .dropdown {
 	display: inline-block;
 }

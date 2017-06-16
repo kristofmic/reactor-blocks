@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = DropdownWrapper;
+exports.default = DropdownToggleIcon;
 
 var _react = require('react');
 
@@ -24,39 +24,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-// NOTE: the primary purpose of this is to provide an entity with a position: relative;
-// so that the menu can be positioned correctly.
-// NOTE: adding the "show" class will display the contained DropdownMenu, however it is preferred
-// to add the show class directly to the menu to achieve the effect.
-// NOTE: adding the "dropup" class will make the menu drop up versus down, however it is preferred
-// to add the "dropup" class directly to the DropdownMenu to achieve the effect.
-function DropdownWrapper(props) {
-  var children = props.children,
-      className = props.className,
+function DropdownToggleIcon(props) {
+  var className = props.className,
       show = props.show,
       up = props.up,
-      other = _objectWithoutProperties(props, ['children', 'className', 'show', 'up']);
+      other = _objectWithoutProperties(props, ['className', 'show', 'up']);
 
-  return _react2.default.createElement(
-    'div',
-    _extends({
-      className: (0, _classnames2.default)('dropdown', {
-        dropup: up,
-        show: show
-      }, className)
-    }, other),
-    children
-  );
+  return _react2.default.createElement('i', _extends({
+    className: (0, _classnames2.default)('dropdown-toggle-icon fa', {
+      'fa-chevron-down': !show && !up || show && up,
+      'fa-chevron-up': show && !up || !show && up
+    }, className)
+  }, other));
 }
 
-DropdownWrapper.propTypes = {
-  children: _propTypes2.default.node,
+DropdownToggleIcon.propTypes = {
   className: _propTypes2.default.string,
   show: _propTypes2.default.bool,
   up: _propTypes2.default.bool
 };
 
-DropdownWrapper.defaultProps = {
+DropdownToggleIcon.defaultProps = {
   className: '',
   show: false,
   up: false

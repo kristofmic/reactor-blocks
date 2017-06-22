@@ -16,8 +16,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _list = require('../../content/list');
-
 var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -36,73 +34,117 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DropdownMenuItem = function (_React$PureComponent) {
-  _inherits(DropdownMenuItem, _React$PureComponent);
+var Checkbox = function (_React$PureComponent) {
+  _inherits(Checkbox, _React$PureComponent);
 
-  function DropdownMenuItem() {
-    var _ref;
+  function Checkbox(props) {
+    _classCallCheck(this, Checkbox);
 
-    var _temp, _this, _ret;
+    var _this = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
 
-    _classCallCheck(this, DropdownMenuItem);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItem.__proto__ || Object.getPrototypeOf(DropdownMenuItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (e) {
+    _this.handleChange = function (e) {
       var _this$props = _this.props,
           disabled = _this$props.disabled,
-          onClick = _this$props.onClick,
+          onChange = _this$props.onChange,
           value = _this$props.value;
+      var checked = _this.state.checked;
 
 
-      if (!disabled) {
-        onClick(value, e);
+      if (disabled) {
+        return;
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+
+      checked = !checked;
+
+      _this.setState({
+        checked: checked
+      });
+
+      onChange(checked, value, e);
+    };
+
+    _this.state = {
+      checked: props.checked || false
+    };
+    return _this;
   }
 
-  _createClass(DropdownMenuItem, [{
+  _createClass(Checkbox, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.checked != null && nextProps.checked !== this.props.checked && nextProps.checked !== this.state.checked) {
+        this.setState({
+          checked: nextProps.checked
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          checked = _props.checked,
           children = _props.children,
           className = _props.className,
           disabled = _props.disabled,
-          onClick = _props.onClick,
+          id = _props.id,
+          inline = _props.inline,
+          label = _props.label,
+          onChange = _props.onChange,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'onClick', 'value']);
+          other = _objectWithoutProperties(_props, ['checked', 'children', 'className', 'disabled', 'id', 'inline', 'label', 'onChange', 'value']);
+
+      var stateChecked = this.state.checked;
+
 
       return _react2.default.createElement(
-        _list.ListItem,
+        'div',
         _extends({
-          className: (0, _classnames2.default)('dropdown-item', {
-            disabled: disabled
+          className: (0, _classnames2.default)('form-check', {
+            checked: stateChecked,
+            disabled: disabled,
+            'form-check-inline': inline
           }, className),
-          onClick: this.handleClick
+          onClick: this.handleChange
         }, other),
-        children
+        _react2.default.createElement(
+          'label',
+          {
+            className: 'form-check-label',
+            htmlFor: id
+          },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-check-input form-check-input-checkbox' },
+            _react2.default.createElement('i', { className: 'fa fa-check' })
+          ),
+          label
+        )
       );
     }
   }]);
 
-  return DropdownMenuItem;
+  return Checkbox;
 }(_react2.default.PureComponent);
 
-exports.default = DropdownMenuItem;
+exports.default = Checkbox;
 
 
-DropdownMenuItem.propTypes = {
+Checkbox.propTypes = {
+  checked: _propTypes2.default.bool,
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   disabled: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
+  id: _propTypes2.default.string,
+  inline: _propTypes2.default.bool,
+  label: _propTypes2.default.string,
+  onChange: _propTypes2.default.func,
   value: _propTypes2.default.any
 };
 
-DropdownMenuItem.defaultProps = {
+Checkbox.defaultProps = {
+  checked: false,
   className: '',
   disabled: false,
-  onClick: _noop2.default
+  inline: false,
+  onChange: _noop2.default
 };

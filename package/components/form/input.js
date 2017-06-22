@@ -16,15 +16,11 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _list = require('../../content/list');
-
-var _classnames = require('../../utils/classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
+
+var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36,73 +32,105 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DropdownMenuItem = function (_React$PureComponent) {
-  _inherits(DropdownMenuItem, _React$PureComponent);
+var Input = function (_React$PureComponent) {
+  _inherits(Input, _React$PureComponent);
 
-  function DropdownMenuItem() {
-    var _ref;
+  function Input(props) {
+    _classCallCheck(this, Input);
 
-    var _temp, _this, _ret;
+    var _this = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
-    _classCallCheck(this, DropdownMenuItem);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItem.__proto__ || Object.getPrototypeOf(DropdownMenuItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (e) {
+    _this.handleChange = function (e) {
       var _this$props = _this.props,
           disabled = _this$props.disabled,
-          onClick = _this$props.onClick,
-          value = _this$props.value;
+          formatter = _this$props.formatter,
+          onChange = _this$props.onChange;
+      var value = e.target.value;
 
 
-      if (!disabled) {
-        onClick(value, e);
+      if (disabled) {
+        return;
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+
+      if (formatter && typeof formatter === 'function') {
+        value = formatter(value);
+      }
+
+      _this.setState({
+        value: value
+      });
+
+      onChange(value, e);
+    };
+
+    _this.state = {
+      value: props.initialValue || props.value || ''
+    };
+    return _this;
   }
 
-  _createClass(DropdownMenuItem, [{
+  _createClass(Input, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.value != null && nextProps.value !== this.props.value && nextProps.value !== this.state.value) {
+        this.setState({
+          value: nextProps.value
+        });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
           disabled = _props.disabled,
-          onClick = _props.onClick,
+          initialValue = _props.initialValue,
+          formatter = _props.formatter,
+          onChange = _props.onChange,
+          placeholder = _props.placeholder,
+          size = _props.size,
+          type = _props.type,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'onClick', 'value']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'initialValue', 'formatter', 'onChange', 'placeholder', 'size', 'type', 'value']);
 
-      return _react2.default.createElement(
-        _list.ListItem,
-        _extends({
-          className: (0, _classnames2.default)('dropdown-item', {
-            disabled: disabled
-          }, className),
-          onClick: this.handleClick
-        }, other),
-        children
-      );
+      var stateValue = this.state.value;
+
+
+      return _react2.default.createElement('input', _extends({
+        className: 'form-control form-control-' + size + ' ' + className,
+        disabled: disabled,
+        onChange: this.handleChange,
+        placeholder: placeholder,
+        type: type,
+        value: stateValue
+      }, other));
     }
   }]);
 
-  return DropdownMenuItem;
+  return Input;
 }(_react2.default.PureComponent);
 
-exports.default = DropdownMenuItem;
+exports.default = Input;
 
 
-DropdownMenuItem.propTypes = {
+Input.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   disabled: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
-  value: _propTypes2.default.any
+  formatter: _propTypes2.default.func,
+  initialValue: _propTypes2.default.string,
+  onChange: _propTypes2.default.func,
+  placeholder: _propTypes2.default.string,
+  size: _propTypes2.default.oneOf(_constants.SIZES),
+  type: _propTypes2.default.oneOf(_constants.INPUT_TYPES),
+  value: _propTypes2.default.string
 };
 
-DropdownMenuItem.defaultProps = {
+Input.defaultProps = {
   className: '',
   disabled: false,
-  onClick: _noop2.default
+  onChange: _noop2.default,
+  size: 'md',
+  type: 'text'
 };

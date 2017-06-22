@@ -16,7 +16,7 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _list = require('../../content/list');
+var _dropdown = require('../dropdown');
 
 var _classnames = require('../../utils/classnames');
 
@@ -36,73 +36,74 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DropdownMenuItem = function (_React$PureComponent) {
-  _inherits(DropdownMenuItem, _React$PureComponent);
+var SelectOption = function (_React$PureComponent) {
+  _inherits(SelectOption, _React$PureComponent);
 
-  function DropdownMenuItem() {
+  function SelectOption() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, DropdownMenuItem);
+    _classCallCheck(this, SelectOption);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItem.__proto__ || Object.getPrototypeOf(DropdownMenuItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (e) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SelectOption.__proto__ || Object.getPrototypeOf(SelectOption)).call.apply(_ref, [this].concat(args))), _this), _this.handleMenuItemClick = function (value, e) {
       var _this$props = _this.props,
-          disabled = _this$props.disabled,
-          onClick = _this$props.onClick,
-          value = _this$props.value;
+          label = _this$props.label,
+          onClick = _this$props.onClick;
 
 
-      if (!disabled) {
-        onClick(value, e);
-      }
+      onClick({
+        label: label,
+        value: value
+      }, e);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(DropdownMenuItem, [{
+  _createClass(SelectOption, [{
     key: 'render',
     value: function render() {
       var _props = this.props,
-          children = _props.children,
+          active = _props.active,
           className = _props.className,
-          disabled = _props.disabled,
+          label = _props.label,
           onClick = _props.onClick,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'onClick', 'value']);
+          other = _objectWithoutProperties(_props, ['active', 'className', 'label', 'onClick', 'value']);
 
       return _react2.default.createElement(
-        _list.ListItem,
+        _dropdown.DropdownMenuItem,
         _extends({
-          className: (0, _classnames2.default)('dropdown-item', {
-            disabled: disabled
+          className: (0, _classnames2.default)('select-option', {
+            active: active
           }, className),
-          onClick: this.handleClick
+          onClick: this.handleMenuItemClick,
+          value: value
         }, other),
-        children
+        label
       );
     }
   }]);
 
-  return DropdownMenuItem;
+  return SelectOption;
 }(_react2.default.PureComponent);
 
-exports.default = DropdownMenuItem;
+exports.default = SelectOption;
 
 
-DropdownMenuItem.propTypes = {
-  children: _propTypes2.default.node,
+SelectOption.propTypes = {
+  active: _propTypes2.default.bool,
   className: _propTypes2.default.string,
-  disabled: _propTypes2.default.bool,
+  label: _propTypes2.default.string,
   onClick: _propTypes2.default.func,
   value: _propTypes2.default.any
 };
 
-DropdownMenuItem.defaultProps = {
+SelectOption.defaultProps = {
+  active: false,
   className: '',
-  disabled: false,
   onClick: _noop2.default
 };

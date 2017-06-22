@@ -15,6 +15,7 @@
 @import  '../components/carousel/index.scss';
 @import  '../components/dismiss/index.scss';
 @import  '../components/dropdown/index.scss';
+@import  '../components/form/index.scss';
 @import  '../components/loading/index.scss';
 
 
@@ -26,7 +27,6 @@ html {
   body {
     /* NOTE: base font-size: 1rem (when making declarations for font-related properties, use "inherit" whenever possible) */
     /* NOTE: background-color set to "#FFF" */
-
     margin: 0;
   }
 }

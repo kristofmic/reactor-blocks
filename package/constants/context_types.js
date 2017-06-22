@@ -16,3 +16,5 @@ var CARD_CONTEXT_TYPES = exports.CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.conca
 var LOADING_CONTEXT_TYPES = exports.LOADING_CONTEXT_TYPES = ['primary', 'default', 'white'];
 
 var TABLE_CONTEXT_TYPES = exports.TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['active']);
+
+var TEXT_CONTEXT_TYPES = exports.TEXT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'muted']);

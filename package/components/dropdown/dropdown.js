@@ -12,25 +12,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _dropdown_menu_divider = require('./dropdown_menu_divider');
-
-var _dropdown_menu_divider2 = _interopRequireDefault(_dropdown_menu_divider);
-
-var _dropdown_menu_header = require('./dropdown_menu_header');
-
-var _dropdown_menu_header2 = _interopRequireDefault(_dropdown_menu_header);
-
-var _dropdown_menu_item = require('./dropdown_menu_item');
-
-var _dropdown_menu_item2 = _interopRequireDefault(_dropdown_menu_item);
 
 var _dropdown_menu = require('./dropdown_menu');
 
@@ -44,6 +28,10 @@ var _dropdown_wrapper = require('./dropdown_wrapper');
 
 var _dropdown_wrapper2 = _interopRequireDefault(_dropdown_wrapper);
 
+var _dropdown_hoc = require('./dropdown_hoc');
+
+var _dropdown_hoc2 = _interopRequireDefault(_dropdown_hoc);
+
 var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -54,8 +42,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global window */
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Dropdown = function (_React$PureComponent) {
   _inherits(Dropdown, _React$PureComponent);
@@ -66,91 +53,65 @@ var Dropdown = function (_React$PureComponent) {
     var _this = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this, props));
 
     _this.handleMenuItemClick = function () {
-      var onMenuItemClick = _this.props.onMenuItemClick;
+      var _this$props = _this.props,
+          hideMenu = _this$props.hideMenu,
+          onMenuItemClick = _this$props.onMenuItemClick;
 
 
-      _this.hideMenu();
+      hideMenu();
 
       onMenuItemClick.apply(undefined, arguments);
     };
 
-    _this.handleWindowClick = function (e) {
-      var showMenu = _this.state.showMenu;
-
-
-      if (showMenu) {
-        var thisNode = _reactDom2.default.findDOMNode(_this); // eslint-disable-line react/no-find-dom-node
-
-        if (!thisNode.contains(e.target)) {
-          _this.hideMenu();
-        }
-      }
-    };
-
-    _this.hideMenu = function () {
-      var showMenu = _this.state.showMenu;
-
-
-      if (showMenu) {
-        _this.setState({
-          showMenu: false
-        });
-      }
-    };
-
-    _this.showMenu = function () {
-      var showMenu = _this.state.showMenu;
-
-
-      if (!showMenu) {
-        _this.setState({
-          showMenu: true
-        });
-      }
-    };
-
-    _this.toggleMenu = function () {
-      var showMenu = _this.state.showMenu;
-
-
-      if (showMenu) {
-        _this.hideMenu();
-      } else {
-        _this.showMenu();
-      }
-    };
-
     _this.state = {
-      showMenu: false
+      menuItems: _this.cloneMenuItems(props.children)
     };
     return _this;
   }
 
   _createClass(Dropdown, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      window.addEventListener('click', this.handleWindowClick);
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.children !== this.props.children) {
+        this.setState({
+          menuItems: this.cloneMenuItems(nextProps.children)
+        });
+      }
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.removeEventListener('click', this.handleWindowClick);
+    key: 'cloneMenuItems',
+    value: function cloneMenuItems() {
+      var _this2 = this;
+
+      var children = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props.children;
+
+      return _react2.default.Children.map(children, function (child) {
+        if (child.displayName === 'DropdownMenuItem' || child.type.name === 'DropdownMenuItem') {
+          return _react2.default.cloneElement(child, {
+            onClick: _this2.handleMenuItemClick
+          });
+        }
+
+        return child;
+      });
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var _props = this.props,
           children = _props.children,
           className = _props.className,
+          hideMenu = _props.hideMenu,
+          isMenuVisible = _props.isMenuVisible,
+          label = _props.label,
           menuHorizontalPosition = _props.menuHorizontalPosition,
-          menuItems = _props.menuItems,
           onMenuItemClick = _props.onMenuItemClick,
+          showMenu = _props.showMenu,
+          toggleMenu = _props.toggleMenu,
           up = _props.up,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'menuHorizontalPosition', 'menuItems', 'onMenuItemClick', 'up']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'hideMenu', 'isMenuVisible', 'label', 'menuHorizontalPosition', 'onMenuItemClick', 'showMenu', 'toggleMenu', 'up']);
 
-      var showMenu = this.state.showMenu;
+      var menuItems = this.state.menuItems;
 
 
       return _react2.default.createElement(
@@ -159,48 +120,20 @@ var Dropdown = function (_React$PureComponent) {
         _react2.default.createElement(
           _dropdown_toggle2.default,
           _extends({
-            onClick: this.toggleMenu,
-            show: showMenu,
+            onClick: toggleMenu,
+            show: isMenuVisible,
             up: up
           }, other),
-          children
+          label
         ),
         _react2.default.createElement(
           _dropdown_menu2.default,
           {
             horizontalPosition: menuHorizontalPosition,
-            show: showMenu,
+            show: isMenuVisible,
             up: up
           },
-          menuItems.map(function (item) {
-            var id = item.id,
-                label = item.label,
-                _item$type = item.type,
-                type = _item$type === undefined ? 'item' : _item$type,
-                other = _objectWithoutProperties(item, ['id', 'label', 'type']);
-
-            switch (type) {
-              case 'divider':
-                return _react2.default.createElement(_dropdown_menu_divider2.default, _extends({ key: id }, other));
-              case 'header':
-                return _react2.default.createElement(
-                  _dropdown_menu_header2.default,
-                  _extends({ key: id }, other),
-                  label
-                );
-              case 'item':
-              default:
-                return _react2.default.createElement(
-                  _dropdown_menu_item2.default,
-                  _extends({
-                    key: id,
-                    id: id,
-                    onClick: _this2.handleMenuItemClick
-                  }, other),
-                  label
-                );
-            }
-          })
+          menuItems
         )
       );
     }
@@ -209,25 +142,23 @@ var Dropdown = function (_React$PureComponent) {
   return Dropdown;
 }(_react2.default.PureComponent);
 
-exports.default = Dropdown;
-
-
 Dropdown.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  hideMenu: _propTypes2.default.func.isRequired,
+  isMenuVisible: _propTypes2.default.bool.isRequired,
+  label: _propTypes2.default.string,
   menuHorizontalPosition: _propTypes2.default.oneOf(_constants.HORIZONTAL_POSITION),
-  menuItems: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    id: _propTypes2.default.any.isRequired,
-    label: _propTypes2.default.string,
-    type: _propTypes2.default.oneOf(_constants.DROPDOWN_MENU_ITEM_TYPES)
-  })),
   onMenuItemClick: _propTypes2.default.func,
+  showMenu: _propTypes2.default.func.isRequired,
+  toggleMenu: _propTypes2.default.func.isRequired,
   up: _propTypes2.default.bool
 };
 
 Dropdown.defaultProps = {
   className: '',
   menuHorizontalPosition: 'left',
-  menuItems: [],
   up: false
 };
+
+exports.default = (0, _dropdown_hoc2.default)(Dropdown);

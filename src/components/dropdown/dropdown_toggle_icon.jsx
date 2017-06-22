@@ -13,9 +13,8 @@ export default function DropdownToggleIcon(props) {
 
   return (
     <i
-      className={classnames('dropdown-toggle-icon fa', {
-        'fa-chevron-down': (!show && !up) || (show && up),
-        'fa-chevron-up': (show && !up) || (!show && up),
+      className={classnames('dropdown-toggle-icon fa fa-chevron-down', {
+        'fa-rotate-180': (show && !up) || (!show && up),
       }, className)}
       {...other}
     />

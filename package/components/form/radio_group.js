@@ -16,12 +16,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _list = require('../../content/list');
-
-var _classnames = require('../../utils/classnames');
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -36,73 +30,106 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DropdownMenuItem = function (_React$PureComponent) {
-  _inherits(DropdownMenuItem, _React$PureComponent);
+var RadioGroup = function (_React$PureComponent) {
+  _inherits(RadioGroup, _React$PureComponent);
 
-  function DropdownMenuItem() {
-    var _ref;
+  function RadioGroup(props) {
+    _classCallCheck(this, RadioGroup);
 
-    var _temp, _this, _ret;
+    var _this = _possibleConstructorReturn(this, (RadioGroup.__proto__ || Object.getPrototypeOf(RadioGroup)).call(this, props));
 
-    _classCallCheck(this, DropdownMenuItem);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DropdownMenuItem.__proto__ || Object.getPrototypeOf(DropdownMenuItem)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function (e) {
-      var _this$props = _this.props,
-          disabled = _this$props.disabled,
-          onClick = _this$props.onClick,
-          value = _this$props.value;
+    _this.handleChange = function (selected, value, e) {
+      var onChange = _this.props.onChange;
+      var stateValue = _this.state.value;
 
 
-      if (!disabled) {
-        onClick(value, e);
+      if (value === stateValue) {
+        return;
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+
+      _this.setState({
+        value: value
+      });
+
+      onChange(selected, value, e);
+    };
+
+    _this.state = {
+      value: props.value
+    };
+    return _this;
   }
 
-  _createClass(DropdownMenuItem, [{
-    key: 'render',
-    value: function render() {
+  _createClass(RadioGroup, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.value != null && nextProps.value !== this.props.value && nextProps.value !== this.state.value) {
+        this.setState({
+          value: nextProps.value
+        });
+      }
+    }
+  }, {
+    key: 'cloneChildren',
+    value: function cloneChildren() {
+      var _this2 = this;
+
       var _props = this.props,
           children = _props.children,
-          className = _props.className,
-          disabled = _props.disabled,
-          onClick = _props.onClick,
-          value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'onClick', 'value']);
+          inline = _props.inline;
+      var value = this.state.value;
+
+
+      return _react2.default.Children.map(children, function (child) {
+        if (child.displayName !== 'Radio' && child.type.name !== 'Radio') {
+          console.error(new Error('RadioGroup children should only be Radio components.'), child);
+          return child;
+        }
+
+        return _react2.default.cloneElement(child, {
+          inline: inline,
+          onChange: _this2.handleChange,
+          selected: child.props.value === value
+        });
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          children = _props2.children,
+          className = _props2.className,
+          inline = _props2.inline,
+          onChange = _props2.onChange,
+          value = _props2.value,
+          other = _objectWithoutProperties(_props2, ['children', 'className', 'inline', 'onChange', 'value']);
+
+      var radioChildren = this.cloneChildren();
 
       return _react2.default.createElement(
-        _list.ListItem,
-        _extends({
-          className: (0, _classnames2.default)('dropdown-item', {
-            disabled: disabled
-          }, className),
-          onClick: this.handleClick
-        }, other),
-        children
+        'div',
+        _extends({ className: 'form-radio-group ' + className }, other),
+        radioChildren
       );
     }
   }]);
 
-  return DropdownMenuItem;
+  return RadioGroup;
 }(_react2.default.PureComponent);
 
-exports.default = DropdownMenuItem;
+exports.default = RadioGroup;
 
 
-DropdownMenuItem.propTypes = {
+RadioGroup.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  disabled: _propTypes2.default.bool,
-  onClick: _propTypes2.default.func,
+  inline: _propTypes2.default.bool,
+  onChange: _propTypes2.default.func,
   value: _propTypes2.default.any
 };
 
-DropdownMenuItem.defaultProps = {
+RadioGroup.defaultProps = {
   className: '',
-  disabled: false,
-  onClick: _noop2.default
+  inline: false,
+  onChange: _noop2.default
 };

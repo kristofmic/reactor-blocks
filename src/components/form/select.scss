@@ -1,0 +1,20 @@
+@import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_variables.scss';
+
+.select {
+  .select-placeholder {
+    color: $input-color-placeholder;
+    overflow: hidden;
+    white-space: pre;
+    word-wrap: normal;
+  }
+
+  .close {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .dropdown-toggle-icon {
+    line-height: 1.5;
+  }
+}

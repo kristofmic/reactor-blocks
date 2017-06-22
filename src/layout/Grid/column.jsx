@@ -68,54 +68,38 @@ Column.propTypes = {
   className: PropTypes.string,
   newLine: PropTypes.bool,
   offset: PropTypes.oneOf(COLUMN_WIDTHS),
-  offsets: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      sm: PropTypes.oneOf(COLUMN_WIDTHS),
-      md: PropTypes.oneOf(COLUMN_WIDTHS),
-      lg: PropTypes.oneOf(COLUMN_WIDTHS),
-      xl: PropTypes.oneOf(COLUMN_WIDTHS),
-    }),
-  ]),
+  offsets: PropTypes.shape({
+    sm: PropTypes.oneOf(COLUMN_WIDTHS),
+    md: PropTypes.oneOf(COLUMN_WIDTHS),
+    lg: PropTypes.oneOf(COLUMN_WIDTHS),
+    xl: PropTypes.oneOf(COLUMN_WIDTHS),
+  }),
   order: PropTypes.oneOf(COLUMN_ORDER),
   pull: PropTypes.oneOf(COLUMN_WIDTHS),
-  pulls: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      sm: PropTypes.oneOf(COLUMN_WIDTHS),
-      md: PropTypes.oneOf(COLUMN_WIDTHS),
-      lg: PropTypes.oneOf(COLUMN_WIDTHS),
-      xl: PropTypes.oneOf(COLUMN_WIDTHS),
-    }),
-  ]),
+  pulls: PropTypes.shape({
+    sm: PropTypes.oneOf(COLUMN_WIDTHS),
+    md: PropTypes.oneOf(COLUMN_WIDTHS),
+    lg: PropTypes.oneOf(COLUMN_WIDTHS),
+    xl: PropTypes.oneOf(COLUMN_WIDTHS),
+  }),
   push: PropTypes.oneOf(COLUMN_WIDTHS),
-  pushes: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      sm: PropTypes.oneOf(COLUMN_WIDTHS),
-      md: PropTypes.oneOf(COLUMN_WIDTHS),
-      lg: PropTypes.oneOf(COLUMN_WIDTHS),
-      xl: PropTypes.oneOf(COLUMN_WIDTHS),
-    }),
-  ]),
+  pushes: PropTypes.shape({
+    sm: PropTypes.oneOf(COLUMN_WIDTHS),
+    md: PropTypes.oneOf(COLUMN_WIDTHS),
+    lg: PropTypes.oneOf(COLUMN_WIDTHS),
+    xl: PropTypes.oneOf(COLUMN_WIDTHS),
+  }),
   width: PropTypes.oneOf(COLUMN_WIDTHS),
-  widths: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      sm: PropTypes.oneOf(COLUMN_WIDTHS),
-      md: PropTypes.oneOf(COLUMN_WIDTHS),
-      lg: PropTypes.oneOf(COLUMN_WIDTHS),
-      xl: PropTypes.oneOf(COLUMN_WIDTHS),
-    }),
-  ]),
+  widths: PropTypes.shape({
+    sm: PropTypes.oneOf(COLUMN_WIDTHS),
+    md: PropTypes.oneOf(COLUMN_WIDTHS),
+    lg: PropTypes.oneOf(COLUMN_WIDTHS),
+    xl: PropTypes.oneOf(COLUMN_WIDTHS),
+  }),
   verticalAlignment: PropTypes.oneOf(VERTICAL_ALIGNMENT),
 };
 
 Column.defaultProps = {
   className: '',
   newLine: false,
-  offsets: '',
-  pulls: '',
-  pushes: '',
-  widths: '',
 };

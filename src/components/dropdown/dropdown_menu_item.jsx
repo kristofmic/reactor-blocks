@@ -10,12 +10,12 @@ export default class DropdownMenuItem extends React.PureComponent {
   handleClick = (e) => {
     const {
       disabled,
-      id,
       onClick,
+      value,
     } = this.props;
 
     if (!disabled) {
-      onClick(id, e);
+      onClick(value, e);
     }
   }
 
@@ -24,8 +24,8 @@ export default class DropdownMenuItem extends React.PureComponent {
       children,
       className,
       disabled,
-      id,
       onClick,
+      value,
       ...other
     } = this.props;
 
@@ -47,8 +47,8 @@ DropdownMenuItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  id: PropTypes.any,
   onClick: PropTypes.func,
+  value: PropTypes.any,
 };
 
 DropdownMenuItem.defaultProps = {

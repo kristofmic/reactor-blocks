@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = DropdownToggleIcon;
+exports.default = FormGroup;
 
 var _react = require('react');
 
@@ -24,27 +24,30 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function DropdownToggleIcon(props) {
-  var className = props.className,
-      show = props.show,
-      up = props.up,
-      other = _objectWithoutProperties(props, ['className', 'show', 'up']);
+function FormGroup(props) {
+  var children = props.children,
+      className = props.className,
+      row = props.row,
+      other = _objectWithoutProperties(props, ['children', 'className', 'row']);
 
-  return _react2.default.createElement('i', _extends({
-    className: (0, _classnames2.default)('dropdown-toggle-icon fa fa-chevron-down', {
-      'fa-rotate-180': show && !up || !show && up
-    }, className)
-  }, other));
+  return _react2.default.createElement(
+    'div',
+    _extends({
+      className: (0, _classnames2.default)('form-group', {
+        row: row
+      }, className)
+    }, other),
+    children
+  );
 }
 
-DropdownToggleIcon.propTypes = {
+FormGroup.propTypes = {
+  children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  show: _propTypes2.default.bool,
-  up: _propTypes2.default.bool
+  row: _propTypes2.default.bool
 };
 
-DropdownToggleIcon.defaultProps = {
+FormGroup.defaultProps = {
   className: '',
-  show: false,
-  up: false
+  row: false
 };

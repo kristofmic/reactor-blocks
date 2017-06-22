@@ -2349,6 +2349,7 @@ button.close {
 	font-size: 1.2rem;
 	line-height: 1.6rem;
 	outline: none;
+	padding: 0 .5rem;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
@@ -2365,9 +2366,128 @@ button.close {
 }
 .dropdown-toggle-icon {
 	font-size: 80%;
+	-webkit-transition: -webkit-transform .2s ease-out;
+	transition: -webkit-transform .2s ease-out;
+	transition: transform .2s ease-out;
+	transition: transform .2s ease-out, -webkit-transform .2s ease-out;
 }
 .dropdown {
 	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+.form-check .form-check-label {
+	padding-left: 1.5rem;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.form-check .form-check-input {
+	background-color: rgba(0, 0, 0, 0.06);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	border-radius: .25rem;
+	cursor: pointer;
+	display: inline-block;
+	height: 1.0625rem;
+	margin-right: 0.5rem;
+	position: relative;
+	-webkit-transition: .2s ease-out background-color;
+	transition: .2s ease-out background-color;
+	vertical-align: text-bottom;
+	width: 1.0625rem;
+}
+.form-check .form-check-input i {
+	color: #FFF;
+	font-size: .8125rem;
+	left: 0.0625rem;
+	opacity: 0;
+	position: absolute;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+	top: 0.0625rem;
+	-webkit-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition: .2s ease-out all;
+	transition: .2s ease-out all;
+	width: .8125rem;
+}
+.form-check .form-check-input:hover,.form-check .form-check-input:active {
+	background-color: rgba(0, 0, 0, 0.12);
+}
+.form-check .form-check-input:focus {
+	-webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+	box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+	outline: none;
+}
+.form-check.checked .form-check-input,.form-check.selected .form-check-input {
+	background-color: #0275d8;
+}
+.form-check.checked .form-check-input i,.form-check.selected .form-check-input i {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+.form-check.disabled .form-check-input {
+	background-color: #eceeef;
+	cursor: not-allowed;
+	opacity: .6;
+}
+.form-check.disabled .form-check-input:hover,.form-check.disabled .form-check-input:active {
+	background-color: #eceeef;
+}
+
+
+
+
+
+
+
+
+
+
+
+.form-check .form-check-input.form-check-input-radio {
+	border-radius: 50%;
+}
+.form-check .form-check-input.form-check-input-radio i {
+	font-size: .625rem;
+	left: 0.125rem;
+	top: 0.125rem;
+	width: .6875rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+.select .select-placeholder {
+	color: #636c72;
+	overflow: hidden;
+	white-space: pre;
+	word-wrap: normal;
+}
+.select .close {
+	font-size: 0.875rem;
+	line-height: 1.5;
+}
+.select .dropdown-toggle-icon {
+	line-height: 1.5;
 }
 
 

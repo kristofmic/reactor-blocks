@@ -40,6 +40,18 @@ Object.keys(_dropdown).forEach(function (key) {
   });
 });
 
+var _forms = require('./forms');
+
+Object.keys(_forms).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _forms[key];
+    }
+  });
+});
+
 var _layout = require('./layout');
 
 Object.keys(_layout).forEach(function (key) {

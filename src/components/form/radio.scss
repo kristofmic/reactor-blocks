@@ -1,0 +1,16 @@
+@import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_variables.scss';
+
+.form-check {
+
+  .form-check-input.form-check-input-radio {
+    border-radius: 50%;
+
+    i {
+      font-size: .625rem;
+      left: 0.125rem;
+      top: 0.125rem;
+      width: .6875rem;
+    }
+  }
+}

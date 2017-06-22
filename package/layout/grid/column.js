@@ -83,42 +83,38 @@ Column.propTypes = {
   className: _propTypes2.default.string,
   newLine: _propTypes2.default.bool,
   offset: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  offsets: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+  offsets: _propTypes2.default.shape({
     sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  })]),
+  }),
   order: _propTypes2.default.oneOf(_constants.COLUMN_ORDER),
   pull: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  pulls: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+  pulls: _propTypes2.default.shape({
     sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  })]),
+  }),
   push: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  pushes: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+  pushes: _propTypes2.default.shape({
     sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  })]),
+  }),
   width: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  widths: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+  widths: _propTypes2.default.shape({
     sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
     xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  })]),
+  }),
   verticalAlignment: _propTypes2.default.oneOf(_constants.VERTICAL_ALIGNMENT)
 };
 
 Column.defaultProps = {
   className: '',
-  newLine: false,
-  offsets: '',
-  pulls: '',
-  pushes: '',
-  widths: ''
+  newLine: false
 };

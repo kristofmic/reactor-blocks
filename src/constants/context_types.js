@@ -31,3 +31,8 @@ export const LOADING_CONTEXT_TYPES = [
 export const TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'active',
 ]);
+
+export const TEXT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
+  'primary',
+  'muted',
+]);

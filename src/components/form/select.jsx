@@ -1,4 +1,3 @@
-/* global window */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,10 +9,12 @@ import {
   DropdownWrapper,
 } from '../dropdown';
 
+import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
 import {
   HORIZONTAL_POSITION,
+  INPUT_CONTEXT_STATES,
   SIZES,
 } from '../../constants';
 
@@ -86,6 +87,7 @@ class Select extends React.PureComponent {
       required,
       showMenu,
       size,
+      state,
       toggleMenu,
       up,
       value,
@@ -99,7 +101,9 @@ class Select extends React.PureComponent {
     return (
       <DropdownWrapper className={`d-block ${className}`} {...other}>
         <div
-          className={`form-control form-control-${size} select`}
+          className={classnames(`form-control form-control-${size} select`, {
+            [`has-${state}`]: state,
+          })}
           onClick={toggleMenu}
         >
           <DropdownToggleIcon
@@ -135,7 +139,7 @@ class Select extends React.PureComponent {
     );
   }
 }
-
+// TODO: add validation, supporting success, warning, and danger states
 Select.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -148,6 +152,7 @@ Select.propTypes = {
   required: PropTypes.bool,
   showMenu: PropTypes.func.isRequired,
   size: PropTypes.oneOf(SIZES),
+  state: PropTypes.oneOf(INPUT_CONTEXT_STATES),
   toggleMenu: PropTypes.func.isRequired,
   up: PropTypes.bool,
   value: PropTypes.shape({

@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
+import {
+  INPUT_CONTEXT_STATES,
+} from '../../constants';
+
 export default class Radio extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -46,7 +50,6 @@ export default class Radio extends React.PureComponent {
     onChange(selected, value, e);
   }
 
-
   render() {
     const {
       children,
@@ -57,6 +60,7 @@ export default class Radio extends React.PureComponent {
       label,
       onChange,
       selected,
+      state,
       value,
       ...other
     } = this.props;
@@ -75,7 +79,9 @@ export default class Radio extends React.PureComponent {
         {...other}
       >
         <label
-          className="form-check-label"
+          className={classnames('form-check-label', {
+            [`text-${state}`]: state,
+          })}
           htmlFor={id}
         >
           <div className="form-check-input form-check-input-radio">
@@ -97,6 +103,7 @@ Radio.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
   selected: PropTypes.bool,
+  state: PropTypes.oneOf(INPUT_CONTEXT_STATES),
   value: PropTypes.any,
 };
 

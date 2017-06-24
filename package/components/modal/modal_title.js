@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardGroup;
+exports.default = ModalTitle;
 
 var _react = require('react');
 
@@ -16,35 +16,37 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _constants = require('../../constants');
+var _heading = require('../../content/heading');
+
+var _heading2 = _interopRequireDefault(_heading);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardGroup(props) {
+function ModalTitle(props) {
   var children = props.children,
       className = props.className,
-      type = props.type,
-      other = _objectWithoutProperties(props, ['children', 'className', 'type']);
+      size = props.size,
+      other = _objectWithoutProperties(props, ['children', 'className', 'size']);
 
   return _react2.default.createElement(
-    'div',
+    _heading2.default,
     _extends({
-      className: 'card-' + type + ' ' + className,
-      role: 'group'
+      className: 'modal-title ' + className,
+      size: size
     }, other),
     children
   );
 }
 
-CardGroup.propTypes = {
+ModalTitle.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  type: _propTypes2.default.oneOf(_constants.CARD_TYPES)
+  size: _propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.string])
 };
 
-CardGroup.defaultProps = {
+ModalTitle.defaultProps = {
   className: '',
-  type: 'group'
+  size: 5
 };

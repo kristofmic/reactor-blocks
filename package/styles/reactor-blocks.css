@@ -2456,6 +2456,29 @@ button.close {
 
 
 
+input.form-control.has-success {
+	background-image: none;
+	border-color: #5cb85c;
+}
+input.form-control.has-warning {
+	background-image: none;
+	border-color: #f0ad4e;
+}
+input.form-control.has-danger {
+	background-image: none;
+	border-color: #d9534f;
+}
+
+
+
+
+
+
+
+
+
+
+
 .form-check .form-check-input.form-check-input-radio {
 	border-radius: 50%;
 }
@@ -2488,6 +2511,18 @@ button.close {
 }
 .select .dropdown-toggle-icon {
 	line-height: 1.5;
+}
+.select.form-control.has-success {
+	background-image: none;
+	border-color: #5cb85c;
+}
+.select.form-control.has-warning {
+	background-image: none;
+	border-color: #f0ad4e;
+}
+.select.form-control.has-danger {
+	background-image: none;
+	border-color: #d9534f;
 }
 
 
@@ -2580,6 +2615,9 @@ button.close {
 	}
 }
 
+.list-group-item.list-group-item-action {
+	cursor: pointer;
+}
 
 html {
 }

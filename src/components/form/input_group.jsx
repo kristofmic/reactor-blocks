@@ -2,35 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  CARD_TYPES,
+  SIZES,
 } from '../../constants';
 
-export default function CardGroup(props) {
+export default function InputGroup(props) {
   const {
     children,
     className,
-    type,
+    size,
     ...other
   } = props;
 
   return (
-    <div
-      className={`card-${type} ${className}`}
-      role="group"
-      {...other}
-    >
+    <div className={`input-group input-group-${size} ${className}`} {...other}>
       {children}
     </div>
   );
 }
 
-CardGroup.propTypes = {
+InputGroup.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  type: PropTypes.oneOf(CARD_TYPES),
+  size: PropTypes.oneOf(SIZES),
 };
 
-CardGroup.defaultProps = {
+InputGroup.defaultProps = {
   className: '',
-  type: 'group',
+  size: 'md',
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
 import {
+  INPUT_CONTEXT_STATES,
   INPUT_TYPES,
   SIZES,
 } from '../../constants';
@@ -52,7 +54,6 @@ export default class Input extends React.PureComponent {
     onChange(value, e);
   }
 
-
   render() {
     const {
       children,
@@ -63,6 +64,7 @@ export default class Input extends React.PureComponent {
       onChange,
       placeholder,
       size,
+      state,
       type,
       value,
       ...other
@@ -73,7 +75,9 @@ export default class Input extends React.PureComponent {
 
     return (
       <input
-        className={`form-control form-control-${size} ${className}`}
+        className={classnames(`form-control form-control-${size}`, {
+          [`has-${state}`]: state,
+        }, className)}
         disabled={disabled}
         onChange={this.handleChange}
         placeholder={placeholder}
@@ -94,6 +98,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(SIZES),
+  state: PropTypes.oneOf(INPUT_CONTEXT_STATES),
   type: PropTypes.oneOf(INPUT_TYPES),
   value: PropTypes.string,
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Column, Container, Row } from 'reactor-blocks/package/layout/grid';
-import Form, { Checkbox, Input, Radio, RadioGroup, Select, SelectOption } from 'reactor-blocks/package/components/form';
-import Dropdown, { DropdownMenuItem, DropdownMenuHeader, DropdownMenuDivider } from 'reactor-blocks/package/components/dropdown';
+import Button from 'reactor-blocks/package/components/button';
+import Modal, { ModalHeader, ModalFooter, ModalBody } from 'reactor-blocks/package/components/modal';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -38,26 +38,21 @@ class Playground extends React.PureComponent {
       <Container id="playground">
         <Row>
           <Column>
-            <Dropdown label="something" onMenuItemClick={(...args) => console.log(...args) }>
-              <DropdownMenuItem value="a">a</DropdownMenuItem>
-              <DropdownMenuItem value="b">b</DropdownMenuItem>
-              <DropdownMenuItem value="c">c</DropdownMenuItem>
-              <DropdownMenuDivider />
-              <DropdownMenuHeader>numbers</DropdownMenuHeader>
-              <DropdownMenuItem value={1}>1</DropdownMenuItem>
-              <DropdownMenuItem value={2}>2</DropdownMenuItem>
-            </Dropdown>
-            <Form onSubmit={this.handleStuff}>
-              <Input placeholder="something" />
-              <RadioGroup inline>
-                <Radio label="select something" value="foo" />
-                <Radio label="select something" value="bar" />
-              </RadioGroup>
-              <Select onChange={(...args) => console.log(...args) } placeholder="something">
-                <SelectOption label="Foo" value="__FOO__" />
-                <SelectOption label="Bar" value="__BAR__" />
-              </Select>
-            </Form>
+            <Button onClick={this.handleStuff}>
+              Show modal
+            </Button>
+            <Modal onDismiss={this.handleStuff} show={this.state.value}>
+              <ModalHeader onDismiss={this.handleStuff} title="Modal title" />
+              <ModalBody>
+                <p>Woohoo, text in a modal!</p>
+              </ModalBody>
+              <ModalFooter
+                primaryLabel="Save changes"
+                primaryOnClick={this.handleStuff}
+                secondaryLabel="Close"
+                secondaryOnClick={this.handleStuff}
+              />
+            </Modal>
           </Column>
         </Row>
       </Container>

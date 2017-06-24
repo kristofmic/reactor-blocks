@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardGroup;
+exports.default = InputGroup;
 
 var _react = require('react');
 
@@ -22,29 +22,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardGroup(props) {
+function InputGroup(props) {
   var children = props.children,
       className = props.className,
-      type = props.type,
-      other = _objectWithoutProperties(props, ['children', 'className', 'type']);
+      size = props.size,
+      other = _objectWithoutProperties(props, ['children', 'className', 'size']);
 
   return _react2.default.createElement(
     'div',
-    _extends({
-      className: 'card-' + type + ' ' + className,
-      role: 'group'
-    }, other),
+    _extends({ className: 'input-group input-group-' + size + ' ' + className }, other),
     children
   );
 }
 
-CardGroup.propTypes = {
+InputGroup.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  type: _propTypes2.default.oneOf(_constants.CARD_TYPES)
+  size: _propTypes2.default.oneOf(_constants.SIZES)
 };
 
-CardGroup.defaultProps = {
+InputGroup.defaultProps = {
   className: '',
-  type: 'group'
+  size: 'md'
 };

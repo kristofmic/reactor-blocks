@@ -7,6 +7,7 @@ export default function List(props) {
   const {
     children,
     className,
+    group,
     inline,
     ordered,
     unstyled,
@@ -14,16 +15,27 @@ export default function List(props) {
   } = props;
 
   const Tag = ordered ? 'ol' : 'ul';
+  const listItems = React.Children.map(children, (child) => {
+    if (child.displayName === 'ListItem' || child.type.name === 'ListItem') {
+      return React.cloneElement(child, {
+        group,
+        inline,
+      });
+    }
+
+    return child;
+  });
 
   return (
     <Tag
       className={classnames({
+        'list-group': group,
         'list-inline': inline,
         'list-unstyled': unstyled,
       }, className)}
       {...other}
     >
-      {children}
+      {listItems}
     </Tag>
   );
 }
@@ -31,6 +43,7 @@ export default function List(props) {
 List.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  group: PropTypes.bool,
   inline: PropTypes.bool,
   ordered: PropTypes.bool,
   unstyled: PropTypes.bool,
@@ -38,6 +51,7 @@ List.propTypes = {
 
 List.defaultProps = {
   className: '',
+  group: false,
   inline: false,
   ordered: false,
   unstyled: false,

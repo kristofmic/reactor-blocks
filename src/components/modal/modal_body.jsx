@@ -1,22 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  CARD_TYPES,
-} from '../../constants';
-
-export default function CardGroup(props) {
+export default function ModalBody(props) {
   const {
     children,
     className,
-    type,
     ...other
   } = props;
 
   return (
     <div
-      className={`card-${type} ${className}`}
-      role="group"
+      className={`modal-body ${className}`}
       {...other}
     >
       {children}
@@ -24,13 +18,11 @@ export default function CardGroup(props) {
   );
 }
 
-CardGroup.propTypes = {
+ModalBody.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  type: PropTypes.oneOf(CARD_TYPES),
 };
 
-CardGroup.defaultProps = {
+ModalBody.defaultProps = {
   className: '',
-  type: 'group',
 };

@@ -17,4 +17,19 @@
   .dropdown-toggle-icon {
     line-height: 1.5;
   }
+
+  &.form-control.has-success {
+    background-image: none;
+    border-color: $brand-success;
+  }
+
+  &.form-control.has-warning {
+    background-image: none;
+    border-color: $brand-warning;
+  }
+
+  &.form-control.has-danger {
+    background-image: none;
+    border-color: $brand-danger;
+  }
 }

@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
+import {
+  INPUT_CONTEXT_STATES,
+} from '../../constants';
+
 export default class Checkbox extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -57,6 +61,7 @@ export default class Checkbox extends React.PureComponent {
       inline,
       label,
       onChange,
+      state,
       value,
       ...other
     } = this.props;
@@ -75,7 +80,9 @@ export default class Checkbox extends React.PureComponent {
         {...other}
       >
         <label
-          className="form-check-label"
+          className={classnames('form-check-label', {
+            [`text-${state}`]: state,
+          })}
           htmlFor={id}
         >
           <div className="form-check-input form-check-input-checkbox">
@@ -97,6 +104,7 @@ Checkbox.propTypes = {
   inline: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func,
+  state: PropTypes.oneOf(INPUT_CONTEXT_STATES),
   value: PropTypes.any,
 };
 

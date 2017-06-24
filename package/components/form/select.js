@@ -22,6 +22,10 @@ var _dismiss2 = _interopRequireDefault(_dismiss);
 
 var _dropdown = require('../dropdown');
 
+var _classnames2 = require('../../utils/classnames');
+
+var _classnames3 = _interopRequireDefault(_classnames2);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -30,14 +34,15 @@ var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global window */
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Select = function (_React$PureComponent) {
   _inherits(Select, _React$PureComponent);
@@ -120,10 +125,11 @@ var Select = function (_React$PureComponent) {
           required = _props.required,
           showMenu = _props.showMenu,
           size = _props.size,
+          state = _props.state,
           toggleMenu = _props.toggleMenu,
           up = _props.up,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'hideMenu', 'isMenuVisible', 'menuHorizontalPosition', 'onChange', 'placeholder', 'required', 'showMenu', 'size', 'toggleMenu', 'up', 'value']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'hideMenu', 'isMenuVisible', 'menuHorizontalPosition', 'onChange', 'placeholder', 'required', 'showMenu', 'size', 'state', 'toggleMenu', 'up', 'value']);
 
       var stateValue = this.state.value;
 
@@ -135,7 +141,7 @@ var Select = function (_React$PureComponent) {
         _react2.default.createElement(
           'div',
           {
-            className: 'form-control form-control-' + size + ' select',
+            className: (0, _classnames3.default)('form-control form-control-' + size + ' select', _defineProperty({}, 'has-' + state, state)),
             onClick: toggleMenu
           },
           _react2.default.createElement(_dropdown.DropdownToggleIcon, {
@@ -173,6 +179,8 @@ var Select = function (_React$PureComponent) {
 
   return Select;
 }(_react2.default.PureComponent);
+// TODO: add validation, supporting success, warning, and danger states
+
 
 Select.propTypes = {
   children: _propTypes2.default.node,
@@ -186,6 +194,7 @@ Select.propTypes = {
   required: _propTypes2.default.bool,
   showMenu: _propTypes2.default.func.isRequired,
   size: _propTypes2.default.oneOf(_constants.SIZES),
+  state: _propTypes2.default.oneOf(_constants.INPUT_CONTEXT_STATES),
   toggleMenu: _propTypes2.default.func.isRequired,
   up: _propTypes2.default.bool,
   value: _propTypes2.default.shape({

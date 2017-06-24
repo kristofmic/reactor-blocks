@@ -27,28 +27,41 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function List(props) {
   var children = props.children,
       className = props.className,
+      group = props.group,
       inline = props.inline,
       ordered = props.ordered,
       unstyled = props.unstyled,
-      other = _objectWithoutProperties(props, ['children', 'className', 'inline', 'ordered', 'unstyled']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'group', 'inline', 'ordered', 'unstyled']);
 
   var Tag = ordered ? 'ol' : 'ul';
+  var listItems = _react2.default.Children.map(children, function (child) {
+    if (child.displayName === 'ListItem' || child.type.name === 'ListItem') {
+      return _react2.default.cloneElement(child, {
+        group: group,
+        inline: inline
+      });
+    }
+
+    return child;
+  });
 
   return _react2.default.createElement(
     Tag,
     _extends({
       className: (0, _classnames2.default)({
+        'list-group': group,
         'list-inline': inline,
         'list-unstyled': unstyled
       }, className)
     }, other),
-    children
+    listItems
   );
 }
 
 List.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  group: _propTypes2.default.bool,
   inline: _propTypes2.default.bool,
   ordered: _propTypes2.default.bool,
   unstyled: _propTypes2.default.bool
@@ -56,6 +69,7 @@ List.propTypes = {
 
 List.defaultProps = {
   className: '',
+  group: false,
   inline: false,
   ordered: false,
   unstyled: false

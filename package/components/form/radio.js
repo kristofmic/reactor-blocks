@@ -16,15 +16,19 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = require('../../utils/classnames');
+var _classnames2 = require('../../utils/classnames');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
 
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
 
+var _constants = require('../../constants');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -90,8 +94,9 @@ var Radio = function (_React$PureComponent) {
           label = _props.label,
           onChange = _props.onChange,
           selected = _props.selected,
+          state = _props.state,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'id', 'inline', 'label', 'onChange', 'selected', 'value']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'id', 'inline', 'label', 'onChange', 'selected', 'state', 'value']);
 
       var stateSelected = this.state.selected;
 
@@ -99,7 +104,7 @@ var Radio = function (_React$PureComponent) {
       return _react2.default.createElement(
         'div',
         _extends({
-          className: (0, _classnames2.default)('form-check', {
+          className: (0, _classnames3.default)('form-check', {
             selected: stateSelected,
             disabled: disabled,
             'form-check-inline': inline
@@ -109,7 +114,7 @@ var Radio = function (_React$PureComponent) {
         _react2.default.createElement(
           'label',
           {
-            className: 'form-check-label',
+            className: (0, _classnames3.default)('form-check-label', _defineProperty({}, 'text-' + state, state)),
             htmlFor: id
           },
           _react2.default.createElement(
@@ -138,6 +143,7 @@ Radio.propTypes = {
   label: _propTypes2.default.string,
   onChange: _propTypes2.default.func,
   selected: _propTypes2.default.bool,
+  state: _propTypes2.default.oneOf(_constants.INPUT_CONTEXT_STATES),
   value: _propTypes2.default.any
 };
 

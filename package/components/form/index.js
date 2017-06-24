@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Static = exports.SelectOption = exports.Select = exports.RadioGroup = exports.Radio = exports.Label = exports.Input = exports.HelpText = exports.FormGroup = exports.Checkbox = undefined;
+exports.Static = exports.SelectOption = exports.Select = exports.RadioGroup = exports.Radio = exports.Label = exports.InputGroupAddon = exports.InputGroup = exports.Input = exports.HelpText = exports.FormGroup = exports.Checkbox = undefined;
 
 var _checkbox = require('./checkbox');
 
@@ -24,6 +24,14 @@ var _help_text2 = _interopRequireDefault(_help_text);
 var _input = require('./input');
 
 var _input2 = _interopRequireDefault(_input);
+
+var _input_group = require('./input_group');
+
+var _input_group2 = _interopRequireDefault(_input_group);
+
+var _input_group_addon = require('./input_group_addon');
+
+var _input_group_addon2 = _interopRequireDefault(_input_group_addon);
 
 var _label = require('./label');
 
@@ -56,6 +64,8 @@ exports.Checkbox = _checkbox2.default;
 exports.FormGroup = _form_group2.default;
 exports.HelpText = _help_text2.default;
 exports.Input = _input2.default;
+exports.InputGroup = _input_group2.default;
+exports.InputGroupAddon = _input_group_addon2.default;
 exports.Label = _label2.default;
 exports.Radio = _radio2.default;
 exports.RadioGroup = _radio_group2.default;

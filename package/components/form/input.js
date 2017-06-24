@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _classnames2 = require('../../utils/classnames');
+
+var _classnames3 = _interopRequireDefault(_classnames2);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -23,6 +27,8 @@ var _noop2 = _interopRequireDefault(_noop);
 var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -90,15 +96,16 @@ var Input = function (_React$PureComponent) {
           onChange = _props.onChange,
           placeholder = _props.placeholder,
           size = _props.size,
+          state = _props.state,
           type = _props.type,
           value = _props.value,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'initialValue', 'formatter', 'onChange', 'placeholder', 'size', 'type', 'value']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'disabled', 'initialValue', 'formatter', 'onChange', 'placeholder', 'size', 'state', 'type', 'value']);
 
       var stateValue = this.state.value;
 
 
       return _react2.default.createElement('input', _extends({
-        className: 'form-control form-control-' + size + ' ' + className,
+        className: (0, _classnames3.default)('form-control form-control-' + size, _defineProperty({}, 'has-' + state, state), className),
         disabled: disabled,
         onChange: this.handleChange,
         placeholder: placeholder,
@@ -123,6 +130,7 @@ Input.propTypes = {
   onChange: _propTypes2.default.func,
   placeholder: _propTypes2.default.string,
   size: _propTypes2.default.oneOf(_constants.SIZES),
+  state: _propTypes2.default.oneOf(_constants.INPUT_CONTEXT_STATES),
   type: _propTypes2.default.oneOf(_constants.INPUT_TYPES),
   value: _propTypes2.default.string
 };

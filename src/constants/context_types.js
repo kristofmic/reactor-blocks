@@ -22,6 +22,14 @@ export const CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'primary',
 ]);
 
+export const INPUT_CONTEXT_STATES = [
+  'success',
+  'warning',
+  'danger',
+];
+
+export const LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_TYPES;
+
 export const LOADING_CONTEXT_TYPES = [
   'primary',
   'default',

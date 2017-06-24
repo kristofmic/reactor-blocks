@@ -7,7 +7,7 @@ exports.default = times;
 function times(count, iteratee) {
   var results = [];
 
-  for (var i = 0; i < count; i++) {
+  for (var i = 0; i < count; i += 1) {
     results.push(iteratee(i));
   }
 

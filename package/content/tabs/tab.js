@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardLink;
+exports.default = Tab;
 
 var _react = require('react');
 
@@ -16,10 +16,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _link = require('../../content/link');
-
-var _link2 = _interopRequireDefault(_link);
-
 var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -28,30 +24,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardLink(props) {
-  var children = props.children,
+function Tab(props) {
+  var active = props.active,
+      children = props.children,
       className = props.className,
-      disabled = props.disabled,
-      other = _objectWithoutProperties(props, ['children', 'className', 'disabled']);
+      fade = props.fade,
+      show = props.show,
+      value = props.value,
+      other = _objectWithoutProperties(props, ['active', 'children', 'className', 'fade', 'show', 'value']);
 
   return _react2.default.createElement(
-    _link2.default,
+    'div',
     _extends({
-      className: (0, _classnames2.default)('card-link', {
-        disabled: disabled
+      className: (0, _classnames2.default)('tab-pane', {
+        active: active,
+        fade: fade,
+        show: show
       }, className)
     }, other),
     children
   );
 }
 
-CardLink.propTypes = {
+Tab.propTypes = {
+  active: _propTypes2.default.bool,
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  disabled: _propTypes2.default.bool
+  fade: _propTypes2.default.bool,
+  show: _propTypes2.default.bool,
+  value: _propTypes2.default.any
 };
 
-CardLink.defaultProps = {
+Tab.defaultProps = {
+  active: false,
   className: '',
-  disabled: false
+  fade: false,
+  show: false
 };

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button, { ButtonGroup } from '../button';
 import DropdownToggleIcon from './dropdown_toggle_icon';
+import Link from '../../content/link';
 
 import noop from '../../utils/noop';
 
@@ -10,6 +11,7 @@ export default function DropdownToggle(props) {
   const {
     children,
     className,
+    link,
     onClick,
     show,
     split,
@@ -30,17 +32,25 @@ export default function DropdownToggle(props) {
     );
   }
 
+  const Tag = link ? Link : Button;
+
   return (
-    <Button className={`dropdown-toggle ${className}`} onClick={onClick} {...other}>
+    <Tag
+      className={`dropdown-toggle ${className}`}
+      href={link ? '#' : undefined}
+      onClick={onClick}
+      {...other}
+    >
       {children}
       <DropdownToggleIcon className="ml-1" show={show} up={up} />
-    </Button>
+    </Tag>
   );
 }
 
 DropdownToggle.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  link: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   show: PropTypes.bool,
   split: PropTypes.bool,
@@ -49,6 +59,7 @@ DropdownToggle.propTypes = {
 
 DropdownToggle.defaultProps = {
   className: '',
+  link: false,
   show: false,
   split: false,
   up: false,

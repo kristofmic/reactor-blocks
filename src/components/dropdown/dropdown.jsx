@@ -7,6 +7,8 @@ import DropdownWrapper from './dropdown_wrapper';
 
 import dropdownHOC from './dropdown_hoc';
 
+import noop from '../../utils/noop';
+
 import {
   HORIZONTAL_POSITION,
 } from '../../constants';
@@ -58,6 +60,7 @@ class Dropdown extends React.PureComponent {
       hideMenu,
       isMenuVisible,
       label,
+      link,
       menuHorizontalPosition,
       onMenuItemClick,
       showMenu,
@@ -70,8 +73,10 @@ class Dropdown extends React.PureComponent {
     } = this.state;
 
     return (
-      <DropdownWrapper className={className}>
+      <DropdownWrapper>
         <DropdownToggle
+          className={className}
+          link={link}
           onClick={toggleMenu}
           show={isMenuVisible}
           up={up}
@@ -97,6 +102,7 @@ Dropdown.propTypes = {
   hideMenu: PropTypes.func.isRequired,
   isMenuVisible: PropTypes.bool.isRequired,
   label: PropTypes.string,
+  link: PropTypes.bool,
   menuHorizontalPosition: PropTypes.oneOf(HORIZONTAL_POSITION),
   onMenuItemClick: PropTypes.func,
   showMenu: PropTypes.func.isRequired,
@@ -106,7 +112,9 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   className: '',
+  link: false,
   menuHorizontalPosition: 'left',
+  onMenuItemClick: noop,
   up: false,
 };
 

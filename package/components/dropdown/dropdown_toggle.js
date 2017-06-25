@@ -24,6 +24,10 @@ var _dropdown_toggle_icon = require('./dropdown_toggle_icon');
 
 var _dropdown_toggle_icon2 = _interopRequireDefault(_dropdown_toggle_icon);
 
+var _link = require('../../content/link');
+
+var _link2 = _interopRequireDefault(_link);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -35,11 +39,12 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function DropdownToggle(props) {
   var children = props.children,
       className = props.className,
+      link = props.link,
       onClick = props.onClick,
       show = props.show,
       split = props.split,
       up = props.up,
-      other = _objectWithoutProperties(props, ['children', 'className', 'onClick', 'show', 'split', 'up']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'link', 'onClick', 'show', 'split', 'up']);
 
   if (split) {
     return _react2.default.createElement(
@@ -58,9 +63,15 @@ function DropdownToggle(props) {
     );
   }
 
+  var Tag = link ? _link2.default : _button2.default;
+
   return _react2.default.createElement(
-    _button2.default,
-    _extends({ className: 'dropdown-toggle ' + className, onClick: onClick }, other),
+    Tag,
+    _extends({
+      className: 'dropdown-toggle ' + className,
+      href: link ? '#' : undefined,
+      onClick: onClick
+    }, other),
     children,
     _react2.default.createElement(_dropdown_toggle_icon2.default, { className: 'ml-1', show: show, up: up })
   );
@@ -69,6 +80,7 @@ function DropdownToggle(props) {
 DropdownToggle.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  link: _propTypes2.default.bool,
   onClick: _propTypes2.default.func.isRequired,
   show: _propTypes2.default.bool,
   split: _propTypes2.default.bool,
@@ -77,6 +89,7 @@ DropdownToggle.propTypes = {
 
 DropdownToggle.defaultProps = {
   className: '',
+  link: false,
   show: false,
   split: false,
   up: false

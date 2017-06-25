@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardLink;
+exports.default = NavLink;
 
 var _react = require('react');
 
@@ -28,16 +28,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardLink(props) {
-  var children = props.children,
+function NavLink(props) {
+  var active = props.active,
+      children = props.children,
       className = props.className,
       disabled = props.disabled,
-      other = _objectWithoutProperties(props, ['children', 'className', 'disabled']);
+      other = _objectWithoutProperties(props, ['active', 'children', 'className', 'disabled']);
 
   return _react2.default.createElement(
     _link2.default,
     _extends({
-      className: (0, _classnames2.default)('card-link', {
+      className: (0, _classnames2.default)('nav-link', {
+        active: active,
         disabled: disabled
       }, className)
     }, other),
@@ -45,13 +47,15 @@ function CardLink(props) {
   );
 }
 
-CardLink.propTypes = {
+NavLink.propTypes = {
+  active: _propTypes2.default.bool,
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   disabled: _propTypes2.default.bool
 };
 
-CardLink.defaultProps = {
+NavLink.defaultProps = {
+  active: false,
   className: '',
   disabled: false
 };

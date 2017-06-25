@@ -64,6 +64,18 @@ Object.keys(_layout).forEach(function (key) {
   });
 });
 
+var _nav = require('./nav');
+
+Object.keys(_nav).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _nav[key];
+    }
+  });
+});
+
 var _responsive_classnames = require('./responsive_classnames');
 
 Object.keys(_responsive_classnames).forEach(function (key) {

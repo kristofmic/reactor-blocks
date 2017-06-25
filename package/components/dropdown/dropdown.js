@@ -32,6 +32,10 @@ var _dropdown_hoc = require('./dropdown_hoc');
 
 var _dropdown_hoc2 = _interopRequireDefault(_dropdown_hoc);
 
+var _noop = require('../../utils/noop');
+
+var _noop2 = _interopRequireDefault(_noop);
+
 var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -104,22 +108,25 @@ var Dropdown = function (_React$PureComponent) {
           hideMenu = _props.hideMenu,
           isMenuVisible = _props.isMenuVisible,
           label = _props.label,
+          link = _props.link,
           menuHorizontalPosition = _props.menuHorizontalPosition,
           onMenuItemClick = _props.onMenuItemClick,
           showMenu = _props.showMenu,
           toggleMenu = _props.toggleMenu,
           up = _props.up,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'hideMenu', 'isMenuVisible', 'label', 'menuHorizontalPosition', 'onMenuItemClick', 'showMenu', 'toggleMenu', 'up']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'hideMenu', 'isMenuVisible', 'label', 'link', 'menuHorizontalPosition', 'onMenuItemClick', 'showMenu', 'toggleMenu', 'up']);
 
       var menuItems = this.state.menuItems;
 
 
       return _react2.default.createElement(
         _dropdown_wrapper2.default,
-        { className: className },
+        null,
         _react2.default.createElement(
           _dropdown_toggle2.default,
           _extends({
+            className: className,
+            link: link,
             onClick: toggleMenu,
             show: isMenuVisible,
             up: up
@@ -148,6 +155,7 @@ Dropdown.propTypes = {
   hideMenu: _propTypes2.default.func.isRequired,
   isMenuVisible: _propTypes2.default.bool.isRequired,
   label: _propTypes2.default.string,
+  link: _propTypes2.default.bool,
   menuHorizontalPosition: _propTypes2.default.oneOf(_constants.HORIZONTAL_POSITION),
   onMenuItemClick: _propTypes2.default.func,
   showMenu: _propTypes2.default.func.isRequired,
@@ -157,7 +165,9 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   className: '',
+  link: false,
   menuHorizontalPosition: 'left',
+  onMenuItemClick: _noop2.default,
   up: false
 };
 

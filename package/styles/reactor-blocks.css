@@ -2361,6 +2361,9 @@ button.close {
 	margin-bottom: .125rem;
 	top: auto;
 }
+.dropdown-item {
+	cursor: pointer;
+}
 .dropdown-toggle:after {
 	display: none;
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Link from '../../content/link';
+import Dropdown from '../dropdown';
 
 import classnames from '../../utils/classnames';
 
-export default function CardLink(props) {
+export default function NavDropdown(props) {
   const {
+    active,
     children,
     className,
     disabled,
@@ -14,24 +15,28 @@ export default function CardLink(props) {
   } = props;
 
   return (
-    <Link
-      className={classnames('card-link', {
+    <Dropdown
+      className={classnames('nav-link', {
+        active,
         disabled,
       }, className)}
+      link
       {...other}
     >
       {children}
-    </Link>
+    </Dropdown>
   );
 }
 
-CardLink.propTypes = {
+NavDropdown.propTypes = {
+  active: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
 };
 
-CardLink.defaultProps = {
+NavDropdown.defaultProps = {
+  active: false,
   className: '',
   disabled: false,
 };

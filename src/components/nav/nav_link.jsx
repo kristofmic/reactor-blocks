@@ -5,8 +5,9 @@ import Link from '../../content/link';
 
 import classnames from '../../utils/classnames';
 
-export default function CardLink(props) {
+export default function NavLink(props) {
   const {
+    active,
     children,
     className,
     disabled,
@@ -15,7 +16,8 @@ export default function CardLink(props) {
 
   return (
     <Link
-      className={classnames('card-link', {
+      className={classnames('nav-link', {
+        active,
         disabled,
       }, className)}
       {...other}
@@ -25,13 +27,15 @@ export default function CardLink(props) {
   );
 }
 
-CardLink.propTypes = {
+NavLink.propTypes = {
+  active: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
 };
 
-CardLink.defaultProps = {
+NavLink.defaultProps = {
+  active: false,
   className: '',
   disabled: false,
 };

@@ -113,7 +113,7 @@ var Tabs = function (_React$PureComponent) {
 
 
       var childrenTabs = _react2.default.Children.map(children, function (child) {
-        if (child.displayName === 'Tab' || child.type.name === 'Tab') {
+        if (child.type.name === 'Tab') {
           return _react2.default.cloneElement(child, {
             active: child.props.value === activeTabState,
             fade: fade,

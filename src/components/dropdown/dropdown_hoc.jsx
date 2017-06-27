@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 export default function dropdownHOC(Component) {
-  return class DropdownHOC extends React.PureComponent {
+  class DropdownHOC extends React.PureComponent {
     constructor(props) {
       super(props);
 
@@ -82,4 +82,8 @@ export default function dropdownHOC(Component) {
       );
     }
   };
+
+  DropdownHOC.WrappedComponent = Component;
+
+  return DropdownHOC;
 }

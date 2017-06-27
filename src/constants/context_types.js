@@ -36,6 +36,12 @@ export const LOADING_CONTEXT_TYPES = [
   'white',
 ];
 
+export const NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
+  'primary',
+  'info',
+  'faded',
+]);
+
 export const TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'active',
 ]);

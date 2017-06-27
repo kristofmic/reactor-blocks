@@ -1,0 +1,114 @@
+@import '../../styles/partials/index.scss';
+
+.navbar-toggler {
+  border: none;
+  border-radius: 999rem;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  padding-right: 0;
+  outline: none;
+  transition: background-color .2s ease-out;
+  width: (38rem / 16);
+
+  .navbar-toggler-icon {
+    align-content: center;
+    background-image: none;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    transition: transform .2s ease-out;
+    width: ((38rem - 16) / 16);
+
+    .navbar-toggler-icon-bar {
+      background-color: $black54;
+      border-radius: 999rem;
+      height: (3rem / 16);
+      transition: all .2s ease-out;
+      width: 100%;
+
+      &:nth-child(2) {
+        width: 78%;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $black6;
+
+    .navbar-toggler-icon {
+      .navbar-toggler-icon-bar {
+        background-color: $black;
+      }
+    }
+  }
+
+  &:focus {
+    background-color: $black12;
+    outline: none;
+  }
+
+  &.active {
+    .navbar-toggler-icon {
+      transform: rotate(180deg);
+
+      .navbar-toggler-icon-bar {
+        background-color: $black;
+
+        &:first-child {
+          transform: rotate(45deg) translate3d(.4375rem, .4375rem, 0);
+        }
+
+        &:last-child {
+          transform: rotate(-45deg) translate3d(.4375rem, -.4375rem, 0);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &.navbar-toggler-right {
+    .navbar-toggler-icon {
+      .navbar-toggler-icon-bar {
+        &:nth-child(2) {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}
+
+.navbar-inverse {
+  .navbar-toggler {
+    .navbar-toggler-icon {
+      .navbar-toggler-icon-bar {
+        background-color: $white54;
+      }
+    }
+
+    &:hover {
+      background-color: $white6;
+
+      .navbar-toggler-icon {
+        .navbar-toggler-icon-bar {
+          background-color: $white;
+        }
+      }
+    }
+
+    &:focus {
+      background-color: $white12;
+    }
+
+    &.active {
+      .navbar-toggler-icon {
+        .navbar-toggler-icon-bar {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

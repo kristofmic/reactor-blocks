@@ -3,3 +3,8 @@ export const SIZES = [
   'md',
   'lg',
 ];
+
+export const NAVBAR_TOGGLEABLE_SIZES = SIZES.concat([
+  'xs',
+  'xl',
+]);

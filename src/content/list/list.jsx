@@ -16,7 +16,7 @@ export default function List(props) {
 
   const Tag = ordered ? 'ol' : 'ul';
   const listItems = React.Children.map(children, (child) => {
-    if (child.displayName === 'ListItem' || child.type.name === 'ListItem') {
+    if (child.type.name === 'ListItem') {
       return React.cloneElement(child, {
         group,
         inline,

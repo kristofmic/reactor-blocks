@@ -100,7 +100,7 @@ var Select = function (_React$PureComponent) {
       var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.state.value;
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.displayName === 'SelectOption' || child.type.name === 'SelectOption') {
+        if (child.type.name === 'SelectOption') {
           return _react2.default.cloneElement(child, {
             active: value && child.props.value === value.value,
             onClick: _this2.handleOptionClick

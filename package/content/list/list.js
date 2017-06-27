@@ -35,7 +35,7 @@ function List(props) {
 
   var Tag = ordered ? 'ol' : 'ul';
   var listItems = _react2.default.Children.map(children, function (child) {
-    if (child.displayName === 'ListItem' || child.type.name === 'ListItem') {
+    if (child.type.name === 'ListItem') {
       return _react2.default.cloneElement(child, {
         group: group,
         inline: inline

@@ -28,7 +28,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 function dropdownHOC(Component) {
-  return function (_React$PureComponent) {
+  var DropdownHOC = function (_React$PureComponent) {
     _inherits(DropdownHOC, _React$PureComponent);
 
     function DropdownHOC(props) {
@@ -111,4 +111,10 @@ function dropdownHOC(Component) {
 
     return DropdownHOC;
   }(_react2.default.PureComponent);
+
+  ;
+
+  DropdownHOC.WrappedComponent = Component;
+
+  return DropdownHOC;
 }

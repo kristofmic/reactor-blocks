@@ -73,7 +73,7 @@ export default class Collapse extends React.PureComponent {
           collapse: !show && !transitioning,
           'collapse show': show && !transitioning,
           collapsing: transitioning,
-        })}
+        }, className)}
         onTransitionEnd={this.handleTransitionEnd}
         ref={this.bindCollapse}
         style={style}

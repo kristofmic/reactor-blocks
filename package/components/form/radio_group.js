@@ -81,7 +81,7 @@ var RadioGroup = function (_React$PureComponent) {
 
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.displayName !== 'Radio' && child.type.name !== 'Radio') {
+        if (child.type.name !== 'Radio') {
           console.error(new Error('RadioGroup children should only be Radio components.'), child);
           return child;
         }

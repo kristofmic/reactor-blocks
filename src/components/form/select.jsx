@@ -39,7 +39,7 @@ class Select extends React.PureComponent {
 
   cloneOptions(children = this.props.children, value = this.state.value) {
     return React.Children.map(children, (child) => {
-      if (child.displayName === 'SelectOption' || child.type.name === 'SelectOption') {
+      if (child.type.name === 'SelectOption') {
         return React.cloneElement(child, {
           active: value && child.props.value === value.value,
           onClick: this.handleOptionClick,

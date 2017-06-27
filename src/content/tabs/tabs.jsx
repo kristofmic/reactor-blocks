@@ -79,7 +79,7 @@ export default class Tabs extends React.PureComponent {
     } = this.state;
 
     const childrenTabs = React.Children.map(children, (child) => {
-      if (child.displayName === 'Tab' || child.type.name === 'Tab') {
+      if (child.type.name === 'Tab') {
         return React.cloneElement(child, {
           active: child.props.value === activeTabState,
           fade,

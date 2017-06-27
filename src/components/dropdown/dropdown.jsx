@@ -32,7 +32,7 @@ class Dropdown extends React.PureComponent {
 
   cloneMenuItems(children = this.props.children) {
     return React.Children.map(children, (child) => {
-      if (child.displayName === 'DropdownMenuItem' || child.type.name === 'DropdownMenuItem') {
+      if (child.type.name === 'DropdownMenuItem') {
         return React.cloneElement(child, {
           onClick: this.handleMenuItemClick,
         });

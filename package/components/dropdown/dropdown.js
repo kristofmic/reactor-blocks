@@ -90,7 +90,7 @@ var Dropdown = function (_React$PureComponent) {
       var children = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props.children;
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.displayName === 'DropdownMenuItem' || child.type.name === 'DropdownMenuItem') {
+        if (child.type.name === 'DropdownMenuItem') {
           return _react2.default.cloneElement(child, {
             onClick: _this2.handleMenuItemClick
           });

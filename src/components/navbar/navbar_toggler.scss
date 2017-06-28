@@ -8,7 +8,8 @@
   padding-left: 0;
   padding-right: 0;
   outline: none;
-  transition: background-color .2s ease-out;
+  transform: translateX(0);
+  transition: background-color .2s ease-out, transform .3s ease;
   width: (38rem / 16);
 
   .navbar-toggler-icon {
@@ -49,6 +50,12 @@
   }
 
   &.active {
+    transform: translateX(15rem);
+
+    &.navbar-toggler-right {
+      transform: translateX(-15rem);
+    }
+
     .navbar-toggler-icon {
       transform: rotate(180deg);
 
@@ -72,11 +79,7 @@
 
   &.navbar-toggler-right {
     .navbar-toggler-icon {
-      .navbar-toggler-icon-bar {
-        &:nth-child(2) {
-          align-self: flex-end;
-        }
-      }
+      align-items: flex-end;
     }
   }
 }

@@ -39,13 +39,13 @@ class Playground extends React.PureComponent {
   render() {
     return (
       <div>
-        <Navbar toggleSize="md" type="faded">
-          <NavbarBrand href="#">
+        <Navbar toggleSize="md" theme="inverse" type="inverse">
+          <NavbarBrand onClick={this.handleStuff}>
             Brand
           </NavbarBrand>
-          <NavbarToggler />
-          <NavbarCollapse>
-            <NavbarNav className="mr-auto">
+          <NavbarToggler active={this.props.isMenuVisible} horizontalPosition="right" onClick={this.props.toggleMenu} />
+          <NavbarCollapse show={this.props.isMenuVisible}>
+            <NavbarNav>
               <NavItem>
                 <NavLink active>Home</NavLink>
               </NavItem>
@@ -58,19 +58,7 @@ class Playground extends React.PureComponent {
               <NavItem>
                 <NavLink disabled>Disabled</NavLink>
               </NavItem>
-              <NavItem>
-                <NavDropdown
-                  label="Navbar Dropdown"
-                  onMenuItemClick={this.handleStuff}
-                >
-                  <DropdownMenuItem value="3">Tab 3</DropdownMenuItem>
-                  <DropdownMenuItem value="4">Tab 4</DropdownMenuItem>
-                </NavDropdown>
-              </NavItem>
             </NavbarNav>
-            <NavbarText>
-              Navbar text
-            </NavbarText>
           </NavbarCollapse>
         </Navbar>
         <Container id="playground">

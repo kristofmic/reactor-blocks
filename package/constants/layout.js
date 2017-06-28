@@ -7,9 +7,13 @@ var COLUMN_WIDTHS = exports.COLUMN_WIDTHS = [1, '1', 2, '2', 3, '3', 4, '4', 5, 
 
 var COLUMN_ORDER = exports.COLUMN_ORDER = ['unordered', 'first', 'last'];
 
-var VERTICAL_ALIGNMENT = exports.VERTICAL_ALIGNMENT = ['start', 'center', 'end'];
+var ALIGNMENT = exports.ALIGNMENT = ['start', 'center', 'end'];
 
-var HORIZONTAL_ALIGNMENT = exports.HORIZONTAL_ALIGNMENT = ['start', 'center', 'end', 'around', 'between'];
+var VERTICAL_ALIGNMENT = exports.VERTICAL_ALIGNMENT = ALIGNMENT;
+
+var HORIZONTAL_ALIGNMENT = exports.HORIZONTAL_ALIGNMENT = ALIGNMENT;
+
+var HORIZONTAL_JUSTIFICATION = exports.HORIZONTAL_JUSTIFICATION = HORIZONTAL_ALIGNMENT.concat(['around', 'between']);
 
 var HORIZONTAL_POSITION = exports.HORIZONTAL_POSITION = ['left', 'right'];
 

@@ -6,7 +6,7 @@ import classnames from '../../utils/classnames';
 import {
   NAV_SPACING,
   NAV_TYPES,
-  VERTICAL_ALIGNMENT,
+  ALIGNMENT,
 } from '../../constants';
 
 export default function Nav(props) {
@@ -37,7 +37,7 @@ export default function Nav(props) {
 }
 
 Nav.propTypes = {
-  alignment: PropTypes.oneOf(VERTICAL_ALIGNMENT),
+  alignment: PropTypes.oneOf(ALIGNMENT),
   children: PropTypes.node,
   className: PropTypes.string,
   spacing: PropTypes.oneOf(NAV_SPACING),

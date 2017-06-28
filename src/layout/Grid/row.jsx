@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from '../../utils/classnames';
 
 import {
-  HORIZONTAL_ALIGNMENT,
+  HORIZONTAL_JUSTIFICATION,
   VERTICAL_ALIGNMENT,
 } from '../../constants';
 
@@ -36,7 +36,7 @@ export default function Row(props) {
 Row.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  horizontalItemAlignment: PropTypes.oneOf(HORIZONTAL_ALIGNMENT),
+  horizontalItemAlignment: PropTypes.oneOf(HORIZONTAL_JUSTIFICATION),
   noGutters: PropTypes.bool,
   verticalItemAlignment: PropTypes.oneOf(VERTICAL_ALIGNMENT),
 };

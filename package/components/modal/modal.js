@@ -24,6 +24,10 @@ var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _toggle_body_class = require('../../utils/toggle_body_class');
+
+var _toggle_body_class2 = _interopRequireDefault(_toggle_body_class);
+
 var _constants = require('../../constants');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -34,21 +38,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global window, document */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global window */
 
-
-function toggleBodyClass(className, add) {
-  var _document = document,
-      body = _document.body;
-
-  var hasClass = body.className.indexOf(className) > -1;
-
-  if (hasClass && !add) {
-    body.className = body.className.replace(className, '').trim();
-  } else if (!hasClass && add) {
-    body.className = (body.className + ' ' + className).trim();
-  }
-}
 
 var Modal = function (_React$PureComponent) {
   _inherits(Modal, _React$PureComponent);
@@ -81,7 +72,7 @@ var Modal = function (_React$PureComponent) {
             enter: false
           });
 
-          toggleBodyClass('modal-open', false);
+          (0, _toggle_body_class2.default)('modal-open', false);
         });
       }
     };
@@ -107,7 +98,7 @@ var Modal = function (_React$PureComponent) {
         return;
       }
 
-      toggleBodyClass('modal-open', true);
+      (0, _toggle_body_class2.default)('modal-open', true);
 
       _this.setState({
         enter: true

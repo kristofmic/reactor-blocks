@@ -1,26 +1,14 @@
-/* global window, document */
+/* global window */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import bindref from '../../utils/bindref';
 import classnames from '../../utils/classnames';
+import toggleBodyClass from '../../utils/toggle_body_class';
 
 import {
   SIZES,
 } from '../../constants';
-
-function toggleBodyClass(className, add) {
-  const {
-    body,
-  } = document;
-  const hasClass = body.className.indexOf(className) > -1;
-
-  if (hasClass && !add) {
-    body.className = body.className.replace(className, '').trim();
-  } else if (!hasClass && add) {
-    body.className = `${body.className} ${className}`.trim();
-  }
-}
 
 export default class Modal extends React.PureComponent {
   constructor(props) {

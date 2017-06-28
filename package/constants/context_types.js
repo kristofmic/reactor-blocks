@@ -19,7 +19,7 @@ var LIST_ITEM_CONTEXT_TYPES = exports.LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_T
 
 var LOADING_CONTEXT_TYPES = exports.LOADING_CONTEXT_TYPES = ['primary', 'default', 'white'];
 
-var NAVBAR_CONTEXT_TYPES = exports.NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'info', 'faded']);
+var NAVBAR_CONTEXT_TYPES = exports.NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'info', 'faded', 'inverse']);
 
 var TABLE_CONTEXT_TYPES = exports.TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['active']);
 

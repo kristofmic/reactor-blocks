@@ -32,19 +32,20 @@ export const COLUMN_ORDER = [
   'last',
 ];
 
-export const VERTICAL_ALIGNMENT = [
+export const ALIGNMENT = [
   'start',
   'center',
   'end',
 ];
 
-export const HORIZONTAL_ALIGNMENT = [
-  'start',
-  'center',
-  'end',
+export const VERTICAL_ALIGNMENT = ALIGNMENT;
+
+export const HORIZONTAL_ALIGNMENT = ALIGNMENT;
+
+export const HORIZONTAL_JUSTIFICATION = HORIZONTAL_ALIGNMENT.concat([
   'around',
   'between',
-];
+]);
 
 export const HORIZONTAL_POSITION = [
   'left',

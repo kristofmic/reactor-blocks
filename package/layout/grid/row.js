@@ -52,7 +52,7 @@ function Row(props) {
 Row.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  horizontalItemAlignment: _propTypes2.default.oneOf(_constants.HORIZONTAL_ALIGNMENT),
+  horizontalItemAlignment: _propTypes2.default.oneOf(_constants.HORIZONTAL_JUSTIFICATION),
   noGutters: _propTypes2.default.bool,
   verticalItemAlignment: _propTypes2.default.oneOf(_constants.VERTICAL_ALIGNMENT)
 };

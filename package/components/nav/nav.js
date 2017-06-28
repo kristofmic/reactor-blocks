@@ -49,7 +49,7 @@ function Nav(props) {
 }
 
 Nav.propTypes = {
-  alignment: _propTypes2.default.oneOf(_constants.VERTICAL_ALIGNMENT),
+  alignment: _propTypes2.default.oneOf(_constants.ALIGNMENT),
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   spacing: _propTypes2.default.oneOf(_constants.NAV_SPACING),

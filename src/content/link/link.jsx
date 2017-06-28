@@ -46,4 +46,5 @@ Link.propTypes = {
 
 Link.defaultProps = {
   className: '',
+  href: '#',
 };

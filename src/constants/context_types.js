@@ -40,6 +40,7 @@ export const NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'primary',
   'info',
   'faded',
+  'inverse',
 ]);
 
 export const TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([

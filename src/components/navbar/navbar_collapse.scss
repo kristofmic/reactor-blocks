@@ -1,0 +1,60 @@
+@import '../../styles/partials/index.scss';
+
+.navbar-toggleable {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        .navbar-collapse {
+          background-color: inherit;
+          bottom: 0;
+          display: block;
+          height: 100%;
+          min-height: 100vh;
+          left: 0;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          padding: 1rem;
+          position: fixed;
+          top: 0;
+          transform: translateX(-15rem);
+          transition: transform .35s ease;
+          width: 15rem;
+
+          &.show {
+            box-shadow: 0.25rem 0.125rem 0.75rem $black12;
+            transform: translateX(0) !important;
+          }
+        }
+
+        .navbar-toggler-right + .navbar-collapse {
+          left: initial;
+          right: 0;
+          transform: translateX(15rem);
+
+          &.show {
+            box-shadow: -0.25rem 0.125rem 0.75rem $black12;
+          }
+        }
+
+        &.navbar-light {
+          .navbar-collapse {
+            .nav-item {
+              border-bottom: 1px solid $black12;
+            }
+          }
+        }
+
+        &.navbar-inverse {
+          .navbar-collapse {
+            .nav-item {
+              border-bottom: 1px solid $white12;
+            }
+          }
+        }
+      }
+    }
+  }
+}

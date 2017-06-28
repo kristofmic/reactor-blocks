@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = Nav;
+exports.default = Pagination;
 
 var _react = require('react');
 
@@ -32,37 +32,36 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function Nav(props) {
+function Pagination(props) {
   var _classnames;
 
-  var alignment = props.alignment,
-      children = props.children,
+  var children = props.children,
       className = props.className,
-      spacing = props.spacing,
-      type = props.type,
-      vertical = props.vertical,
-      other = _objectWithoutProperties(props, ['alignment', 'children', 'className', 'spacing', 'type', 'vertical']);
+      horizontalAlignment = props.horizontalAlignment,
+      size = props.size,
+      other = _objectWithoutProperties(props, ['children', 'className', 'horizontalAlignment', 'size']);
 
   return _react2.default.createElement(
-    _list2.default,
-    _extends({
-      className: (0, _classnames3.default)('nav', (_classnames = {}, _defineProperty(_classnames, 'justify-content-' + alignment, alignment && !vertical), _defineProperty(_classnames, 'align-items-' + alignment, alignment && vertical), _defineProperty(_classnames, 'flex-column', vertical), _defineProperty(_classnames, 'nav-' + type, type), _defineProperty(_classnames, 'nav-' + spacing, spacing), _classnames), className)
-    }, other),
-    children
+    'nav',
+    _extends({ className: className }, other),
+    _react2.default.createElement(
+      _list2.default,
+      {
+        className: (0, _classnames3.default)('pagination', (_classnames = {}, _defineProperty(_classnames, 'justify-content-' + horizontalAlignment, horizontalAlignment), _defineProperty(_classnames, 'pagination-' + size, size), _classnames))
+      },
+      children
+    )
   );
 }
 
-Nav.propTypes = {
-  alignment: _propTypes2.default.oneOf(_constants.ALIGNMENT),
+Pagination.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  spacing: _propTypes2.default.oneOf(_constants.NAV_SPACING),
-  type: _propTypes2.default.oneOf(_constants.NAV_TYPES),
-  vertical: _propTypes2.default.bool
+  horizontalAlignment: _propTypes2.default.oneOf(_constants.HORIZONTAL_ALIGNMENT),
+  size: _propTypes2.default.oneOf(_constants.SIZES)
 };
 
-Nav.defaultProps = {
-  alignment: 'start',
+Pagination.defaultProps = {
   className: '',
-  vertical: false
+  size: 'md'
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import List from '../../content/list';
+
 import classnames from '../../utils/classnames';
 
 import {
@@ -21,7 +23,7 @@ export default function Nav(props) {
   } = props;
 
   return (
-    <ul
+    <List
       className={classnames('nav', {
         [`justify-content-${alignment}`]: alignment && !vertical,
         [`align-items-${alignment}`]: alignment && vertical,
@@ -32,7 +34,7 @@ export default function Nav(props) {
       {...other}
     >
       {children}
-    </ul>
+    </List>
   );
 }
 

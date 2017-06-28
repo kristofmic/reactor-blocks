@@ -16,6 +16,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _list = require('../../content/list');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -26,7 +28,7 @@ function NavItem(props) {
       other = _objectWithoutProperties(props, ['children', 'className']);
 
   return _react2.default.createElement(
-    'li',
+    _list.ListItem,
     _extends({ className: 'nav-item ' + className }, other),
     children
   );

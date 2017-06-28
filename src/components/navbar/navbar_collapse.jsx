@@ -17,7 +17,6 @@ export default class NavbarCollapse extends React.PureComponent {
     const {
       children,
       className,
-      onDismiss,
       show,
       ...other
     } = this.props;
@@ -38,7 +37,6 @@ export default class NavbarCollapse extends React.PureComponent {
 NavbarCollapse.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  onDismiss: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
 };
 

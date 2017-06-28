@@ -6,6 +6,7 @@ import Nav, { NavDropdown, NavItem, NavLink } from 'reactor-blocks/package/compo
 import Dropdown, { DropdownMenuItem } from 'reactor-blocks/package/components/dropdown';
 import Tabs, { Tab } from 'reactor-blocks/package/content/tabs';
 import Navbar, { NavbarBrand, NavbarCollapse, NavbarNav, NavbarText, NavbarToggler, navbarToggleHOC } from 'reactor-blocks/package/components/navbar';
+import Pagination, { PageItem } from 'reactor-blocks/package/components/pagination';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -64,11 +65,22 @@ class Playground extends React.PureComponent {
         <Container id="playground">
           <Row>
             <Column>
-              <Tabs activeTab>
+              <Tabs activeTab="1">
                 <Tab value="1">
                   Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
                 </Tab>
               </Tabs>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Pagination horizontalAlignment="center">
+                <PageItem disabled><i className="fa fa-angle-double-left"/></PageItem>
+                <PageItem>1</PageItem>
+                <PageItem active>2</PageItem>
+                <PageItem>3</PageItem>
+                <PageItem><i className="fa fa-angle-double-right"/></PageItem>
+              </Pagination>
             </Column>
           </Row>
         </Container>

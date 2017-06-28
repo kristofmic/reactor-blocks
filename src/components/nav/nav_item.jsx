@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { ListItem } from '../../content/list';
+
 export default function NavItem(props) {
   const {
     children,
@@ -9,9 +11,9 @@ export default function NavItem(props) {
   } = props;
 
   return (
-    <li className={`nav-item ${className}`} {...other}>
+    <ListItem className={`nav-item ${className}`} {...other}>
       {children}
-    </li>
+    </ListItem>
   );
 }
 

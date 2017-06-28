@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import List from '../../content/list';
+
 export default function NavbarNav(props) {
   const {
     children,
@@ -9,9 +11,9 @@ export default function NavbarNav(props) {
   } = props;
 
   return (
-    <ul className={`navbar-nav ${className}`} {...other}>
+    <List className={`navbar-nav ${className}`} {...other}>
       {children}
-    </ul>
+    </List>
   );
 }
 

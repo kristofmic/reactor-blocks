@@ -58,9 +58,8 @@ var NavbarCollapse = function (_React$PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
-          onDismiss = _props.onDismiss,
           show = _props.show,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'onDismiss', 'show']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'show']);
 
       return _react2.default.createElement(
         'div',
@@ -83,7 +82,6 @@ exports.default = NavbarCollapse;
 NavbarCollapse.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  onDismiss: _propTypes2.default.func.isRequired,
   show: _propTypes2.default.bool.isRequired
 };
 

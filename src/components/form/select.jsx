@@ -10,6 +10,7 @@ import {
 } from '../dropdown';
 
 import classnames from '../../utils/classnames';
+import getChildDisplayName from '../../utils/get_child_display_name';
 import noop from '../../utils/noop';
 
 import {
@@ -39,7 +40,7 @@ class Select extends React.PureComponent {
 
   cloneOptions(children = this.props.children, value = this.state.value) {
     return React.Children.map(children, (child) => {
-      if (child.type.name === 'SelectOption') {
+      if (getChildDisplayName(child) === 'SelectOption') {
         return React.cloneElement(child, {
           active: value && child.props.value === value.value,
           onClick: this.handleOptionClick,
@@ -139,7 +140,7 @@ class Select extends React.PureComponent {
     );
   }
 }
-// TODO: add validation, supporting success, warning, and danger states
+
 Select.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
@@ -171,4 +172,8 @@ Select.defaultProps = {
   up: false,
 };
 
-export default dropdownHOC(Select);
+const WrappedSelect = dropdownHOC(Select);
+
+WrappedSelect.displayName = 'Select';
+
+export default WrappedSelect;

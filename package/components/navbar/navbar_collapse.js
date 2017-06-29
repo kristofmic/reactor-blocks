@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _animate_in_hoc = require('../../utils/animate_in_hoc');
+
+var _animate_in_hoc2 = _interopRequireDefault(_animate_in_hoc);
+
 var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -58,13 +62,15 @@ var NavbarCollapse = function (_React$PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
+          enter = _props.enter,
           show = _props.show,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'show']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'enter', 'show']);
 
       return _react2.default.createElement(
         'div',
         _extends({
           className: (0, _classnames2.default)('navbar-collapse', {
+            collapse: !enter,
             show: show
           }, className)
         }, other),
@@ -76,15 +82,21 @@ var NavbarCollapse = function (_React$PureComponent) {
   return NavbarCollapse;
 }(_react2.default.PureComponent);
 
-exports.default = NavbarCollapse;
-
-
 NavbarCollapse.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  enter: _propTypes2.default.bool.isRequired,
   show: _propTypes2.default.bool.isRequired
 };
 
 NavbarCollapse.defaultProps = {
   className: ''
 };
+
+var WrappedNavbarCollapse = (0, _animate_in_hoc2.default)(NavbarCollapse, {
+  transitionDuration: 350
+});
+
+WrappedNavbarCollapse.displayName = 'NavbarCollapse';
+
+exports.default = WrappedNavbarCollapse;

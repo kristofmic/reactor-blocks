@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import getChildDisplayName from '../../utils/get_child_display_name';
 import noop from '../../utils/noop';
 
 export default class RadioGroup extends React.PureComponent {
@@ -32,7 +33,7 @@ export default class RadioGroup extends React.PureComponent {
     } = this.state;
 
     return React.Children.map(children, (child) => {
-      if (child.type.name !== 'Radio') {
+      if (getChildDisplayName(child) !== 'Radio') {
         console.error(new Error('RadioGroup children should only be Radio components.'), child);
         return child;
       }

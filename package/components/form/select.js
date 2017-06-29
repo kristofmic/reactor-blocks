@@ -26,6 +26,10 @@ var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -100,7 +104,7 @@ var Select = function (_React$PureComponent) {
       var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.state.value;
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.type.name === 'SelectOption') {
+        if ((0, _get_child_display_name2.default)(child) === 'SelectOption') {
           return _react2.default.cloneElement(child, {
             active: value && child.props.value === value.value,
             onClick: _this2.handleOptionClick
@@ -179,8 +183,6 @@ var Select = function (_React$PureComponent) {
 
   return Select;
 }(_react2.default.PureComponent);
-// TODO: add validation, supporting success, warning, and danger states
-
 
 Select.propTypes = {
   children: _propTypes2.default.node,
@@ -213,4 +215,8 @@ Select.defaultProps = {
   up: false
 };
 
-exports.default = (0, _dropdown.dropdownHOC)(Select);
+var WrappedSelect = (0, _dropdown.dropdownHOC)(Select);
+
+WrappedSelect.displayName = 'Select';
+
+exports.default = WrappedSelect;

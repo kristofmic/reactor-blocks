@@ -56,3 +56,5 @@ export const VERTICAL_POSITION = [
   'top',
   'bottom',
 ];
+
+export const DIRECTIONS = HORIZONTAL_POSITION.concat(VERTICAL_POSITION);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import classnames from '../../utils/classnames';
+import getChildDisplayName from '../../utils/get_child_display_name';
 
 export default function List(props) {
   const {
@@ -16,7 +17,7 @@ export default function List(props) {
 
   const Tag = ordered ? 'ol' : 'ul';
   const listItems = React.Children.map(children, (child) => {
-    if (child.type.name === 'ListItem') {
+    if (getChildDisplayName(child) === 'ListItem') {
       return React.cloneElement(child, {
         group,
         inline,

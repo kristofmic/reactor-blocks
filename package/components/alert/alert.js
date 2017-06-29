@@ -28,6 +28,10 @@ var _classnames = require('../../utils/classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -51,8 +55,9 @@ function mapChildren(children) {
     if (child.type == null) {
       return child;
     }
-    // look for shallow anchor elements or Link components (from react-router)
-    if (child.type === 'a' || child.type.name === 'Link') {
+
+    var childName = (0, _get_child_display_name2.default)(child);
+    if (childName === 'a' || childName === 'Link') {
       return _react2.default.cloneElement(child, { className: child.props.className + ' alert-link' });
     }
 

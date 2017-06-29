@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import navbarToggleHOC from './navbar_toggle_hoc';
 
 import classnames from '../../utils/classnames';
+import getChildDisplayName from '../../utils/get_child_display_name';
 
 import {
   NAVBAR_CONTEXT_TYPES,
@@ -17,28 +18,30 @@ class Navbar extends React.PureComponent {
     const {
       children,
       className,
-      hideMenu,
-      isMenuVisible,
+      hideNavbar,
+      isNavbarVisible,
       position,
-      showMenu,
+      showNavbar,
       theme,
-      toggleMenu,
+      toggleNavbar,
       toggleSize,
       type,
       ...other
     } = this.props;
 
     const navChildren = React.Children.map(children, (child) => {
-      if (child.type.name === 'NavbarCollapse') {
+      const childName = getChildDisplayName(child);
+
+      if (childName === 'NavbarCollapse') {
         return React.cloneElement(child, {
-          show: isMenuVisible,
+          show: isNavbarVisible,
         });
       }
 
-      if (child.type.name === 'NavbarToggler') {
+      if (childName === 'NavbarToggler') {
         return React.cloneElement(child, {
-          active: isMenuVisible,
-          onClick: toggleMenu,
+          active: isNavbarVisible,
+          onClick: toggleNavbar,
         });
       }
 
@@ -62,12 +65,12 @@ class Navbar extends React.PureComponent {
 Navbar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  hideMenu: PropTypes.func.isRequired,
-  isMenuVisible: PropTypes.bool.isRequired,
+  hideNavbar: PropTypes.func.isRequired,
+  isNavbarVisible: PropTypes.bool.isRequired,
   position: PropTypes.oneOf(NAVBAR_POSITION),
-  showMenu: PropTypes.func.isRequired,
+  showNavbar: PropTypes.func.isRequired,
   theme: PropTypes.oneOf(NAVBAR_THEMES),
-  toggleMenu: PropTypes.func.isRequired,
+  toggleNavbar: PropTypes.func.isRequired,
   toggleSize: PropTypes.oneOf(NAVBAR_TOGGLEABLE_SIZES),
   type: PropTypes.oneOf(NAVBAR_CONTEXT_TYPES),
 };
@@ -78,5 +81,8 @@ Navbar.defaultProps = {
   toggleSize: 'xl',
 };
 
-export default navbarToggleHOC(Navbar);
-export { Navbar };
+const WrappedNavbar = navbarToggleHOC(Navbar);
+
+WrappedNavbar.displayName = 'Navbar';
+
+export default WrappedNavbar;

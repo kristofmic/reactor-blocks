@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _animate_in_hoc = require('../../utils/animate_in_hoc');
+
+var _animate_in_hoc2 = _interopRequireDefault(_animate_in_hoc);
+
 var _bindref = require('../../utils/bindref');
 
 var _bindref2 = _interopRequireDefault(_bindref);
@@ -38,8 +42,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* global window */
-
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Modal = function (_React$PureComponent) {
   _inherits(Modal, _React$PureComponent);
@@ -50,8 +53,9 @@ var Modal = function (_React$PureComponent) {
     var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
 
     _this.handleModalClick = function (e) {
-      var onDismiss = _this.props.onDismiss;
-      var show = _this.state.show;
+      var _this$props = _this.props,
+          onDismiss = _this$props.onDismiss,
+          show = _this$props.show;
       var target = e.target;
 
 
@@ -60,80 +64,17 @@ var Modal = function (_React$PureComponent) {
       }
     };
 
-    _this.handleModalDialogTransitionEnd = function () {
-      var _this$state = _this.state,
-          enter = _this$state.enter,
-          show = _this$state.show;
-
-
-      if (!show && enter) {
-        window.requestAnimationFrame(function () {
-          _this.setState({
-            enter: false
-          });
-
-          (0, _toggle_body_class2.default)('modal-open', false);
-        });
-      }
-    };
-
-    _this.hideModal = function () {
-      var show = _this.state.show;
-
-
-      if (!show) {
-        return;
-      }
-
-      _this.setState({
-        show: false
-      });
-    };
-
-    _this.showModal = function () {
-      var show = _this.state.show;
-
-
-      if (show) {
-        return;
-      }
-
-      (0, _toggle_body_class2.default)('modal-open', true);
-
-      _this.setState({
-        enter: true
-      }, function () {
-        window.requestAnimationFrame(function () {
-          _this.setState({
-            show: true
-          });
-        });
-      });
-    };
-
-    _this.state = {
-      enter: false,
-      show: false
-    };
-
     _this.bindModal = (0, _bindref2.default)('modal', _this);
     return _this;
   }
 
   _createClass(Modal, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      if (this.props.show) {
-        this.showModal();
-      }
-    }
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.show && !this.props.show && !this.state.show) {
-        this.showModal();
-      } else if (!nextProps.show && this.props.show && this.state.show) {
-        this.hideModal();
+      if (nextProps.show && !this.props.show) {
+        (0, _toggle_body_class2.default)('modal-open', true);
+      } else if (!nextProps.show && this.props.show) {
+        (0, _toggle_body_class2.default)('modal-open', false);
       }
     }
   }, {
@@ -142,15 +83,11 @@ var Modal = function (_React$PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
+          enter = _props.enter,
           onDismiss = _props.onDismiss,
           show = _props.show,
           size = _props.size,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'onDismiss', 'show', 'size']);
-
-      var _state = this.state,
-          enter = _state.enter,
-          stateShow = _state.show;
-
+          other = _objectWithoutProperties(_props, ['children', 'className', 'enter', 'onDismiss', 'show', 'size']);
 
       return _react2.default.createElement(
         'div',
@@ -160,7 +97,7 @@ var Modal = function (_React$PureComponent) {
           _extends({
             className: (0, _classnames2.default)('modal fade', {
               'd-block': enter,
-              show: stateShow
+              show: show
             }, className),
             onClick: this.handleModalClick,
             ref: this.bindModal,
@@ -169,10 +106,7 @@ var Modal = function (_React$PureComponent) {
           }, other),
           _react2.default.createElement(
             'div',
-            {
-              className: 'modal-dialog modal-' + size,
-              onTransitionEnd: this.handleModalDialogTransitionEnd
-            },
+            { className: 'modal-dialog modal-' + size },
             _react2.default.createElement(
               'div',
               { className: 'modal-content' },
@@ -182,7 +116,7 @@ var Modal = function (_React$PureComponent) {
         ),
         enter && _react2.default.createElement('div', {
           className: (0, _classnames2.default)('modal-backdrop fade', {
-            show: stateShow
+            show: show
           })
         })
       );
@@ -192,12 +126,10 @@ var Modal = function (_React$PureComponent) {
   return Modal;
 }(_react2.default.PureComponent);
 
-exports.default = Modal;
-
-
 Modal.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  enter: _propTypes2.default.bool.isRequired,
   onDismiss: _propTypes2.default.func.isRequired,
   show: _propTypes2.default.bool.isRequired,
   size: _propTypes2.default.oneOf(_constants.SIZES)
@@ -207,3 +139,11 @@ Modal.defaultProps = {
   className: '',
   size: 'md'
 };
+
+var WrappedModal = (0, _animate_in_hoc2.default)(Modal, {
+  transitionDuration: 300
+});
+
+WrappedModal.displayName = 'Modal';
+
+exports.default = WrappedModal;

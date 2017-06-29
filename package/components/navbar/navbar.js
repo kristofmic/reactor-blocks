@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Navbar = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -24,6 +23,10 @@ var _navbar_toggle_hoc2 = _interopRequireDefault(_navbar_toggle_hoc);
 var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
+
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
 
 var _constants = require('../../constants');
 
@@ -56,27 +59,29 @@ var Navbar = function (_React$PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
-          hideMenu = _props.hideMenu,
-          isMenuVisible = _props.isMenuVisible,
+          hideNavbar = _props.hideNavbar,
+          isNavbarVisible = _props.isNavbarVisible,
           position = _props.position,
-          showMenu = _props.showMenu,
+          showNavbar = _props.showNavbar,
           theme = _props.theme,
-          toggleMenu = _props.toggleMenu,
+          toggleNavbar = _props.toggleNavbar,
           toggleSize = _props.toggleSize,
           type = _props.type,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'hideMenu', 'isMenuVisible', 'position', 'showMenu', 'theme', 'toggleMenu', 'toggleSize', 'type']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'hideNavbar', 'isNavbarVisible', 'position', 'showNavbar', 'theme', 'toggleNavbar', 'toggleSize', 'type']);
 
       var navChildren = _react2.default.Children.map(children, function (child) {
-        if (child.type.name === 'NavbarCollapse') {
+        var childName = (0, _get_child_display_name2.default)(child);
+
+        if (childName === 'NavbarCollapse') {
           return _react2.default.cloneElement(child, {
-            show: isMenuVisible
+            show: isNavbarVisible
           });
         }
 
-        if (child.type.name === 'NavbarToggler') {
+        if (childName === 'NavbarToggler') {
           return _react2.default.cloneElement(child, {
-            active: isMenuVisible,
-            onClick: toggleMenu
+            active: isNavbarVisible,
+            onClick: toggleNavbar
           });
         }
 
@@ -99,12 +104,12 @@ var Navbar = function (_React$PureComponent) {
 Navbar.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  hideMenu: _propTypes2.default.func.isRequired,
-  isMenuVisible: _propTypes2.default.bool.isRequired,
+  hideNavbar: _propTypes2.default.func.isRequired,
+  isNavbarVisible: _propTypes2.default.bool.isRequired,
   position: _propTypes2.default.oneOf(_constants.NAVBAR_POSITION),
-  showMenu: _propTypes2.default.func.isRequired,
+  showNavbar: _propTypes2.default.func.isRequired,
   theme: _propTypes2.default.oneOf(_constants.NAVBAR_THEMES),
-  toggleMenu: _propTypes2.default.func.isRequired,
+  toggleNavbar: _propTypes2.default.func.isRequired,
   toggleSize: _propTypes2.default.oneOf(_constants.NAVBAR_TOGGLEABLE_SIZES),
   type: _propTypes2.default.oneOf(_constants.NAVBAR_CONTEXT_TYPES)
 };
@@ -115,5 +120,8 @@ Navbar.defaultProps = {
   toggleSize: 'xl'
 };
 
-exports.default = (0, _navbar_toggle_hoc2.default)(Navbar);
-exports.Navbar = Navbar;
+var WrappedNavbar = (0, _navbar_toggle_hoc2.default)(Navbar);
+
+WrappedNavbar.displayName = 'Navbar';
+
+exports.default = WrappedNavbar;

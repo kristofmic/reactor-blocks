@@ -7,6 +7,7 @@ import DropdownWrapper from './dropdown_wrapper';
 
 import dropdownHOC from './dropdown_hoc';
 
+import getChildDisplayName from '../../utils/get_child_display_name';
 import noop from '../../utils/noop';
 
 import {
@@ -32,7 +33,7 @@ class Dropdown extends React.PureComponent {
 
   cloneMenuItems(children = this.props.children) {
     return React.Children.map(children, (child) => {
-      if (child.type.name === 'DropdownMenuItem') {
+      if (getChildDisplayName(child) === 'DropdownMenuItem') {
         return React.cloneElement(child, {
           onClick: this.handleMenuItemClick,
         });
@@ -118,4 +119,8 @@ Dropdown.defaultProps = {
   up: false,
 };
 
-export default dropdownHOC(Dropdown);
+const WrappedDropdown = dropdownHOC(Dropdown);
+
+WrappedDropdown.displayName = 'Dropdown';
+
+export default WrappedDropdown;

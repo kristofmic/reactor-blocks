@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import animateInHOC from '../../utils/animate_in_hoc';
 import classnames from '../../utils/classnames';
 import toggleBodyClass from '../../utils/toggle_body_class';
 
-export default class NavbarCollapse extends React.PureComponent {
+class NavbarCollapse extends React.PureComponent {
   componentWillReceiveProps(nextProps) {
     if (nextProps.show && !this.props.show) {
       toggleBodyClass('modal-open', true);
@@ -17,6 +18,7 @@ export default class NavbarCollapse extends React.PureComponent {
     const {
       children,
       className,
+      enter,
       show,
       ...other
     } = this.props;
@@ -24,6 +26,7 @@ export default class NavbarCollapse extends React.PureComponent {
     return (
       <div
         className={classnames('navbar-collapse', {
+          collapse: !enter,
           show,
         }, className)}
         {...other}
@@ -37,9 +40,18 @@ export default class NavbarCollapse extends React.PureComponent {
 NavbarCollapse.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  enter: PropTypes.bool.isRequired,
   show: PropTypes.bool.isRequired,
 };
 
 NavbarCollapse.defaultProps = {
   className: '',
 };
+
+const WrappedNavbarCollapse = animateInHOC(NavbarCollapse, {
+  transitionDuration: 350,
+});
+
+WrappedNavbarCollapse.displayName = 'NavbarCollapse';
+
+export default WrappedNavbarCollapse;

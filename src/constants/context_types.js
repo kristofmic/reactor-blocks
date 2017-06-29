@@ -43,6 +43,10 @@ export const NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'inverse',
 ]);
 
+export const PROGRESS_BAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
+  'primary',
+]);
+
 export const TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'active',
 ]);

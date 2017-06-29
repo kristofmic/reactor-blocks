@@ -21,6 +21,8 @@ var LOADING_CONTEXT_TYPES = exports.LOADING_CONTEXT_TYPES = ['primary', 'default
 
 var NAVBAR_CONTEXT_TYPES = exports.NAVBAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'info', 'faded', 'inverse']);
 
+var PROGRESS_BAR_CONTEXT_TYPES = exports.PROGRESS_BAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary']);
+
 var TABLE_CONTEXT_TYPES = exports.TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['active']);
 
 var TEXT_CONTEXT_TYPES = exports.TEXT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'muted']);

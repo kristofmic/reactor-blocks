@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -81,7 +85,7 @@ var RadioGroup = function (_React$PureComponent) {
 
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.type.name !== 'Radio') {
+        if ((0, _get_child_display_name2.default)(child) !== 'Radio') {
           console.error(new Error('RadioGroup children should only be Radio components.'), child);
           return child;
         }

@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -113,7 +117,7 @@ var Tabs = function (_React$PureComponent) {
 
 
       var childrenTabs = _react2.default.Children.map(children, function (child) {
-        if (child.type.name === 'Tab') {
+        if ((0, _get_child_display_name2.default)(child) === 'Tab') {
           return _react2.default.cloneElement(child, {
             active: child.props.value === activeTabState,
             fade: fade,

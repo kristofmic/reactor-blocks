@@ -32,6 +32,10 @@ var _dropdown_hoc = require('./dropdown_hoc');
 
 var _dropdown_hoc2 = _interopRequireDefault(_dropdown_hoc);
 
+var _get_child_display_name = require('../../utils/get_child_display_name');
+
+var _get_child_display_name2 = _interopRequireDefault(_get_child_display_name);
+
 var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
@@ -90,7 +94,7 @@ var Dropdown = function (_React$PureComponent) {
       var children = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props.children;
 
       return _react2.default.Children.map(children, function (child) {
-        if (child.type.name === 'DropdownMenuItem') {
+        if ((0, _get_child_display_name2.default)(child) === 'DropdownMenuItem') {
           return _react2.default.cloneElement(child, {
             onClick: _this2.handleMenuItemClick
           });
@@ -171,4 +175,8 @@ Dropdown.defaultProps = {
   up: false
 };
 
-exports.default = (0, _dropdown_hoc2.default)(Dropdown);
+var WrappedDropdown = (0, _dropdown_hoc2.default)(Dropdown);
+
+WrappedDropdown.displayName = 'Dropdown';
+
+exports.default = WrappedDropdown;

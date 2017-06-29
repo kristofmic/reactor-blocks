@@ -1,3 +1,6 @@
+@import '../../styles/partials/index.scss';
+
 .navbar {
   min-height: (56rem / 16);
+  z-index: $zindex-navbar;
 }

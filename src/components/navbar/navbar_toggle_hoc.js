@@ -1,9 +1,6 @@
-import { dropdownHOC } from '../dropdown';
+import toggleComponentHOCFactory from '../../utils/toggle_component_hoc_factory';
 
-export default function navbarToggleHOC(Component) {
-  const NavbarToggleHOC = dropdownHOC(Component);
-
-  NavbarToggleHOC.displayName = 'NavbarToggleHOC';
-
-  return NavbarToggleHOC;
-}
+export default toggleComponentHOCFactory({
+  autoDismiss: true,
+  name: 'Navbar',
+});

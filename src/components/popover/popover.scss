@@ -1,0 +1,43 @@
+@import '../../styles/partials/index.scss';
+
+.popover {
+  width: 100%;
+
+  &.popover-top {
+    box-shadow: 0 -0.125rem 0.375rem $black12;
+    bottom: 100%;
+    top: initial;
+    @include horizontal-center;
+  }
+
+  &.popover-right {
+    box-shadow: 0.125rem 0 0.375rem $black12;
+    left: 100%;
+    @include vertical-center;
+  }
+
+  &.popover-bottom {
+    box-shadow: 0 0.125rem 0.375rem $black12;
+    top: 100%;
+    @include horizontal-center;
+
+    &.popover-no-title:after {
+      border-bottom-color: $white;
+    }
+  }
+
+  &.popover-left {
+    box-shadow: -0.125rem 0 0.375rem $black12;
+    left: initial;
+    right: 100%;
+    @include vertical-center;
+  }
+
+  &.bs-tether-element-attached-bottom {
+    margin-bottom: 10px;
+  }
+
+  &.bs-tether-element-attached-right {
+    margin-right: 10px;
+  }
+}

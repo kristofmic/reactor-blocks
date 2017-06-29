@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import getChildDisplayName from '../../utils/get_child_display_name';
+
 export default class Tabs extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -79,7 +81,7 @@ export default class Tabs extends React.PureComponent {
     } = this.state;
 
     const childrenTabs = React.Children.map(children, (child) => {
-      if (child.type.name === 'Tab') {
+      if (getChildDisplayName(child) === 'Tab') {
         return React.cloneElement(child, {
           active: child.props.value === activeTabState,
           fade,

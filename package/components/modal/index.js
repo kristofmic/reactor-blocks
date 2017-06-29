@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ModalTitle = exports.ModalHeader = exports.ModalFooter = exports.ModalBody = undefined;
+exports.modalHOC = exports.ModalTitle = exports.ModalHeader = exports.ModalFooter = exports.ModalBody = undefined;
 
 var _modal = require('./modal');
 
@@ -25,6 +25,10 @@ var _modal_title = require('./modal_title');
 
 var _modal_title2 = _interopRequireDefault(_modal_title);
 
+var _modal_hoc = require('./modal_hoc');
+
+var _modal_hoc2 = _interopRequireDefault(_modal_hoc);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _modal2.default;
@@ -32,3 +36,4 @@ exports.ModalBody = _modal_body2.default;
 exports.ModalFooter = _modal_footer2.default;
 exports.ModalHeader = _modal_header2.default;
 exports.ModalTitle = _modal_title2.default;
+exports.modalHOC = _modal_hoc2.default;

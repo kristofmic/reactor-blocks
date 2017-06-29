@@ -1,7 +1,7 @@
 .dropdown-menu {
-  &.show {
-    display: block;
-  }
+  display: block;
+  max-height: 25rem;
+  overflow-y: scroll;
 
   &.dropup {
     bottom: 100%;

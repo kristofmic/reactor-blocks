@@ -5,6 +5,7 @@ import Dismiss from '../dismiss';
 import Heading from '../../content/heading';
 
 import classnames from '../../utils/classnames';
+import getChildDisplayName from '../../utils/get_child_display_name';
 import noop from '../../utils/noop';
 
 import { ALERT_CONTEXT_TYPES } from '../../constants';
@@ -16,8 +17,9 @@ function mapChildren(children) {
     if (child.type == null) {
       return child;
     }
-    // look for shallow anchor elements or Link components (from react-router)
-    if (child.type === 'a' || child.type.name === 'Link') {
+
+    const childName = getChildDisplayName(child);
+    if (childName === 'a' || childName === 'Link') {
       return React.cloneElement(child, { className: `${child.props.className} alert-link` });
     }
 

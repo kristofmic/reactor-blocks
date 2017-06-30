@@ -14,14 +14,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _popover_content = require('./popover_content');
-
-var _popover_content2 = _interopRequireDefault(_popover_content);
-
-var _popover_title = require('./popover_title');
-
-var _popover_title2 = _interopRequireDefault(_popover_title);
-
 var _animate_in_hoc = require('../../utils/animate_in_hoc');
 
 var _animate_in_hoc2 = _interopRequireDefault(_animate_in_hoc);
@@ -36,62 +28,48 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var OPPOSITE_PLACEMENT = {
-  bottom: 'top',
-  left: 'right',
-  right: 'left',
-  top: 'bottom'
-};
-
-function Popover(props) {
+function Tooltip(props) {
   var children = props.children,
       className = props.className,
       enter = props.enter,
       placement = props.placement,
       show = props.show,
-      title = props.title,
-      other = _objectWithoutProperties(props, ['children', 'className', 'enter', 'placement', 'show', 'title']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'enter', 'placement', 'show']);
 
   return _react2.default.createElement(
     'div',
     _extends({
-      className: (0, _classnames2.default)('popover fade', 'popover-' + placement + ' bs-tether-element-attached-' + OPPOSITE_PLACEMENT[placement], {
+      className: (0, _classnames2.default)('tooltip fade', 'tooltip-' + placement, {
         'd-none': !enter,
-        show: show,
-        'popover-no-title': !title
-      }, className)
+        show: show
+      }, className),
+      role: 'tooltip'
     }, other),
-    !!title && _react2.default.createElement(
-      _popover_title2.default,
-      null,
-      title
-    ),
     _react2.default.createElement(
-      _popover_content2.default,
-      null,
+      'div',
+      { className: 'tooltip-inner' },
       children
     )
   );
 }
 
-Popover.propTypes = {
+Tooltip.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   enter: _propTypes2.default.bool.isRequired,
   placement: _propTypes2.default.oneOf(_constants.DIRECTIONS),
-  show: _propTypes2.default.bool.isRequired,
-  title: _propTypes2.default.string
+  show: _propTypes2.default.bool.isRequired
 };
 
-Popover.defaultProps = {
+Tooltip.defaultProps = {
   className: '',
   placement: 'right'
 };
 
-var WrappedPopover = (0, _animate_in_hoc2.default)(Popover, {
+var WrappedTooltip = (0, _animate_in_hoc2.default)(Tooltip, {
   transitionDuration: 150
 });
 
-WrappedPopover.displayName = 'Popover';
+WrappedTooltip.displayName = 'Tooltip';
 
-exports.default = WrappedPopover;
+exports.default = WrappedTooltip;

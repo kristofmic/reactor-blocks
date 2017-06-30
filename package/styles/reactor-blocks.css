@@ -3091,6 +3091,75 @@ input.form-control.has-danger {
 	display: inline-block;
 	position: relative;
 }
+.progress .progress-bar {
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.tooltip {
+	white-space: nowrap;
+}
+.tooltip.tooltip-top {
+	bottom: 100%;
+	margin-bottom: 3px;
+	top: initial;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.tooltip.tooltip-top .tooltip-inner {
+	-webkit-box-shadow: 0 -0.125rem 0.375rem rgba(0, 0, 0, 0.12);
+	box-shadow: 0 -0.125rem 0.375rem rgba(0, 0, 0, 0.12);
+}
+.tooltip.tooltip-right {
+	left: 100%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.tooltip.tooltip-right .tooltip-inner {
+	-webkit-box-shadow: 0.125rem 0 0.375rem rgba(0, 0, 0, 0.12);
+	box-shadow: 0.125rem 0 0.375rem rgba(0, 0, 0, 0.12);
+}
+.tooltip.tooltip-bottom {
+	top: 100%;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.tooltip.tooltip-bottom .tooltip-inner {
+	-webkit-box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.12);
+	box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.12);
+}
+.tooltip.tooltip-left {
+	left: initial;
+	margin-right: 3px;
+	right: 100%;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.tooltip.tooltip-left .tooltip-inner {
+	-webkit-box-shadow: -0.125rem 0 0.375rem rgba(0, 0, 0, 0.12);
+	box-shadow: -0.125rem 0 0.375rem rgba(0, 0, 0, 0.12);
+}
+.tooltip-wrapper {
+	display: inline-block;
+	position: relative;
+}
 a {
 	-webkit-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;

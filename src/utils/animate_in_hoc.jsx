@@ -24,42 +24,15 @@ export default function animateInHOC(Component, config = {}) {
     }
 
     componentWillReceiveProps(nextProps) {
-      if (nextProps.show && !this.props.show && !this.state.show) {
+      console.log(nextProps, this.props);
+      if (nextProps.show && !this.props.show) {
         this.showComponent();
-      } else if (!nextProps.show && this.props.show && this.state.show) {
+      } else if (!nextProps.show && this.props.show) {
         this.hideComponent();
       }
     }
 
-    hideComponent = () => {
-      const {
-        show,
-      } = this.state;
-
-      if (!show) {
-        return;
-      }
-
-      this.setState({
-        show: false,
-      }, () => {
-        setTimeout(() => {
-          this.setState({
-            enter: false,
-          });
-        }, transitionDuration);
-      });
-    }
-
-    showComponent = () => {
-      const {
-        show,
-      } = this.state;
-
-      if (show) {
-        return;
-      }
-
+    animateIn = () => {
       this.setState({
         enter: true,
       }, () => {
@@ -67,14 +40,71 @@ export default function animateInHOC(Component, config = {}) {
           this.setState({
             show: true,
           });
+
+          this.showTimeout = null;
         });
       });
     }
 
+    animateOut = () => {
+      this.setState({
+        show: false,
+      }, () => {
+        setTimeout(() => {
+          this.setState({
+            enter: false,
+          });
+
+          this.showTimeout = null;
+        }, transitionDuration);
+      });
+    }
+
+    hideComponent = () => {
+      const {
+        show,
+      } = this.state;
+
+      if (this.showTimeout) {
+        clearTimeout(this.showTimeout);
+        this.showTimeout = null;
+      }
+
+      if (!show) {
+        return;
+      }
+
+      this.animateOut();
+    }
+
+    showComponent = () => {
+      const {
+        delay,
+      } = this.props;
+      const {
+        show,
+      } = this.state;
+
+      if (show || this.showTimeout) {
+        return;
+      }
+
+      if (delay) {
+        this.showTimeout = setTimeout(this.animateIn, delay);
+      } else {
+        this.animateIn();
+      }
+    }
+
     render() {
+      const {
+        delay,
+        ...other
+      } = this.props;
+
       return (
         <Component
-          {...this.props}
+          {...other}
           {...this.state}
         />
       );
@@ -82,6 +112,7 @@ export default function animateInHOC(Component, config = {}) {
   }
 
   AnimateInHOC.propTypes = {
+    delay: PropTypes.number,
     show: PropTypes.bool,
   };
 

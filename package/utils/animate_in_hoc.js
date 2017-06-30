@@ -20,6 +20,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -40,33 +42,7 @@ function animateInHOC(Component) {
 
       var _this = _possibleConstructorReturn(this, (AnimateInHOC.__proto__ || Object.getPrototypeOf(AnimateInHOC)).call(this, props));
 
-      _this.hideComponent = function () {
-        var show = _this.state.show;
-
-
-        if (!show) {
-          return;
-        }
-
-        _this.setState({
-          show: false
-        }, function () {
-          setTimeout(function () {
-            _this.setState({
-              enter: false
-            });
-          }, transitionDuration);
-        });
-      };
-
-      _this.showComponent = function () {
-        var show = _this.state.show;
-
-
-        if (show) {
-          return;
-        }
-
+      _this.animateIn = function () {
         _this.setState({
           enter: true
         }, function () {
@@ -74,8 +50,56 @@ function animateInHOC(Component) {
             _this.setState({
               show: true
             });
+
+            _this.showTimeout = null;
           });
         });
+      };
+
+      _this.animateOut = function () {
+        _this.setState({
+          show: false
+        }, function () {
+          setTimeout(function () {
+            _this.setState({
+              enter: false
+            });
+
+            _this.showTimeout = null;
+          }, transitionDuration);
+        });
+      };
+
+      _this.hideComponent = function () {
+        var show = _this.state.show;
+
+
+        if (_this.showTimeout) {
+          clearTimeout(_this.showTimeout);
+          _this.showTimeout = null;
+        }
+
+        if (!show) {
+          return;
+        }
+
+        _this.animateOut();
+      };
+
+      _this.showComponent = function () {
+        var delay = _this.props.delay;
+        var show = _this.state.show;
+
+
+        if (show || _this.showTimeout) {
+          return;
+        }
+
+        if (delay) {
+          _this.showTimeout = setTimeout(_this.animateIn, delay);
+        } else {
+          _this.animateIn();
+        }
       };
 
       _this.state = {
@@ -95,16 +119,21 @@ function animateInHOC(Component) {
     }, {
       key: 'componentWillReceiveProps',
       value: function componentWillReceiveProps(nextProps) {
-        if (nextProps.show && !this.props.show && !this.state.show) {
+        console.log(nextProps, this.props);
+        if (nextProps.show && !this.props.show) {
           this.showComponent();
-        } else if (!nextProps.show && this.props.show && this.state.show) {
+        } else if (!nextProps.show && this.props.show) {
           this.hideComponent();
         }
       }
     }, {
       key: 'render',
       value: function render() {
-        return _react2.default.createElement(Component, _extends({}, this.props, this.state));
+        var _props = this.props,
+            delay = _props.delay,
+            other = _objectWithoutProperties(_props, ['delay']);
+
+        return _react2.default.createElement(Component, _extends({}, other, this.state));
       }
     }]);
 
@@ -112,6 +141,7 @@ function animateInHOC(Component) {
   }(_react2.default.PureComponent);
 
   AnimateInHOC.propTypes = {
+    delay: _propTypes2.default.number,
     show: _propTypes2.default.bool
   };
 

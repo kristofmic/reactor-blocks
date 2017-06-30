@@ -1,0 +1,45 @@
+@import '../../styles/partials/index.scss';
+
+.tooltip {
+  white-space: nowrap;
+
+  &.tooltip-top {
+    bottom: 100%;
+    margin-bottom: 3px;
+    top: initial;
+    @include horizontal-center;
+
+    .tooltip-inner {
+      box-shadow: 0 -0.125rem 0.375rem $black12;
+    }
+  }
+
+  &.tooltip-right {
+    left: 100%;
+    @include vertical-center;
+
+    .tooltip-inner {
+      box-shadow: 0.125rem 0 0.375rem $black12;
+    }
+  }
+
+  &.tooltip-bottom {
+    top: 100%;
+    @include horizontal-center;
+
+    .tooltip-inner {
+      box-shadow: 0 0.125rem 0.375rem $black12;
+    }
+  }
+
+  &.tooltip-left {
+    left: initial;
+    margin-right: 3px;
+    right: 100%;
+    @include vertical-center;
+
+    .tooltip-inner {
+      box-shadow: -0.125rem 0 0.375rem $black12;
+    }
+  }
+}

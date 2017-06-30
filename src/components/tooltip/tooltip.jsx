@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PopoverContent from './popover_content';
-import PopoverTitle from './popover_title';
-
 import animateInHOC from '../../utils/animate_in_hoc';
 import classnames from '../../utils/classnames';
 
@@ -11,64 +8,52 @@ import {
   DIRECTIONS,
 } from '../../constants';
 
-const OPPOSITE_PLACEMENT = {
-  bottom: 'top',
-  left: 'right',
-  right: 'left',
-  top: 'bottom',
-};
-
-function Popover(props) {
+function Tooltip(props) {
   const {
     children,
     className,
     enter,
     placement,
     show,
-    title,
     ...other
   } = props;
 
   return (
     <div
-      className={classnames('popover fade',
-        `popover-${placement} bs-tether-element-attached-${OPPOSITE_PLACEMENT[placement]}`,
+      className={classnames('tooltip fade',
+        `tooltip-${placement}`,
         {
           'd-none': !enter,
           show,
-          'popover-no-title': !title,
         },
       className)}
+      role="tooltip"
       {...other}
     >
-      {!!title && (
-        <PopoverTitle>{title}</PopoverTitle>
-      )}
-      <PopoverContent>
+      <div className="tooltip-inner">
         {children}
-      </PopoverContent>
+      </div>
     </div>
   );
 }
 
-Popover.propTypes = {
+Tooltip.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   enter: PropTypes.bool.isRequired,
   placement: PropTypes.oneOf(DIRECTIONS),
   show: PropTypes.bool.isRequired,
-  title: PropTypes.string,
 };
 
-Popover.defaultProps = {
+Tooltip.defaultProps = {
   className: '',
   placement: 'right',
 };
 
-const WrappedPopover = animateInHOC(Popover, {
+const WrappedTooltip = animateInHOC(Tooltip, {
   transitionDuration: 150,
 });
 
-WrappedPopover.displayName = 'Popover';
+WrappedTooltip.displayName = 'Tooltip';
 
-export default WrappedPopover;
+export default WrappedTooltip;

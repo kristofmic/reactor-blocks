@@ -8,6 +8,7 @@ import Tabs, { Tab } from 'reactor-blocks/package/content/tabs';
 import Navbar, { NavbarBrand, NavbarCollapse, NavbarNav, NavbarText, NavbarToggler } from 'reactor-blocks/package/components/navbar';
 import Popover, { PopoverWrapper, popoverHOC } from 'reactor-blocks/package/components/popover';
 import Modal, { ModalBody, modalHOC } from 'reactor-blocks/package/components/modal';
+import Tooltip, { TooltipWrapper } from 'reactor-blocks/package/components/tooltip';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -66,12 +67,12 @@ class Playground extends React.PureComponent {
         <Container id="playground">
           <Row>
             <Column>
-              <PopoverWrapper>
+              <TooltipWrapper>
                 <Button onClick={this.props.togglePopover}>Toggle Popover</Button>
-                <Popover show={this.props.isPopoverVisible}>
-                    Raw denim you probably haven't heard of them jean shorts Austin.
-                </Popover>
-              </PopoverWrapper>
+                <Tooltip delay={500} placement="right" show={this.props.isPopoverVisible}>
+                    Raw denim
+                </Tooltip>
+              </TooltipWrapper>
             </Column>
           </Row>
         </Container>

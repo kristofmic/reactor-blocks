@@ -64,6 +64,7 @@ function toggleComponentHOCFactory() {
 
 
           if (isComponentVisible) {
+            console.log('hiding component');
             _this.setState({
               isComponentVisible: false
             });

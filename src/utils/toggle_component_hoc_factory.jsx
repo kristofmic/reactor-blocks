@@ -50,6 +50,7 @@ export default function toggleComponentHOCFactory(config = {}) {
         } = this.state;
 
         if (isComponentVisible) {
+          console.log('hiding component');
           this.setState({
             isComponentVisible: false,
           });

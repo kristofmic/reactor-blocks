@@ -13,6 +13,8 @@ import classnames from '../../utils/classnames';
 import getChildDisplayName from '../../utils/get_child_display_name';
 import noop from '../../utils/noop';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   HORIZONTAL_POSITION,
   INPUT_CONTEXT_STATES,
@@ -30,8 +32,8 @@ class Select extends React.PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value != null &&
-        nextProps.value !== this.props.value &&
-        nextProps.value !== this.state.value) {
+      nextProps.value !== this.props.value &&
+      nextProps.value !== this.state.value) {
       this.setState({
         value: nextProps.value,
       });
@@ -100,7 +102,7 @@ class Select extends React.PureComponent {
     const options = this.cloneOptions();
 
     return (
-      <DropdownWrapper className={`d-block ${className}`} {...other}>
+      <DropdownWrapper className={`${CLASSES.DISPLAY.BLOCK} ${className}`} {...other}>
         <div
           className={classnames(`form-control form-control-${size} select`, {
             [`has-${state}`]: state,
@@ -108,13 +110,13 @@ class Select extends React.PureComponent {
           onClick={toggleMenu}
         >
           <DropdownToggleIcon
-            className="float-right"
+            className={CLASSES.FLOAT.RIGHT}
             show={isMenuVisible}
             up={up}
           />
           {(!required && stateValue != null) && (
             <Dismiss
-              className="float-right mr-1"
+              className={`${CLASSES.FLOAT.RIGHT} ${CLASSES.MARGIN.RIGHT_1}`}
               onClick={this.handleDismiss}
             />
           )}

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function Blockquote(props) {
   const {
     children,
@@ -21,10 +23,10 @@ export default function Blockquote(props) {
       {...other}
     >
       {(React.Children.count(children) === 1) ? (
-        <p className="mb-0">{children}</p>
+        <p className={CLASSES.MARGIN.BOTTOM_0}>{children}</p>
       ) : (
-        children
-      )}
+          children
+        )}
       {(footer) && (
         <footer className="blockquote-footer">
           {footer}

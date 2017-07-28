@@ -5,6 +5,8 @@ import Loading from '../loading';
 
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   BUTTON_CONTEXT_TYPES,
   SIZES,
@@ -66,7 +68,7 @@ export default class Button extends React.PureComponent {
             />
           )}
           {(!!icon && !loading) && (
-            <i className={`mr-1 ${icon}`} />
+            <i className={`${CLASSES.MARGIN.RIGHT_1} ${icon}`} />
           )}
           {children}
         </div>

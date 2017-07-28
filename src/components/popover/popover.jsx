@@ -7,6 +7,8 @@ import PopoverTitle from './popover_title';
 import animateInHOC from '../../utils/animate_in_hoc';
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   DIRECTIONS,
 } from '../../constants';
@@ -34,11 +36,11 @@ function Popover(props) {
       className={classnames('popover fade',
         `popover-${placement} bs-tether-element-attached-${OPPOSITE_PLACEMENT[placement]}`,
         {
-          'd-none': !enter,
+          [CLASSES.DISPLAY.NONE]: !enter,
           show,
           'popover-no-title': !title,
         },
-      className)}
+        className)}
       {...other}
     >
       {!!title && (

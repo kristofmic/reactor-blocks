@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   LOADING_CONTEXT_TYPES,
   SIZES,
@@ -19,7 +21,7 @@ export default function Loading(props) {
     <div className={`loading loading-${size} loading-${type} ${className}`} {...other}>
       <div className="loading-icon" />
       {text && (
-        <p className="loading-text my-0">{text}</p>
+        <p className={`loading-text ${CLASSES.MARGIN.Y_0}`}>{text}</p>
       )}
     </div>
   );

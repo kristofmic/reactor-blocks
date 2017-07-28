@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function CarouselCaption(props) {
   const {
     children,
@@ -10,7 +12,7 @@ export default function CarouselCaption(props) {
 
   return (
     <div
-      className={`carousel-caption d-none d-md-block ${className}`}
+      className={`carousel-caption ${CLASSES.DISPLAY.NONE} ${CLASSES.DISPLAY.MD_BLOCK} ${className}`}
       {...other}
     >
       {children}

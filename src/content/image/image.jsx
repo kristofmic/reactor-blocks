@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function Image(props) {
   const {
     alt,
@@ -26,7 +28,8 @@ export default function Image(props) {
       className={classnames({
         'img-fluid': responsive,
         'img-thumbnail': thumbnail,
-        'mx-auto d-block': center,
+        [CLASSES.MARGIN.X_AUTO]: center,
+        [CLASSES.DISPLAY.BLOCK]: center,
         rounded,
       }, className)}
       src={source || src}

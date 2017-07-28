@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import animateInHOC from '../../utils/animate_in_hoc';
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   DIRECTIONS,
 } from '../../constants';
@@ -23,10 +25,10 @@ function Tooltip(props) {
       className={classnames('tooltip fade',
         `tooltip-${placement}`,
         {
-          'd-none': !enter,
+          [CLASSES.DISPLAY.NONE]: !enter,
           show,
         },
-      className)}
+        className)}
       role="tooltip"
       {...other}
     >

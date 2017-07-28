@@ -5,6 +5,8 @@ import List from '../../content/list';
 
 import classnames from '../../utils/classnames';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   NAV_SPACING,
   NAV_TYPES,
@@ -27,7 +29,7 @@ export default function Nav(props) {
       className={classnames('nav', {
         [`justify-content-${alignment}`]: alignment && !vertical,
         [`align-items-${alignment}`]: alignment && vertical,
-        'flex-column': vertical,
+        [CLASSES.FLEXBOX.DIRECTION.COLUMN]: vertical,
         [`nav-${type}`]: type,
         [`nav-${spacing}`]: spacing,
       }, className)}

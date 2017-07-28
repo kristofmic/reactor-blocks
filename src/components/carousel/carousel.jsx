@@ -6,6 +6,8 @@ import CarouselControl from './carousel_control';
 import CarouselIndicators from './carousel_indicators';
 import CarouselItem from './carousel_item';
 
+import * as CLASSES from '../../utils/classes';
+
 export default class Carousel extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -148,7 +150,7 @@ export default class Carousel extends React.PureComponent {
     }
 
     return (
-      <div className={`carousel slide d-inline-block ${className}`} {...other}>
+      <div className={`carousel slide ${CLASSES.DISPLAY.INLINE_BLOCK} ${className}`} {...other}>
         {indicators && (
           <CarouselIndicators
             activeIndex={activeIndicatorIndex}

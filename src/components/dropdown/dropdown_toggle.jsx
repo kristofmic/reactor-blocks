@@ -7,6 +7,8 @@ import Link from '../../content/link';
 
 import noop from '../../utils/noop';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function DropdownToggle(props) {
   const {
     children,
@@ -42,7 +44,11 @@ export default function DropdownToggle(props) {
       {...other}
     >
       {children}
-      <DropdownToggleIcon className="ml-1" show={show} up={up} />
+      <DropdownToggleIcon
+        className={CLASSES.MARGIN.LEFT_1}
+        show={show}
+        up={up}
+      />
     </Tag>
   );
 }

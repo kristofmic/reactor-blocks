@@ -6,6 +6,8 @@ import Image from '../../content/image';
 import classnames from '../../utils/classnames';
 import noop from '../../utils/noop';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function CarouselItem(props) {
   const {
     active,
@@ -33,7 +35,7 @@ export default function CarouselItem(props) {
     >
       <Image
         alt={imageAlt}
-        className="d-block"
+        className={CLASSES.DISPLAY.BLOCK}
         responsive
         source={imageSource}
       />

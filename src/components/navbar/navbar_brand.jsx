@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Link from '../../content/link';
 
+import * as CLASSES from '../../utils/classes';
+
 export default function NavbarBrand(props) {
   const {
     children,
@@ -12,7 +14,7 @@ export default function NavbarBrand(props) {
 
   return (
     <Link
-      className={`navbar-brand my-0 ${className}`}
+      className={`navbar-brand ${CLASSES.MARGIN.Y_0} ${className}`}
       {...other}
     >
       {children}

@@ -6,6 +6,8 @@ import bindref from '../../utils/bindref';
 import classnames from '../../utils/classnames';
 import toggleBodyClass from '../../utils/toggle_body_class';
 
+import * as CLASSES from '../../utils/classes';
+
 import {
   SIZES,
 } from '../../constants';
@@ -54,7 +56,7 @@ class Modal extends React.PureComponent {
       <div className="modal-container">
         <div
           className={classnames('modal fade', {
-            'd-block': enter,
+            [CLASSES.DISPLAY.BLOCK]: enter,
             show,
           }, className)}
           onClick={this.handleModalClick}

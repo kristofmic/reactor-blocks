@@ -26,13 +26,21 @@ var _animate_in_hoc = require('../../utils/animate_in_hoc');
 
 var _animate_in_hoc2 = _interopRequireDefault(_animate_in_hoc);
 
-var _classnames = require('../../utils/classnames');
+var _classnames2 = require('../../utils/classnames');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
+
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
 
 var _constants = require('../../constants');
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -44,6 +52,8 @@ var OPPOSITE_PLACEMENT = {
 };
 
 function Popover(props) {
+  var _classnames;
+
   var children = props.children,
       className = props.className,
       enter = props.enter,
@@ -55,11 +65,7 @@ function Popover(props) {
   return _react2.default.createElement(
     'div',
     _extends({
-      className: (0, _classnames2.default)('popover fade', 'popover-' + placement + ' bs-tether-element-attached-' + OPPOSITE_PLACEMENT[placement], {
-        'd-none': !enter,
-        show: show,
-        'popover-no-title': !title
-      }, className)
+      className: (0, _classnames3.default)('popover fade', 'popover-' + placement + ' bs-tether-element-attached-' + OPPOSITE_PLACEMENT[placement], (_classnames = {}, _defineProperty(_classnames, CLASSES.DISPLAY.NONE, !enter), _defineProperty(_classnames, 'show', show), _defineProperty(_classnames, 'popover-no-title', !title), _classnames), className)
     }, other),
     !!title && _react2.default.createElement(
       _popover_title2.default,

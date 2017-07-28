@@ -16,7 +16,13 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
 var _constants = require('../../constants');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,7 +41,7 @@ function Loading(props) {
     _react2.default.createElement('div', { className: 'loading-icon' }),
     text && _react2.default.createElement(
       'p',
-      { className: 'loading-text my-0' },
+      { className: 'loading-text ' + CLASSES.MARGIN.Y_0 },
       text
     )
   );

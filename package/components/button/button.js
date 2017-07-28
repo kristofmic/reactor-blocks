@@ -24,7 +24,13 @@ var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
 var _constants = require('../../constants');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92,7 +98,7 @@ var Button = function (_React$PureComponent) {
               default: outline || type === 'secondary' || type === 'link'
             }) || 'white'
           }),
-          !!icon && !loading && _react2.default.createElement('i', { className: 'mr-1 ' + icon }),
+          !!icon && !loading && _react2.default.createElement('i', { className: CLASSES.MARGIN.RIGHT_1 + ' ' + icon }),
           children
         )
       );

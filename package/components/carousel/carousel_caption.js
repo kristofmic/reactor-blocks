@@ -16,6 +16,12 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -28,7 +34,7 @@ function CarouselCaption(props) {
   return _react2.default.createElement(
     'div',
     _extends({
-      className: 'carousel-caption d-none d-md-block ' + className
+      className: 'carousel-caption ' + CLASSES.DISPLAY.NONE + ' ' + CLASSES.DISPLAY.MD_BLOCK + ' ' + className
     }, other),
     children
   );

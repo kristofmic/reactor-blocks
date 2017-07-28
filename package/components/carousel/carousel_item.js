@@ -28,6 +28,12 @@ var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -58,7 +64,7 @@ function CarouselItem(props) {
     }, other),
     _react2.default.createElement(_image2.default, {
       alt: imageAlt,
-      className: 'd-block',
+      className: CLASSES.DISPLAY.BLOCK,
       responsive: true,
       source: imageSource
     })

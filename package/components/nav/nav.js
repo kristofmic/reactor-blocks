@@ -24,7 +24,13 @@ var _classnames2 = require('../../utils/classnames');
 
 var _classnames3 = _interopRequireDefault(_classnames2);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
 var _constants = require('../../constants');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46,7 +52,7 @@ function Nav(props) {
   return _react2.default.createElement(
     _list2.default,
     _extends({
-      className: (0, _classnames3.default)('nav', (_classnames = {}, _defineProperty(_classnames, 'justify-content-' + alignment, alignment && !vertical), _defineProperty(_classnames, 'align-items-' + alignment, alignment && vertical), _defineProperty(_classnames, 'flex-column', vertical), _defineProperty(_classnames, 'nav-' + type, type), _defineProperty(_classnames, 'nav-' + spacing, spacing), _classnames), className)
+      className: (0, _classnames3.default)('nav', (_classnames = {}, _defineProperty(_classnames, 'justify-content-' + alignment, alignment && !vertical), _defineProperty(_classnames, 'align-items-' + alignment, alignment && vertical), _defineProperty(_classnames, CLASSES.FLEXBOX.DIRECTION.COLUMN, vertical), _defineProperty(_classnames, 'nav-' + type, type), _defineProperty(_classnames, 'nav-' + spacing, spacing), _classnames), className)
     }, other),
     children
   );

@@ -20,6 +20,12 @@ var _link = require('../../content/link');
 
 var _link2 = _interopRequireDefault(_link);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -32,7 +38,7 @@ function NavbarBrand(props) {
   return _react2.default.createElement(
     _link2.default,
     _extends({
-      className: 'navbar-brand my-0 ' + className
+      className: 'navbar-brand ' + CLASSES.MARGIN.Y_0 + ' ' + className
     }, other),
     children
   );

@@ -34,7 +34,13 @@ var _noop = require('../../utils/noop');
 
 var _noop2 = _interopRequireDefault(_noop);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
 var _constants = require('../../constants');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -141,7 +147,7 @@ var Select = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         _dropdown.DropdownWrapper,
-        _extends({ className: 'd-block ' + className }, other),
+        _extends({ className: CLASSES.DISPLAY.BLOCK + ' ' + className }, other),
         _react2.default.createElement(
           'div',
           {
@@ -149,12 +155,12 @@ var Select = function (_React$PureComponent) {
             onClick: toggleMenu
           },
           _react2.default.createElement(_dropdown.DropdownToggleIcon, {
-            className: 'float-right',
+            className: CLASSES.FLOAT.RIGHT,
             show: isMenuVisible,
             up: up
           }),
           !required && stateValue != null && _react2.default.createElement(_dismiss2.default, {
-            className: 'float-right mr-1',
+            className: CLASSES.FLOAT.RIGHT + ' ' + CLASSES.MARGIN.RIGHT_1,
             onClick: this.handleDismiss
           }),
           placeholder != null && stateValue == null && _react2.default.createElement(

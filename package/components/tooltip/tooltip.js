@@ -18,17 +18,27 @@ var _animate_in_hoc = require('../../utils/animate_in_hoc');
 
 var _animate_in_hoc2 = _interopRequireDefault(_animate_in_hoc);
 
-var _classnames = require('../../utils/classnames');
+var _classnames2 = require('../../utils/classnames');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
+
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
 
 var _constants = require('../../constants');
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function Tooltip(props) {
+  var _classnames;
+
   var children = props.children,
       className = props.className,
       enter = props.enter,
@@ -39,10 +49,7 @@ function Tooltip(props) {
   return _react2.default.createElement(
     'div',
     _extends({
-      className: (0, _classnames2.default)('tooltip fade', 'tooltip-' + placement, {
-        'd-none': !enter,
-        show: show
-      }, className),
+      className: (0, _classnames3.default)('tooltip fade', 'tooltip-' + placement, (_classnames = {}, _defineProperty(_classnames, CLASSES.DISPLAY.NONE, !enter), _defineProperty(_classnames, 'show', show), _classnames), className),
       role: 'tooltip'
     }, other),
     _react2.default.createElement(

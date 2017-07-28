@@ -28,6 +28,12 @@ var _carousel_item = require('./carousel_item');
 
 var _carousel_item2 = _interopRequireDefault(_carousel_item);
 
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -192,7 +198,7 @@ var Carousel = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: 'carousel slide d-inline-block ' + className }, other),
+        _extends({ className: 'carousel slide ' + CLASSES.DISPLAY.INLINE_BLOCK + ' ' + className }, other),
         indicators && _react2.default.createElement(_carousel_indicators2.default, {
           activeIndex: activeIndicatorIndex,
           count: images.length,

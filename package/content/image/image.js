@@ -16,15 +16,25 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _classnames = require('../../utils/classnames');
+var _classnames2 = require('../../utils/classnames');
 
-var _classnames2 = _interopRequireDefault(_classnames);
+var _classnames3 = _interopRequireDefault(_classnames2);
+
+var _classes = require('../../utils/classes');
+
+var CLASSES = _interopRequireWildcard(_classes);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function Image(props) {
+  var _classnames;
+
   var alt = props.alt,
       center = props.center,
       className = props.className,
@@ -41,12 +51,10 @@ function Image(props) {
 
   return _react2.default.createElement('img', _extends({
     alt: alt,
-    className: (0, _classnames2.default)({
+    className: (0, _classnames3.default)((_classnames = {
       'img-fluid': responsive,
-      'img-thumbnail': thumbnail,
-      'mx-auto d-block': center,
-      rounded: rounded
-    }, className),
+      'img-thumbnail': thumbnail
+    }, _defineProperty(_classnames, CLASSES.MARGIN.X_AUTO, center), _defineProperty(_classnames, CLASSES.DISPLAY.BLOCK, center), _defineProperty(_classnames, 'rounded', rounded), _classnames), className),
     src: source || src
   }, other));
 }

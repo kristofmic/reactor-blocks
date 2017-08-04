@@ -1,6 +1,6 @@
 {
   "name": "reactor-blocks",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React UI component library",
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
     "react-router": "^3.0.0",
-    "react-transition-group": "^1.1.0"
+    "react-transition-group": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",

@@ -1,6 +1,6 @@
 {
   "name": "reactor-blocks",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "React UI component library",
   "repository": {
     "type": "git",
@@ -28,9 +28,10 @@
   "author": "C",
   "license": "Unlicense",
   "engines": {
-    "node": ">= 6.10 < 7"
+    "node": ">= 6.10 < 9"
   },
   "peerDependencies": {
+    "bootstrap": "4.0.0-alpha.6",
     "prop-types": "^15.5.0",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",

@@ -11,29 +11,29 @@
 /* Components
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 */
-@import  '../components/button/index.scss';
-@import  '../components/carousel/index.scss';
-@import  '../components/dismiss/index.scss';
-@import  '../components/dropdown/index.scss';
-@import  '../components/form/index.scss';
-@import  '../components/loading/index.scss';
-@import  '../components/nav/index.scss';
-@import  '../components/navbar/index.scss';
-@import  '../components/popover/index.scss';
-@import  '../components/progress/index.scss';
-@import  '../components/tooltip/index.scss';
-
-@import  '../content/link/index.scss';
-@import  '../content/list/index.scss';
-
+@import '../components/button/index.scss';
+@import '../components/carousel/index.scss';
+@import '../components/dismiss/index.scss';
+@import '../components/dropdown/index.scss';
+@import '../components/form/index.scss';
+@import '../components/loading/index.scss';
+@import '../components/nav/index.scss';
+@import '../components/navbar/index.scss';
+@import '../components/popover/index.scss';
+@import '../components/progress/index.scss';
+@import '../components/tooltip/index.scss';
+@import '../content/link/index.scss';
+@import '../content/list/index.scss';
 
 /* NOTE: box-sizing is set to "border-box" via bootstrap on every element, including *:before and *:after */
 html {
   /* NOTE: base font-size: 16px */
+
   /* NOTE: avoid using margin-top and instead maintain a single direction margin where possible */
 
   body {
     /* NOTE: base font-size: 1rem (when making declarations for font-related properties, use "inherit" whenever possible) */
+
     /* NOTE: background-color set to "#FFF" */
     margin: 0;
   }

@@ -7,4 +7,5 @@ export const SIZES = [
 export const NAVBAR_TOGGLEABLE_SIZES = SIZES.concat([
   'xs',
   'xl',
+  'none',
 ]);

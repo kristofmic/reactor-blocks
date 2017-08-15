@@ -2638,6 +2638,32 @@ input.form-control.has-danger {
 	min-height: 3.5rem;
 	z-index: 1000;
 }
+.navbar.fixed-left {
+	bottom: 0;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 16rem;
+}
+.navbar.fixed-left .navbar-nav {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.navbar.fixed-left + div {
+	margin-left: 16rem;
+}
+.navbar.navbar-toggleable-none .navbar-toggler {
+	display: none !important;
+}
+.navbar.navbar-toggleable-none .navbar-collapse {
+	display: block !important;
+}
 
 @media (max-width: 575px) {
 

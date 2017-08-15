@@ -6,4 +6,5 @@ export const NAVBAR_THEMES = [
 export const NAVBAR_POSITION = [
   'fixed-top',
   'fixed-bottom',
+  'fixed-left',
 ];

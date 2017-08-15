@@ -42,7 +42,7 @@ class Playground extends React.PureComponent {
   render() {
     return (
       <div>
-        <Navbar toggleSize="md" theme="inverse" type="inverse">
+        <Navbar position="fixed-left" toggleSize="none" type="faded">
           <NavbarBrand onClick={this.handleStuff}>
             Brand
           </NavbarBrand>
@@ -70,7 +70,7 @@ class Playground extends React.PureComponent {
               <TooltipWrapper>
                 <Button onClick={this.props.togglePopover}>Toggle Popover</Button>
                 <Tooltip delay={500} placement="right" show={this.props.isPopoverVisible}>
-                    Raw denim
+                  Raw denim
                 </Tooltip>
               </TooltipWrapper>
             </Column>

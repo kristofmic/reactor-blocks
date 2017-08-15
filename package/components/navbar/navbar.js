@@ -91,7 +91,7 @@ var Navbar = function (_React$PureComponent) {
       return _react2.default.createElement(
         'nav',
         _extends({
-          className: (0, _classnames3.default)('navbar navbar-toggleable-' + toggleSize + ' navbar-' + theme, (_classnames = {}, _defineProperty(_classnames, 'bg-' + type, type), _defineProperty(_classnames, 'position', position), _classnames), className)
+          className: (0, _classnames3.default)('navbar navbar-toggleable-' + toggleSize + ' navbar-' + theme, (_classnames = {}, _defineProperty(_classnames, 'bg-' + type, type), _defineProperty(_classnames, position, position), _classnames), className)
         }, other),
         navChildren
       );

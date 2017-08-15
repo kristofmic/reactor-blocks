@@ -52,7 +52,7 @@ class Navbar extends React.PureComponent {
       <nav
         className={classnames(`navbar navbar-toggleable-${toggleSize} navbar-${theme}`, {
           [`bg-${type}`]: type,
-          position,
+          [position]: position,
         }, className)}
         {...other}
       >

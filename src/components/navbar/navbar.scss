@@ -3,4 +3,31 @@
 .navbar {
   min-height: (56rem / 16);
   z-index: $zindex-navbar;
+
+  &.fixed-left {
+    bottom: 0;
+    flex-direction: column;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 16rem;
+
+    .navbar-nav {
+      flex-direction: column;
+    }
+
+    + div {
+      margin-left: 16rem;
+    }
+  }
+
+  &.navbar-toggleable-none {
+    .navbar-toggler {
+      display: none !important;
+    }
+
+    .navbar-collapse {
+      display: block !important;
+    }
+  }
 }

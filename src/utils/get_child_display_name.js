@@ -1,4 +1,8 @@
-export default function getChildDisplayName(child = {}) {
+export default function getChildDisplayName(child) {
+  if (child != null) {
+    return;
+  }
+
   const {
     type = {},
   } = child;

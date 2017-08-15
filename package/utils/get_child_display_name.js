@@ -4,8 +4,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = getChildDisplayName;
-function getChildDisplayName() {
-  var child = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+function getChildDisplayName(child) {
+  if (child != null) {
+    return;
+  }
+
   var _child$type = child.type,
       type = _child$type === undefined ? {} : _child$type;
 

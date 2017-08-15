@@ -1,5 +1,5 @@
 export default function getChildDisplayName(child) {
-  if (child != null) {
+  if (child == null) {
     return;
   }
 

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = getChildDisplayName;
 function getChildDisplayName(child) {
-  if (child != null) {
+  if (child == null) {
     return;
   }
 

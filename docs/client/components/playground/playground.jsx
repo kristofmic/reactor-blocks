@@ -68,7 +68,7 @@ class Playground extends React.PureComponent {
           <Row>
             <Column>
               <TooltipWrapper>
-                <Button onClick={this.props.togglePopover}>Toggle Popover</Button>
+                <Button icon="fa fa-picture-o" onClick={this.props.togglePopover}>Toggle Popover</Button>
                 <Tooltip delay={500} placement="right" show={this.props.isPopoverVisible}>
                   Raw denim
                 </Tooltip>

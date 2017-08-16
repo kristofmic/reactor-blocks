@@ -27,7 +27,7 @@ function CardFooter(props) {
 
   return _react2.default.createElement(
     'div',
-    _extends({ className: 'card-header ' + className }, other),
+    _extends({ className: 'card-footer ' + className }, other),
     children
   );
 }

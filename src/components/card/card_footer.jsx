@@ -9,7 +9,7 @@ export default function CardFooter(props) {
   } = props;
 
   return (
-    <div className={`card-header ${className}`} {...other}>
+    <div className={`card-footer ${className}`} {...other}>
       {children}
     </div>
   );

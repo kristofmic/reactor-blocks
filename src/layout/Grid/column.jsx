@@ -35,13 +35,13 @@ export default function Column(props) {
       `${acc} col-${size}-${widths[size]}`
     ), '');
     const offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce((acc, size) => (
-      `${acc} col-${size}-${offsets[size]}`
+      `${acc} offset-${size}-${offsets[size]}`
     ), '');
     const pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce((acc, size) => (
-      `${acc} col-${size}-${pulls[size]}`
+      `${acc} pull-${size}-${pulls[size]}`
     ), '');
     const pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce((acc, size) => (
-      `${acc} col-${size}-${pushes[size]}`
+      `${acc} push-${size}-${pushes[size]}`
     ), '');
 
     classNameProp = classnames({

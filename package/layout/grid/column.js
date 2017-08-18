@@ -55,13 +55,13 @@ function Column(props) {
       return acc + ' col-' + size + '-' + widths[size];
     }, '');
     var offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce(function (acc, size) {
-      return acc + ' col-' + size + '-' + offsets[size];
+      return acc + ' offset-' + size + '-' + offsets[size];
     }, '');
     var pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce(function (acc, size) {
-      return acc + ' col-' + size + '-' + pulls[size];
+      return acc + ' pull-' + size + '-' + pulls[size];
     }, '');
     var pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce(function (acc, size) {
-      return acc + ' col-' + size + '-' + pushes[size];
+      return acc + ' push-' + size + '-' + pushes[size];
     }, '');
 
     classNameProp = (0, _classnames3.default)((_classnames = {

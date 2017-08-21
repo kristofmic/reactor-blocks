@@ -19,12 +19,17 @@ export default class Radio extends React.PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.selected != null &&
-        nextProps.selected !== this.props.selected &&
-        nextProps.selected !== this.state.selected) {
+      nextProps.selected !== this.props.selected &&
+      nextProps.selected !== this.state.selected) {
       this.setState({
         selected: nextProps.selected,
       });
     }
+  }
+
+  // public method exposed via ref binding
+  value() {
+    return this.state.selected;
   }
 
   handleChange = (e) => {

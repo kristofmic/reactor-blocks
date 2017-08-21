@@ -82,6 +82,14 @@ var Radio = function (_React$PureComponent) {
         });
       }
     }
+
+    // public method exposed via ref binding
+
+  }, {
+    key: 'value',
+    value: function value() {
+      return this.state.selected;
+    }
   }, {
     key: 'render',
     value: function render() {

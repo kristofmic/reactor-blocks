@@ -40,6 +40,11 @@ class Select extends React.PureComponent {
     }
   }
 
+  // public method exposed via ref binding
+  value() {
+    return this.state.value;
+  }
+
   cloneOptions(children = this.props.children, value = this.state.value) {
     return React.Children.map(children, (child) => {
       if (getChildDisplayName(child) === 'SelectOption') {

@@ -84,6 +84,9 @@ var Input = function (_React$PureComponent) {
         });
       }
     }
+
+    // public method exposed via ref binding
+
   }, {
     key: 'render',
     value: function render() {
@@ -112,6 +115,11 @@ var Input = function (_React$PureComponent) {
         type: type,
         value: stateValue
       }, other));
+    }
+  }, {
+    key: 'value',
+    get: function get() {
+      return this.state.value;
     }
   }]);
 

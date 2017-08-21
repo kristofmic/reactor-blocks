@@ -21,12 +21,17 @@ export default class Input extends React.PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value != null &&
-        nextProps.value !== this.props.value &&
-        nextProps.value !== this.state.value) {
+      nextProps.value !== this.props.value &&
+      nextProps.value !== this.state.value) {
       this.setState({
         value: nextProps.value,
       });
     }
+  }
+
+  // public method exposed via ref binding
+  get value() {
+    return this.state.value;
   }
 
   handleChange = (e) => {

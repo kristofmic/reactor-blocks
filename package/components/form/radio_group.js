@@ -73,6 +73,14 @@ var RadioGroup = function (_React$PureComponent) {
         });
       }
     }
+
+    // public method exposed via ref binding
+
+  }, {
+    key: 'value',
+    value: function value() {
+      return this.state.value;
+    }
   }, {
     key: 'cloneChildren',
     value: function cloneChildren() {

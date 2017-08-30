@@ -42,37 +42,29 @@ class Playground extends React.PureComponent {
   render() {
     return (
       <div>
-        <Navbar position="fixed-left" toggleSize="none" type="faded">
+        <Navbar position="fixed-left" toggleSize="none">
           <NavbarBrand onClick={this.handleStuff}>
             Brand
           </NavbarBrand>
-          <NavbarToggler horizontalPosition="right" />
-          <NavbarCollapse>
-            <NavbarNav>
-              <NavItem>
-                <NavLink active>Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>Features</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>Pricing</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink disabled>Disabled</NavLink>
-              </NavItem>
-            </NavbarNav>
-          </NavbarCollapse>
+          <NavbarNav>
+            <NavItem>
+              <NavLink active>Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>Features</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>Pricing</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink disabled>Disabled</NavLink>
+            </NavItem>
+          </NavbarNav>
         </Navbar>
         <Container id="playground">
           <Row>
             <Column>
-              <TooltipWrapper>
-                <Button icon="fa fa-picture-o" onClick={this.props.togglePopover}>Toggle Popover</Button>
-                <Tooltip delay={500} placement="right" show={this.props.isPopoverVisible}>
-                  Raw denim
-                </Tooltip>
-              </TooltipWrapper>
+              <Button icon="fa fa-check" loading={this.state.value} onClick={this.handleStuff} size="sm"/>
             </Column>
           </Row>
         </Container>

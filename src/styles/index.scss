@@ -1,12 +1,8 @@
-/* Bootstrap
-––––––––––––––––––––––––––––––––––––––––––––––––––
-*/
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
-
 /* Fonts
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 @import './icons/font-awesome-4.7.0/scss/font-awesome.scss';
+
 
 /* Components
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -24,6 +20,12 @@
 @import '../components/tooltip/index.scss';
 @import '../content/link/index.scss';
 @import '../content/list/index.scss';
+
+/* Bootstrap
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+
 
 /* NOTE: box-sizing is set to "border-box" via bootstrap on every element, including *:before and *:after */
 html {

@@ -84,7 +84,7 @@ var Button = function (_React$PureComponent) {
       return _react2.default.createElement(
         'button',
         _extends({
-          className: (0, _classnames3.default)('btn btn-' + size, (_classnames = {}, _defineProperty(_classnames, 'btn-' + type, !outline), _defineProperty(_classnames, 'btn-outline-' + type, outline), _defineProperty(_classnames, 'btn-block', block), _defineProperty(_classnames, 'active', active), _defineProperty(_classnames, 'disabled', disabled || loading), _defineProperty(_classnames, 'loading', loading), _defineProperty(_classnames, 'icon', icon), _classnames), className),
+          className: (0, _classnames3.default)('btn btn-' + size, (_classnames = {}, _defineProperty(_classnames, 'btn-' + type, !outline), _defineProperty(_classnames, 'btn-outline-' + type, outline), _defineProperty(_classnames, 'btn-block', block), _defineProperty(_classnames, 'btn-no-text', !children), _defineProperty(_classnames, 'active', active), _defineProperty(_classnames, 'disabled', disabled || loading), _defineProperty(_classnames, 'loading', loading), _defineProperty(_classnames, 'icon', icon), _classnames), className),
           disabled: disabled || loading,
           onClick: this.handleClick,
           type: (0, _classnames3.default)({ submit: submit }) || 'button'

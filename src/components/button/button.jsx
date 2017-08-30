@@ -48,6 +48,7 @@ export default class Button extends React.PureComponent {
           [`btn-${type}`]: !outline,
           [`btn-outline-${type}`]: outline,
           'btn-block': block,
+          'btn-no-text': !children,
           active,
           disabled: disabled || loading,
           loading,

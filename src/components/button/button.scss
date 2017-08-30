@@ -13,6 +13,7 @@ button, button.btn, a.btn, input.btn, .btn {
     display: inline-block;
     position: relative;
     transition: padding .1s ease-out;
+    vertical-align: middle;
 
     .loading {
       left: 0;
@@ -40,6 +41,24 @@ button, button.btn, a.btn, input.btn, .btn {
     }
   }
 
+  &.btn-no-text {
+    .loading {
+      left: inherit;
+      position: relative;
+      top: inherit;
+    }
+
+    i {
+      width: $loadingSize;
+    }
+
+    &.loading {
+      .btn-body {
+        padding-left: 0;
+      }
+    }
+  }
+
   &.btn-lg {
     .btn-body {
       .loading {
@@ -59,6 +78,25 @@ button, button.btn, a.btn, input.btn, .btn {
     &.loading {
       .btn-body {
         padding-left: $loadingSizeLg + ($onePixel * 5);
+      }
+    }
+
+    &.btn-no-text {
+      .loading {
+        left: inherit;
+        line-height: 1;
+        position: relative;
+        top: inherit;
+      }
+
+      i {
+        width: $loadingSizeLg;
+      }
+
+      &.loading {
+        .btn-body {
+          padding-left: 0;
+        }
       }
     }
   }
@@ -82,6 +120,25 @@ button, button.btn, a.btn, input.btn, .btn {
     &.loading {
       .btn-body {
         padding-left: $loadingSizeSm + ($onePixel * 5);
+      }
+    }
+
+    &.btn-no-text {
+      .loading {
+        left: inherit;
+        line-height: 1.25;
+        position: relative;
+        top: inherit;
+      }
+
+      i {
+        width: $loadingSizeSm;
+      }
+
+      &.loading {
+        .btn-body {
+          padding-left: 0;
+        }
       }
     }
   }

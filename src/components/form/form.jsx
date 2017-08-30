@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import classnames from '../../utils/classnames';
 
 export default class Form extends React.PureComponent {
-  onSubmit = (e) => {
+  handleSubmit = (e) => {
     const {
       onSubmit,
     } = this.props;
@@ -28,6 +28,7 @@ export default class Form extends React.PureComponent {
         className={classnames({
           'form-inline': inline,
         }, className)}
+        onSubmit={this.handleSubmit}
         {...other}
       >
         {children}

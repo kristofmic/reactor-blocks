@@ -44,7 +44,7 @@ var Form = function (_React$PureComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Form.__proto__ || Object.getPrototypeOf(Form)).call.apply(_ref, [this].concat(args))), _this), _this.onSubmit = function (e) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Form.__proto__ || Object.getPrototypeOf(Form)).call.apply(_ref, [this].concat(args))), _this), _this.handleSubmit = function (e) {
       var onSubmit = _this.props.onSubmit;
 
 
@@ -69,7 +69,8 @@ var Form = function (_React$PureComponent) {
         _extends({
           className: (0, _classnames2.default)({
             'form-inline': inline
-          }, className)
+          }, className),
+          onSubmit: this.handleSubmit
         }, other),
         children
       );

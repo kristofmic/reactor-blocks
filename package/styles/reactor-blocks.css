@@ -2470,7 +2470,7 @@ button.close {
 	display: inline-block;
 	height: 1.0625rem;
 	margin-right: 0.5rem;
-	position: relative;
+	position: relative !important;
 	-webkit-transition: .2s ease-out background-color;
 	transition: .2s ease-out background-color;
 	vertical-align: text-bottom;

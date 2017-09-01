@@ -9,6 +9,7 @@ import Navbar, { NavbarBrand, NavbarCollapse, NavbarNav, NavbarText, NavbarToggl
 import Popover, { PopoverWrapper, popoverHOC } from 'reactor-blocks/package/components/popover';
 import Modal, { ModalBody, modalHOC } from 'reactor-blocks/package/components/modal';
 import Tooltip, { TooltipWrapper } from 'reactor-blocks/package/components/tooltip';
+import { Checkbox } from 'reactor-blocks/package/components/form';
 
 if (process.env.BROWSER) {
   require('./playground.scss');
@@ -64,7 +65,7 @@ class Playground extends React.PureComponent {
         <Container id="playground">
           <Row>
             <Column>
-              <Button icon="fa fa-check" loading={this.state.value} onClick={this.handleStuff} size="sm"/>
+              <Checkbox />
             </Column>
           </Row>
         </Container>

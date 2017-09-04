@@ -36,11 +36,13 @@ export default function animateInHOC(Component, config = {}) {
         enter: true,
       }, () => {
         window.requestAnimationFrame(() => {
-          this.setState({
-            show: true,
-          });
+          window.requestAnimationFrame(() => {
+            this.setState({
+              show: true,
+            });
 
-          this.showTimeout = null;
+            this.showTimeout = null;
+          });
         });
       });
     }

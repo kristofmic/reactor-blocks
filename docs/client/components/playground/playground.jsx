@@ -65,13 +65,18 @@ class Playground extends React.PureComponent {
         <Container id="playground">
           <Row>
             <Column>
-              <Checkbox />
+            <Button className="d-block" onClick={this.props.showModal}>Toggle Modal</Button>
             </Column>
           </Row>
         </Container>
+        <Modal onDismiss={this.props.hideModal} show={this.props.isModalVisible}>
+          <ModalBody>
+            modal body
+          </ModalBody>
+        </Modal>
       </div>
     );
   }
 }
 
-export default popoverHOC(Playground);
+export default modalHOC(Playground);

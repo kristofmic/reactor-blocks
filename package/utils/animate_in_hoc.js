@@ -47,11 +47,13 @@ function animateInHOC(Component) {
           enter: true
         }, function () {
           window.requestAnimationFrame(function () {
-            _this.setState({
-              show: true
-            });
+            window.requestAnimationFrame(function () {
+              _this.setState({
+                show: true
+              });
 
-            _this.showTimeout = null;
+              _this.showTimeout = null;
+            });
           });
         });
       };

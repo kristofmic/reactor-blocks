@@ -22,6 +22,8 @@
 @import '../content/list/index.scss';
 
 /* Bootstrap
+NOTE: I had to comment out the @support in the _transforms.scss file since node-sass
+doesn't seem to process it correctly, and that was bungling up everything else.
 ––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 @import 'node_modules/bootstrap/scss/bootstrap.scss';

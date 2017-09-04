@@ -24,7 +24,6 @@ export default function animateInHOC(Component, config = {}) {
     }
 
     componentWillReceiveProps(nextProps) {
-      console.log(nextProps, this.props);
       if (nextProps.show && !this.props.show) {
         this.showComponent();
       } else if (!nextProps.show && this.props.show) {

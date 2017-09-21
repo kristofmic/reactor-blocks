@@ -5,21 +5,33 @@ export const COMMON_CONTEXT_TYPES = [
   'danger',
 ];
 
-export const ALERT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES;
+export const ALERT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
+  'primary',
+  'secondary',
+  'light',
+  'dark',
+]);
 
 export const BADGE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
-  'default',
   'primary',
+  'secondary',
+  'light',
+  'dark',
 ]);
 
 export const BUTTON_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'primary',
   'secondary',
+  'light',
+  'dark',
   'link',
 ]);
 
 export const CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'primary',
+  'secondary',
+  'light',
+  'dark',
 ]);
 
 export const INPUT_CONTEXT_STATES = [
@@ -28,7 +40,12 @@ export const INPUT_CONTEXT_STATES = [
   'danger',
 ];
 
-export const LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_TYPES;
+export const LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
+  'primary',
+  'secondary',
+  'light',
+  'dark',
+]);
 
 export const LOADING_CONTEXT_TYPES = [
   'primary',
@@ -49,6 +66,10 @@ export const PROGRESS_BAR_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
 
 export const TABLE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([
   'active',
+  'primary',
+  'secondary',
+  'light',
+  'dark',
 ]);
 
 export const TEXT_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat([

@@ -3,6 +3,12 @@
 */
 @import './icons/font-awesome-4.7.0/scss/font-awesome.scss';
 
+/* Bootstrap
+NOTE: I had to comment out all @supports calls in the _carousel.scss and utilities/_position
+files because it was silently failing the rest of the compilation
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 /* Components
 ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -20,13 +26,6 @@
 @import '../components/tooltip/index.scss';
 @import '../content/link/index.scss';
 @import '../content/list/index.scss';
-
-/* Bootstrap
-NOTE: I had to comment out the @support in the _transforms.scss file since node-sass
-doesn't seem to process it correctly, and that was bungling up everything else.
-––––––––––––––––––––––––––––––––––––––––––––––––––
-*/
-@import 'node_modules/bootstrap/scss/bootstrap.scss';
 
 
 /* NOTE: box-sizing is set to "border-box" via bootstrap on every element, including *:before and *:after */

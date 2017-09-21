@@ -1,9 +1,10 @@
 @import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_functions.scss';
 @import 'node_modules/bootstrap/scss/_variables.scss';
 
 .select {
   .select-placeholder {
-    color: $input-color-placeholder;
+    color: $input-placeholder-color;
     overflow: hidden;
     white-space: pre;
     word-wrap: normal;
@@ -20,16 +21,16 @@
 
   &.form-control.has-success {
     background-image: none;
-    border-color: $brand-success;
+    border-color: theme-color("success");
   }
 
   &.form-control.has-warning {
     background-image: none;
-    border-color: $brand-warning;
+    border-color: theme-color("warning");
   }
 
   &.form-control.has-danger {
     background-image: none;
-    border-color: $brand-danger;
+    border-color: theme-color("danger");
   }
 }

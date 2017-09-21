@@ -43,7 +43,7 @@ class Playground extends React.PureComponent {
   render() {
     return (
       <div>
-        <Navbar position="fixed-left" toggleSize="none">
+        <Navbar position="fixed-top" toggleSize="sm">
           <NavbarBrand onClick={this.handleStuff}>
             Brand
           </NavbarBrand>
@@ -65,7 +65,7 @@ class Playground extends React.PureComponent {
         <Container id="playground">
           <Row>
             <Column>
-            <Button className="d-block" onClick={this.props.showModal}>Toggle Modal</Button>
+              <Button className="d-block" onClick={this.props.showModal}>Toggle Modal</Button>
             </Column>
           </Row>
         </Container>

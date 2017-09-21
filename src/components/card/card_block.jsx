@@ -20,7 +20,7 @@ export default function CardBlock(props) {
   return (
     <div
       className={classnames({
-        'card-block': !overlay,
+        'card-body': !overlay,
         'card-img-overlay': overlay,
       }, className)}
       {...other}

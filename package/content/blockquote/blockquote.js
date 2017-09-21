@@ -35,15 +35,12 @@ function Blockquote(props) {
       citation = props.citation,
       className = props.className,
       footer = props.footer,
-      reverse = props.reverse,
-      other = _objectWithoutProperties(props, ['children', 'citation', 'className', 'footer', 'reverse']);
+      other = _objectWithoutProperties(props, ['children', 'citation', 'className', 'footer']);
 
   return _react2.default.createElement(
     'blockquote',
     _extends({
-      className: (0, _classnames2.default)('blockquote', {
-        'blockquote-reverse': reverse
-      }, className)
+      className: (0, _classnames2.default)('blockquote', className)
     }, other),
     _react2.default.Children.count(children) === 1 ? _react2.default.createElement(
       'p',
@@ -67,8 +64,7 @@ Blockquote.propTypes = {
   children: _propTypes2.default.node,
   citation: _propTypes2.default.string,
   className: _propTypes2.default.string,
-  footer: _propTypes2.default.string,
-  reverse: _propTypes2.default.bool
+  footer: _propTypes2.default.string
 };
 
 Blockquote.defaultProps = {

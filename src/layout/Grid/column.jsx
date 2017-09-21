@@ -14,13 +14,7 @@ export default function Column(props) {
     children,
     className,
     newLine,
-    offset,
-    offsets,
     order,
-    pull,
-    pulls,
-    push,
-    pushes,
     width,
     widths,
     verticalAlignment,
@@ -34,23 +28,13 @@ export default function Column(props) {
     const widthClassNames = widths && Object.getOwnPropertyNames(widths).reduce((acc, size) => (
       `${acc} col-${size}-${widths[size]}`
     ), '');
-    const offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce((acc, size) => (
-      `${acc} offset-${size}-${offsets[size]}`
-    ), '');
-    const pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce((acc, size) => (
-      `${acc} pull-${size}-${pulls[size]}`
-    ), '');
-    const pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce((acc, size) => (
-      `${acc} push-${size}-${pushes[size]}`
-    ), '');
 
     classNameProp = classnames({
       col: !width,
       [`col-${width}`]: width,
       [`align-self-${verticalAlignment}`]: verticalAlignment,
       [`flex-${order}`]: order,
-      [`offset-${offset}`]: offset,
-    }, widthClassNames, offsetClassNames, pullClassNames, pushClassNames);
+    }, widthClassNames);
   }
 
   return (
@@ -67,28 +51,7 @@ Column.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   newLine: PropTypes.bool,
-  offset: PropTypes.oneOf(COLUMN_WIDTHS),
-  offsets: PropTypes.shape({
-    sm: PropTypes.oneOf(COLUMN_WIDTHS),
-    md: PropTypes.oneOf(COLUMN_WIDTHS),
-    lg: PropTypes.oneOf(COLUMN_WIDTHS),
-    xl: PropTypes.oneOf(COLUMN_WIDTHS),
-  }),
   order: PropTypes.oneOf(COLUMN_ORDER),
-  pull: PropTypes.oneOf(COLUMN_WIDTHS),
-  pulls: PropTypes.shape({
-    sm: PropTypes.oneOf(COLUMN_WIDTHS),
-    md: PropTypes.oneOf(COLUMN_WIDTHS),
-    lg: PropTypes.oneOf(COLUMN_WIDTHS),
-    xl: PropTypes.oneOf(COLUMN_WIDTHS),
-  }),
-  push: PropTypes.oneOf(COLUMN_WIDTHS),
-  pushes: PropTypes.shape({
-    sm: PropTypes.oneOf(COLUMN_WIDTHS),
-    md: PropTypes.oneOf(COLUMN_WIDTHS),
-    lg: PropTypes.oneOf(COLUMN_WIDTHS),
-    xl: PropTypes.oneOf(COLUMN_WIDTHS),
-  }),
   width: PropTypes.oneOf(COLUMN_WIDTHS),
   widths: PropTypes.shape({
     sm: PropTypes.oneOf(COLUMN_WIDTHS),

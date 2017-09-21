@@ -11,15 +11,12 @@ export default function Blockquote(props) {
     citation,
     className,
     footer,
-    reverse,
     ...other
   } = props;
 
   return (
     <blockquote
-      className={classnames('blockquote', {
-        'blockquote-reverse': reverse,
-      }, className)}
+      className={classnames('blockquote', className)}
       {...other}
     >
       {(React.Children.count(children) === 1) ? (
@@ -44,7 +41,6 @@ Blockquote.propTypes = {
   citation: PropTypes.string,
   className: PropTypes.string,
   footer: PropTypes.string,
-  reverse: PropTypes.bool,
 };
 
 Blockquote.defaultProps = {

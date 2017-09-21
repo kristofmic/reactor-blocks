@@ -32,17 +32,11 @@ function Column(props) {
   var children = props.children,
       className = props.className,
       newLine = props.newLine,
-      offset = props.offset,
-      offsets = props.offsets,
       order = props.order,
-      pull = props.pull,
-      pulls = props.pulls,
-      push = props.push,
-      pushes = props.pushes,
       width = props.width,
       widths = props.widths,
       verticalAlignment = props.verticalAlignment,
-      other = _objectWithoutProperties(props, ['children', 'className', 'newLine', 'offset', 'offsets', 'order', 'pull', 'pulls', 'push', 'pushes', 'width', 'widths', 'verticalAlignment']);
+      other = _objectWithoutProperties(props, ['children', 'className', 'newLine', 'order', 'width', 'widths', 'verticalAlignment']);
 
   var classNameProp = '';
 
@@ -54,19 +48,10 @@ function Column(props) {
     var widthClassNames = widths && Object.getOwnPropertyNames(widths).reduce(function (acc, size) {
       return acc + ' col-' + size + '-' + widths[size];
     }, '');
-    var offsetClassNames = offsets && Object.getOwnPropertyNames(offsets).reduce(function (acc, size) {
-      return acc + ' offset-' + size + '-' + offsets[size];
-    }, '');
-    var pullClassNames = pulls && Object.getOwnPropertyNames(pulls).reduce(function (acc, size) {
-      return acc + ' pull-' + size + '-' + pulls[size];
-    }, '');
-    var pushClassNames = pushes && Object.getOwnPropertyNames(pushes).reduce(function (acc, size) {
-      return acc + ' push-' + size + '-' + pushes[size];
-    }, '');
 
     classNameProp = (0, _classnames3.default)((_classnames = {
       col: !width
-    }, _defineProperty(_classnames, 'col-' + width, width), _defineProperty(_classnames, 'align-self-' + verticalAlignment, verticalAlignment), _defineProperty(_classnames, 'flex-' + order, order), _defineProperty(_classnames, 'offset-' + offset, offset), _classnames), widthClassNames, offsetClassNames, pullClassNames, pushClassNames);
+    }, _defineProperty(_classnames, 'col-' + width, width), _defineProperty(_classnames, 'align-self-' + verticalAlignment, verticalAlignment), _defineProperty(_classnames, 'flex-' + order, order), _classnames), widthClassNames);
   }
 
   return _react2.default.createElement(
@@ -82,28 +67,7 @@ Column.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   newLine: _propTypes2.default.bool,
-  offset: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  offsets: _propTypes2.default.shape({
-    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  }),
   order: _propTypes2.default.oneOf(_constants.COLUMN_ORDER),
-  pull: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  pulls: _propTypes2.default.shape({
-    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  }),
-  push: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-  pushes: _propTypes2.default.shape({
-    sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    md: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    lg: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
-    xl: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS)
-  }),
   width: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),
   widths: _propTypes2.default.shape({
     sm: _propTypes2.default.oneOf(_constants.COLUMN_WIDTHS),

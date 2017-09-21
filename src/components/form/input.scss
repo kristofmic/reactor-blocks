@@ -1,19 +1,20 @@
 @import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_functions.scss';
 @import 'node_modules/bootstrap/scss/_variables.scss';
 
 input.form-control {
   &.has-success {
     background-image: none;
-    border-color: $brand-success;
+    border-color: theme-color("success");
   }
 
   &.has-warning {
     background-image: none;
-    border-color: $brand-warning;
+    border-color: theme-color("warning");
   }
 
   &.has-danger {
     background-image: none;
-    border-color: $brand-danger;
+    border-color: theme-color("danger");
   }
 }

@@ -9,10 +9,9 @@ import {
 
 export default function Card(props) {
   const {
+    border,
     children,
     className,
-    inverse,
-    outline,
     type,
     ...other
   } = props;
@@ -20,9 +19,8 @@ export default function Card(props) {
   return (
     <div
       className={classnames('card', {
-        'card-inverse': inverse || (type && !outline),
-        [`card-${type}`]: type && !outline,
-        [`card-outline-${type}`]: type && outline,
+        [`card-${type}`]: type && !border,
+        [`border-${type}`]: type && border,
       }, className)}
       {...other}
     >
@@ -35,12 +33,11 @@ Card.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   inverse: PropTypes.bool,
-  outline: PropTypes.bool,
+  border: PropTypes.bool,
   type: PropTypes.oneOf(CARD_CONTEXT_TYPES),
 };
 
 Card.defaultProps = {
   className: '',
-  inverse: false,
-  outline: false,
+  border: false,
 };

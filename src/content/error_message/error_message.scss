@@ -1,0 +1,11 @@
+@import '../../styles/partials/index.scss';
+@import 'node_modules/bootstrap/scss/_functions.scss';
+@import 'node_modules/bootstrap/scss/_variables.scss';
+
+.error-message {
+  position: relative;
+
+  .error-message-text {
+    color: $gray-600;
+  }
+}

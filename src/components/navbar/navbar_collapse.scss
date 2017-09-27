@@ -1,6 +1,6 @@
 @import '../../styles/partials/index.scss';
 
-.navbar-toggleable {
+.navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -19,7 +19,7 @@
           position: fixed;
           top: 0;
           transform: translateX(-15rem);
-          transition: transform .35s ease;
+          transition: transform .3s ease;
           width: 15rem;
 
           &.show {

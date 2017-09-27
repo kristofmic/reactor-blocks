@@ -39,7 +39,7 @@ function NavbarToggler(props) {
     _extends({
       className: (0, _classnames2.default)('navbar-toggler navbar-toggler-' + horizontalPosition, {
         active: active
-      }),
+      }, className),
       onClick: onClick,
       type: 'button'
     }, other),

@@ -65,9 +65,9 @@ var Navbar = function (_React$PureComponent) {
           showNavbar = _props.showNavbar,
           theme = _props.theme,
           toggleNavbar = _props.toggleNavbar,
-          toggleSize = _props.toggleSize,
+          expandSize = _props.expandSize,
           type = _props.type,
-          other = _objectWithoutProperties(_props, ['children', 'className', 'hideNavbar', 'isNavbarVisible', 'position', 'showNavbar', 'theme', 'toggleNavbar', 'toggleSize', 'type']);
+          other = _objectWithoutProperties(_props, ['children', 'className', 'hideNavbar', 'isNavbarVisible', 'position', 'showNavbar', 'theme', 'toggleNavbar', 'expandSize', 'type']);
 
       var navChildren = _react2.default.Children.map(children, function (child) {
         var childName = (0, _get_child_display_name2.default)(child);
@@ -91,7 +91,7 @@ var Navbar = function (_React$PureComponent) {
       return _react2.default.createElement(
         'nav',
         _extends({
-          className: (0, _classnames3.default)('navbar navbar-toggleable-' + toggleSize + ' navbar-' + theme, (_classnames = {}, _defineProperty(_classnames, 'bg-' + type, type), _defineProperty(_classnames, position, position), _classnames), className)
+          className: (0, _classnames3.default)('navbar navbar-expand-' + expandSize + ' navbar-' + theme, (_classnames = {}, _defineProperty(_classnames, 'bg-' + type, type), _defineProperty(_classnames, position, position), _classnames), className)
         }, other),
         navChildren
       );
@@ -104,20 +104,20 @@ var Navbar = function (_React$PureComponent) {
 Navbar.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
+  expandSize: _propTypes2.default.oneOf(_constants.NAVBAR_EXPAND_SIZES),
   hideNavbar: _propTypes2.default.func.isRequired,
   isNavbarVisible: _propTypes2.default.bool.isRequired,
   position: _propTypes2.default.oneOf(_constants.NAVBAR_POSITION),
   showNavbar: _propTypes2.default.func.isRequired,
   theme: _propTypes2.default.oneOf(_constants.NAVBAR_THEMES),
   toggleNavbar: _propTypes2.default.func.isRequired,
-  toggleSize: _propTypes2.default.oneOf(_constants.NAVBAR_TOGGLEABLE_SIZES),
   type: _propTypes2.default.oneOf(_constants.NAVBAR_CONTEXT_TYPES)
 };
 
 Navbar.defaultProps = {
   className: '',
-  theme: 'light',
-  toggleSize: 'xl'
+  expandSize: 'lg',
+  theme: 'light'
 };
 
 var WrappedNavbar = (0, _navbar_toggle_hoc2.default)(Navbar);

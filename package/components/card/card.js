@@ -31,19 +31,16 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 function Card(props) {
   var _classnames;
 
-  var children = props.children,
+  var border = props.border,
+      children = props.children,
       className = props.className,
-      inverse = props.inverse,
-      outline = props.outline,
       type = props.type,
-      other = _objectWithoutProperties(props, ['children', 'className', 'inverse', 'outline', 'type']);
+      other = _objectWithoutProperties(props, ['border', 'children', 'className', 'type']);
 
   return _react2.default.createElement(
     'div',
     _extends({
-      className: (0, _classnames3.default)('card', (_classnames = {
-        'card-inverse': inverse || type && !outline
-      }, _defineProperty(_classnames, 'card-' + type, type && !outline), _defineProperty(_classnames, 'card-outline-' + type, type && outline), _classnames), className)
+      className: (0, _classnames3.default)('card', (_classnames = {}, _defineProperty(_classnames, 'card-' + type, type && !border), _defineProperty(_classnames, 'border-' + type, type && border), _classnames), className)
     }, other),
     children
   );
@@ -53,12 +50,11 @@ Card.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   inverse: _propTypes2.default.bool,
-  outline: _propTypes2.default.bool,
+  border: _propTypes2.default.bool,
   type: _propTypes2.default.oneOf(_constants.CARD_CONTEXT_TYPES)
 };
 
 Card.defaultProps = {
   className: '',
-  inverse: false,
-  outline: false
+  border: false
 };

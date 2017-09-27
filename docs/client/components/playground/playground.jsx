@@ -43,24 +43,27 @@ class Playground extends React.PureComponent {
   render() {
     return (
       <div>
-        <Navbar position="fixed-top" toggleSize="sm">
+        <Navbar position="fixed-top" expandSize="lg">
           <NavbarBrand onClick={this.handleStuff}>
             Brand
           </NavbarBrand>
-          <NavbarNav>
-            <NavItem>
-              <NavLink active>Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>Features</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink>Pricing</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink disabled>Disabled</NavLink>
-            </NavItem>
-          </NavbarNav>
+          <NavbarToggler />
+          <NavbarCollapse>
+            <NavbarNav>
+              <NavItem>
+                <NavLink active>Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>Features</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink>Pricing</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink disabled>Disabled</NavLink>
+              </NavItem>
+            </NavbarNav>
+          </NavbarCollapse>
         </Navbar>
         <Container id="playground">
           <Row>

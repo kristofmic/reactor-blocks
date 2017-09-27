@@ -45,7 +45,7 @@ function CardBlock(props) {
     'div',
     _extends({
       className: (0, _classnames2.default)({
-        'card-block': !overlay,
+        'card-body': !overlay,
         'card-img-overlay': overlay
       }, className)
     }, other),

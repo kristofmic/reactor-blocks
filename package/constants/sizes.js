@@ -5,4 +5,4 @@ Object.defineProperty(exports, "__esModule", {
 });
 var SIZES = exports.SIZES = ['sm', 'md', 'lg'];
 
-var NAVBAR_TOGGLEABLE_SIZES = exports.NAVBAR_TOGGLEABLE_SIZES = SIZES.concat(['xs', 'xl', 'none']);
+var NAVBAR_EXPAND_SIZES = exports.NAVBAR_EXPAND_SIZES = SIZES.concat(['xl', 'none']);

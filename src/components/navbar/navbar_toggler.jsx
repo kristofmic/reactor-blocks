@@ -21,7 +21,7 @@ export default function NavbarToggler(props) {
     <button
       className={classnames(`navbar-toggler navbar-toggler-${horizontalPosition}`, {
         active,
-      })}
+      }, className)}
       onClick={onClick}
       type="button"
       {...other}

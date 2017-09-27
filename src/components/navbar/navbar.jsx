@@ -8,9 +8,9 @@ import getChildDisplayName from '../../utils/get_child_display_name';
 
 import {
   NAVBAR_CONTEXT_TYPES,
+  NAVBAR_EXPAND_SIZES,
   NAVBAR_POSITION,
   NAVBAR_THEMES,
-  NAVBAR_TOGGLEABLE_SIZES,
 } from '../../constants';
 
 class Navbar extends React.PureComponent {
@@ -24,7 +24,7 @@ class Navbar extends React.PureComponent {
       showNavbar,
       theme,
       toggleNavbar,
-      toggleSize,
+      expandSize,
       type,
       ...other
     } = this.props;
@@ -50,7 +50,7 @@ class Navbar extends React.PureComponent {
 
     return (
       <nav
-        className={classnames(`navbar navbar-toggleable-${toggleSize} navbar-${theme}`, {
+        className={classnames(`navbar navbar-expand-${expandSize} navbar-${theme}`, {
           [`bg-${type}`]: type,
           [position]: position,
         }, className)}
@@ -65,20 +65,20 @@ class Navbar extends React.PureComponent {
 Navbar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  expandSize: PropTypes.oneOf(NAVBAR_EXPAND_SIZES),
   hideNavbar: PropTypes.func.isRequired,
   isNavbarVisible: PropTypes.bool.isRequired,
   position: PropTypes.oneOf(NAVBAR_POSITION),
   showNavbar: PropTypes.func.isRequired,
   theme: PropTypes.oneOf(NAVBAR_THEMES),
   toggleNavbar: PropTypes.func.isRequired,
-  toggleSize: PropTypes.oneOf(NAVBAR_TOGGLEABLE_SIZES),
   type: PropTypes.oneOf(NAVBAR_CONTEXT_TYPES),
 };
 
 Navbar.defaultProps = {
   className: '',
+  expandSize: 'lg',
   theme: 'light',
-  toggleSize: 'xl',
 };
 
 const WrappedNavbar = navbarToggleHOC(Navbar);

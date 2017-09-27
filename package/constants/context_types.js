@@ -11,11 +11,11 @@ var BADGE_CONTEXT_TYPES = exports.BADGE_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.con
 
 var BUTTON_CONTEXT_TYPES = exports.BUTTON_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'secondary', 'light', 'dark', 'link']);
 
-var CARD_CONTEXT_TYPES = exports.CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary']);
+var CARD_CONTEXT_TYPES = exports.CARD_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'secondary', 'light', 'dark']);
 
 var INPUT_CONTEXT_STATES = exports.INPUT_CONTEXT_STATES = ['success', 'warning', 'danger'];
 
-var LIST_ITEM_CONTEXT_TYPES = exports.LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_TYPES;
+var LIST_ITEM_CONTEXT_TYPES = exports.LIST_ITEM_CONTEXT_TYPES = COMMON_CONTEXT_TYPES.concat(['primary', 'secondary', 'light', 'dark']);
 
 var LOADING_CONTEXT_TYPES = exports.LOADING_CONTEXT_TYPES = ['primary', 'default', 'white'];
 

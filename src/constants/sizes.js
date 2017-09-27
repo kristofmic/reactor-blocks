@@ -4,8 +4,7 @@ export const SIZES = [
   'lg',
 ];
 
-export const NAVBAR_TOGGLEABLE_SIZES = SIZES.concat([
-  'xs',
+export const NAVBAR_EXPAND_SIZES = SIZES.concat([
   'xl',
   'none',
 ]);

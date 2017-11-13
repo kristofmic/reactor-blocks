@@ -5,19 +5,25 @@ Object.defineProperty(exports, "__esModule", {
 });
 var COLORS = exports.COLORS = {
   TEXT: {
-    MUTED: 'text-muted',
     PRIMARY: 'text-primary',
+    SECONDARY: 'text-secondary',
     SUCCESS: 'text-success',
-    INFO: 'text-info',
+    DANGER: 'text-danger',
     WARNING: 'text-warning',
-    DANGER: 'text-danger'
+    INFO: 'text-info',
+    LIGHT: 'text-light',
+    DARK: 'text-dark',
+    WHITE: 'text-white'
   },
   BACKGROUND: {
-    MUTED: 'bg-muted',
     PRIMARY: 'bg-primary',
+    SECONDARY: 'bg-secondary',
     SUCCESS: 'bg-success',
-    INFO: 'bg-info',
+    DANGER: 'bg-danger',
     WARNING: 'bg-warning',
-    DANGER: 'bg-danger'
+    INFO: 'bg-info',
+    LIGHT: 'bg-light',
+    DARK: 'bg-dark',
+    WHITE: 'bg-white'
   }
 };

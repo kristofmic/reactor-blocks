@@ -1,6 +1,6 @@
 {
   "name": "reactor-blocks",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "React UI component library",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   "author": "C",
   "license": "Unlicense",
   "engines": {
-    "node": ">= 6.10 < 9"
+    "node": ">= 6.10 < 7"
   },
   "peerDependencies": {
     "bootstrap": "4.0.0-alpha.6",

@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = CardBlock;
+exports.default = CardBody;
 
 var _react = require('react');
 
@@ -32,7 +32,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function CardBlock(props) {
+function CardBody(props) {
   var children = props.children,
       className = props.className,
       overlay = props.overlay,
@@ -68,7 +68,7 @@ function CardBlock(props) {
   );
 }
 
-CardBlock.propTypes = {
+CardBody.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
   overlay: _propTypes2.default.bool,
@@ -77,7 +77,7 @@ CardBlock.propTypes = {
   title: _propTypes2.default.string
 };
 
-CardBlock.defaultProps = {
+CardBody.defaultProps = {
   className: '',
   overlay: false
 };

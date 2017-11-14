@@ -3,15 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CardTitle = exports.CardText = exports.CardLink = exports.CardImage = exports.CardHeader = exports.CardGroup = exports.CardFooter = exports.CardBlock = undefined;
+exports.CardTitle = exports.CardText = exports.CardLink = exports.CardImage = exports.CardHeader = exports.CardGroup = exports.CardFooter = exports.CardBody = undefined;
 
 var _card = require('./card');
 
 var _card2 = _interopRequireDefault(_card);
 
-var _card_block = require('./card_block');
+var _card_body = require('./card_body');
 
-var _card_block2 = _interopRequireDefault(_card_block);
+var _card_body2 = _interopRequireDefault(_card_body);
 
 var _card_footer = require('./card_footer');
 
@@ -44,7 +44,7 @@ var _card_title2 = _interopRequireDefault(_card_title);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _card2.default;
-exports.CardBlock = _card_block2.default;
+exports.CardBody = _card_body2.default;
 exports.CardFooter = _card_footer2.default;
 exports.CardGroup = _card_group2.default;
 exports.CardHeader = _card_header2.default;

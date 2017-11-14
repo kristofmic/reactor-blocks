@@ -6,7 +6,7 @@ import CardText from './card_text';
 
 import classnames from '../../utils/classnames';
 
-export default function CardBlock(props) {
+export default function CardBody(props) {
   const {
     children,
     className,
@@ -39,7 +39,7 @@ export default function CardBlock(props) {
   );
 }
 
-CardBlock.propTypes = {
+CardBody.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   overlay: PropTypes.bool,
@@ -48,7 +48,7 @@ CardBlock.propTypes = {
   title: PropTypes.string,
 };
 
-CardBlock.defaultProps = {
+CardBody.defaultProps = {
   className: '',
   overlay: false,
 };

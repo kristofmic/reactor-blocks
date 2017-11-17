@@ -10137,6 +10137,23 @@ input.form-control.has-danger {
 	display: inline-block;
 	position: relative;
 }
+
+
+
+
+
+
+
+
+
+
+
+.error-message {
+	position: relative;
+}
+.error-message .error-message-text {
+	color: #868e96;
+}
 .list-group-item.list-group-item-action {
 	cursor: pointer;
 }

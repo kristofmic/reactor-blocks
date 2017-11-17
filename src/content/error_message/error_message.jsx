@@ -6,10 +6,6 @@ import * as CLASSES from '../../utils/classes';
 
 import cx from '../../utils/classnames';
 
-if (process.env.BROWSER) {
-  require('./error_message.scss');
-}
-
 function ErrorMessage(props) {
   const {
     children,

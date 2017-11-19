@@ -63,6 +63,9 @@ var Select = function (_React$PureComponent) {
     var _this = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
     _this.handleDismiss = function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       _this.handleOptionClick(null, e);
     };
 

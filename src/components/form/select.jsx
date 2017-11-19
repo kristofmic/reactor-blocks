@@ -59,6 +59,9 @@ class Select extends React.PureComponent {
   }
 
   handleDismiss = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     this.handleOptionClick(null, e);
   }
 

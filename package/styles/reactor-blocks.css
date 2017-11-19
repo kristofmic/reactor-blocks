@@ -9341,6 +9341,9 @@ button.btn-sm.btn-no-text.loading .btn-body,.btn-group-sm > button.btn-no-text.l
 
 
 
+.dropdown-menu.collapse {
+	display: none;
+}
 .dropdown-menu.dropup {
 	bottom: 100%;
 	margin-bottom: .125rem;

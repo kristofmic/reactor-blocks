@@ -19,12 +19,16 @@ export default function toggleComponentHOCFactory(config = {}) {
       }
 
       componentDidMount() {
+        this.isMounted = true;
+
         if (autoDismiss) {
           window.addEventListener('click', this.handleWindowClick);
         }
       }
 
       componentWillUnmount() {
+        this.isMounted = false;
+
         if (autoDismiss) {
           window.removeEventListener('click', this.handleWindowClick);
         }
@@ -49,7 +53,7 @@ export default function toggleComponentHOCFactory(config = {}) {
           isComponentVisible,
         } = this.state;
 
-        if (isComponentVisible) {
+        if (isComponentVisible && this.isMounted) {
           this.setState({
             isComponentVisible: false,
           });
@@ -61,7 +65,7 @@ export default function toggleComponentHOCFactory(config = {}) {
           isComponentVisible,
         } = this.state;
 
-        if (!isComponentVisible) {
+        if (!isComponentVisible && this.isMounted) {
           this.setState({
             isComponentVisible: true,
           });

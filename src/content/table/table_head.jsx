@@ -17,7 +17,7 @@ export default function TableHead(props) {
       className={classnames({
         'thead-default': defaultType,
         'thead-inverse': inverse,
-      })}
+      }, className)}
       {...other}
     >
       {children}

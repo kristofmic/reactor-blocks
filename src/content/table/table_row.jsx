@@ -19,7 +19,7 @@ export default function TableRow(props) {
       className={classnames({
         [`table-${type}`]: type && !inverse,
         [`bg-${type}`]: type && inverse,
-      })}
+      }, className)}
       {...other}
     >
       {children}

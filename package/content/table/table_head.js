@@ -37,7 +37,7 @@ function TableHead(props) {
       className: (0, _classnames2.default)({
         'thead-default': defaultType,
         'thead-inverse': inverse
-      })
+      }, className)
     }, other),
     children
   );

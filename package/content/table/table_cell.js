@@ -43,7 +43,7 @@ function TableCell(props) {
   return _react2.default.createElement(
     Tag,
     _extends({
-      className: (0, _classnames3.default)((_classnames = {}, _defineProperty(_classnames, 'table-' + type, type && !inverse), _defineProperty(_classnames, 'bg-' + type, type && inverse), _classnames))
+      className: (0, _classnames3.default)((_classnames = {}, _defineProperty(_classnames, 'table-' + type, type && !inverse), _defineProperty(_classnames, 'bg-' + type, type && inverse), _classnames), className)
     }, other),
     children
   );

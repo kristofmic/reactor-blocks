@@ -22,7 +22,7 @@ export default function TableCell(props) {
       className={classnames({
         [`table-${type}`]: type && !inverse,
         [`bg-${type}`]: type && inverse,
-      })}
+      }, className)}
       {...other}
     >
       {children}

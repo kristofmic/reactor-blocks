@@ -63,7 +63,7 @@ function toggleComponentHOCFactory() {
           var isComponentVisible = _this.state.isComponentVisible;
 
 
-          if (isComponentVisible && _this.isMounted) {
+          if (isComponentVisible && _this.mounted) {
             _this.setState({
               isComponentVisible: false
             });
@@ -74,7 +74,7 @@ function toggleComponentHOCFactory() {
           var isComponentVisible = _this.state.isComponentVisible;
 
 
-          if (!isComponentVisible && _this.isMounted) {
+          if (!isComponentVisible && _this.mounted) {
             _this.setState({
               isComponentVisible: true
             });
@@ -101,7 +101,7 @@ function toggleComponentHOCFactory() {
       _createClass(ToggleComponentHOC, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-          this.isMounted = true;
+          this.mounted = true;
 
           if (autoDismiss) {
             window.addEventListener('click', this.handleWindowClick);
@@ -110,7 +110,7 @@ function toggleComponentHOCFactory() {
       }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-          this.isMounted = false;
+          this.mounted = false;
 
           if (autoDismiss) {
             window.removeEventListener('click', this.handleWindowClick);

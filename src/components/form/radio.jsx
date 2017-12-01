@@ -99,6 +99,8 @@ export default class Radio extends React.PureComponent {
   }
 }
 
+Radio.displayName = 'Radio';
+
 Radio.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

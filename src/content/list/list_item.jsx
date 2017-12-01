@@ -37,6 +37,8 @@ export default function ListItem(props) {
   );
 }
 
+ListItem.displayName = 'ListItem';
+
 ListItem.propTypes = {
   action: PropTypes.bool,
   active: PropTypes.bool,

@@ -94,6 +94,8 @@ var SelectOption = function (_React$PureComponent) {
 exports.default = SelectOption;
 
 
+SelectOption.displayName = 'SelectOption';
+
 SelectOption.propTypes = {
   active: _propTypes2.default.bool,
   className: _propTypes2.default.string,

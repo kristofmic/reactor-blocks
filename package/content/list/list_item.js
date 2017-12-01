@@ -54,6 +54,8 @@ function ListItem(props) {
   );
 }
 
+ListItem.displayName = 'ListItem';
+
 ListItem.propTypes = {
   action: _propTypes2.default.bool,
   active: _propTypes2.default.bool,

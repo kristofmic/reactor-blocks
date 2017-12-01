@@ -28,6 +28,8 @@ export default function Tab(props) {
   );
 }
 
+Tab.displayName = 'Tab';
+
 Tab.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node,

@@ -142,6 +142,8 @@ var Radio = function (_React$PureComponent) {
 exports.default = Radio;
 
 
+Radio.displayName = 'Radio';
+
 Radio.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,

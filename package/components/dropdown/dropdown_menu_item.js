@@ -93,6 +93,8 @@ var DropdownMenuItem = function (_React$PureComponent) {
 exports.default = DropdownMenuItem;
 
 
+DropdownMenuItem.displayName = 'DropdownMenuItem';
+
 DropdownMenuItem.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,

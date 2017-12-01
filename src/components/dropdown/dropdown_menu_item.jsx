@@ -43,6 +43,8 @@ export default class DropdownMenuItem extends React.PureComponent {
   }
 }
 
+DropdownMenuItem.displayName = 'DropdownMenuItem';
+
 DropdownMenuItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,

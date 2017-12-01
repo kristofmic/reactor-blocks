@@ -53,6 +53,8 @@ function NavbarToggler(props) {
   );
 }
 
+NavbarToggler.displayName = 'NavbarToggler';
+
 NavbarToggler.propTypes = {
   active: _propTypes2.default.bool,
   children: _propTypes2.default.node,

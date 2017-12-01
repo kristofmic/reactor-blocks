@@ -44,6 +44,8 @@ export default class SelectOption extends React.PureComponent {
   }
 }
 
+SelectOption.displayName = 'SelectOption';
+
 SelectOption.propTypes = {
   active: PropTypes.bool,
   className: PropTypes.string,

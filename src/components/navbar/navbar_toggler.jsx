@@ -35,6 +35,8 @@ export default function NavbarToggler(props) {
   );
 }
 
+NavbarToggler.displayName = 'NavbarToggler';
+
 NavbarToggler.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node,

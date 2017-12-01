@@ -46,6 +46,8 @@ function Tab(props) {
   );
 }
 
+Tab.displayName = 'Tab';
+
 Tab.propTypes = {
   active: _propTypes2.default.bool,
   children: _propTypes2.default.node,
